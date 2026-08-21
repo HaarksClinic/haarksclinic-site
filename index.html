@@ -109,6 +109,10 @@
     nav#nav .container { display: flex; align-items: center; justify-content: space-between; width: 100%; }
     .brand { display: flex; align-items: center; gap: 10px; }
     .wordmark { font-family: var(--font-display); font-weight: 700; font-size: 16px; letter-spacing: -0.02em; }
+    .nav-center { display:none; }
+    @media (min-width:900px) { .nav-center { display:flex; align-items:center; gap:32px; } }
+    .nav-link { font-size:14px; font-weight:500; color:var(--muted); transition:color 0.2s ease; }
+    .nav-link:hover { color:#fff; }
 
     /* ─── SECTION ANATOMY ─── */
     section { position: relative; }
@@ -259,6 +263,7 @@
       border: 1px solid rgba(10,132,255,0.2); background: var(--primary-dim);
       color: var(--primary);
     }
+    .source-pill-soon { padding:3px 10px; border-radius:9999px; background:rgba(142,142,147,0.06); border:1px solid rgba(142,142,147,0.12); color:rgba(142,142,147,0.5); font-size:11px; }
     .mockup-divider { height: 1px; background: var(--border); margin: 0 -20px; }
 
     /* ─── TRUST BELT ─── */
@@ -654,6 +659,130 @@
       .timeline-track::before, .timeline-track::after { display: none; }
       .tl-stage { flex-direction: row; gap: 14px; }
     }
+
+    /* ─── SECTION ANATOMY (Part C classes) ─── */
+    section.standard { padding:128px 0; position:relative; }
+    section.standard.alt { background:var(--alt-bg); }
+    .section-head { text-align:center; max-width:768px; margin:0 auto; }
+    h2.section-title { font-weight:700; font-size:36px; letter-spacing:-0.025em; color:#fff; margin-bottom:24px; line-height:1.2; }
+    .section-body { font-weight:300; font-size:18px; color:var(--muted); line-height:1.625; max-width:768px; margin:0 auto; }
+    @media(min-width:768px) { h2.section-title { font-size:48px; } }
+    @media(max-width:767px) { section.standard { padding:80px 0; } }
+
+    /* ─── TRUST STRIP ─── */
+    .trust-strip { border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:18px 0; background:rgba(10,10,10,0.8); }
+    .trust-items { display:flex; align-items:center; justify-content:center; gap:32px; flex-wrap:wrap; }
+    .trust-strip .trust-item { display:flex; align-items:center; gap:8px; font-size:13px; color:rgba(142,142,147,0.7); font-weight:500; }
+    .trust-strip .trust-item svg { color:var(--primary); flex-shrink:0; }
+    .trust-divider { width:1px; height:18px; background:var(--border); flex-shrink:0; }
+    @media(max-width:767px) { .trust-divider { display:none; } .trust-items { gap:20px; } }
+
+    /* ─── PROBLEM (new) ─── */
+    .problem-items-grid { display:grid; grid-template-columns:1fr; gap:16px; max-width:960px; margin:56px auto 0; }
+    .problem-item { display:flex; align-items:flex-start; gap:20px; padding:24px 28px; border-radius:16px; background:var(--card); border:1px solid var(--border); }
+    .problem-item-num { font-family:var(--font-display); font-size:13px; font-weight:700; color:rgba(142,142,147,0.3); flex-shrink:0; min-width:20px; margin-top:2px; }
+    .problem-item-title { font-size:16px; font-weight:600; color:#fff; letter-spacing:-0.02em; margin-bottom:6px; }
+    .problem-item-body { font-size:14px; color:var(--muted); line-height:1.65; }
+    @media(min-width:768px) { .problem-items-grid { grid-template-columns:1fr 1fr; } }
+    @media(min-width:1024px) { .problem-items-grid { grid-template-columns:1fr 1fr 1fr; } }
+
+    /* ─── HOW IT WORKS (new) ─── */
+    .steps-wrap { max-width:896px; margin:56px auto 0; }
+    .step-row { display:grid; grid-template-columns:48px 1fr; gap:24px; padding:32px 0; border-bottom:1px solid var(--border); align-items:flex-start; }
+    .step-row:last-child { border-bottom:none; }
+    .step-num-circle { width:40px; height:40px; border-radius:50%; background:rgba(10,132,255,0.1); border:1px solid rgba(10,132,255,0.25); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-size:14px; font-weight:700; color:var(--primary); flex-shrink:0; margin-top:2px; }
+    .step-heading { font-size:22px; font-weight:600; color:#fff; letter-spacing:-0.025em; margin-bottom:10px; }
+    .step-body { font-size:15px; color:var(--muted); line-height:1.7; }
+    .step-tag { display:inline-block; margin-top:14px; padding:4px 12px; border-radius:9999px; background:rgba(10,132,255,0.08); border:1px solid rgba(10,132,255,0.2); font-size:12px; color:var(--primary); font-weight:500; }
+    @media(max-width:767px) { .step-row { grid-template-columns:1fr; gap:12px; } }
+
+    /* ─── HAARKS AI DEMO ─── */
+    .ai-demo-wrap { max-width:780px; margin:56px auto 0; }
+    .ai-demo-card { background:#111; border:1px solid var(--border-dark); border-radius:20px; overflow:hidden; box-shadow:0 32px 64px -16px rgba(0,0,0,0.7); }
+    .ai-demo-topbar { height:44px; background:rgba(28,28,30,0.9); border-bottom:1px solid var(--border-dark); display:flex; align-items:center; padding:0 16px; gap:8px; }
+    .ai-demo-traffic { display:flex; gap:6px; }
+    .ai-traffic-dot { width:10px; height:10px; border-radius:50%; }
+    .ai-demo-label { font-size:12px; color:rgba(142,142,147,0.5); margin:0 auto; }
+    .ai-demo-body { padding:28px; display:flex; flex-direction:column; gap:20px; }
+    .ai-user-msg { display:flex; justify-content:flex-end; }
+    .ai-user-bubble { background:rgba(10,132,255,0.15); border:1px solid rgba(10,132,255,0.2); border-radius:16px 16px 4px 16px; padding:12px 18px; max-width:80%; font-size:15px; color:rgba(255,255,255,0.9); line-height:1.55; }
+    .ai-status-row { display:flex; align-items:center; gap:10px; font-size:12px; color:rgba(142,142,147,0.6); }
+    .ai-thinking-dots { display:flex; gap:4px; }
+    .ai-thinking-dot { width:5px; height:5px; border-radius:50%; background:var(--primary); animation:ai-think 1.5s ease-in-out infinite; }
+    .ai-thinking-dot:nth-child(2) { animation-delay:0.25s; }
+    .ai-thinking-dot:nth-child(3) { animation-delay:0.5s; }
+    @keyframes ai-think { 0%,80%,100% { opacity:0.25; transform:scale(0.75); } 40% { opacity:1; transform:scale(1); } }
+    .ai-found-row { display:flex; align-items:center; gap:8px; flex-wrap:wrap; padding:8px 12px; border-radius:8px; background:rgba(10,132,255,0.06); border:1px solid rgba(10,132,255,0.12); }
+    .ai-found-badge { display:flex; align-items:center; gap:4px; font-size:11px; color:var(--primary); font-weight:600; }
+    .ai-response-bubble { background:rgba(15,15,15,0.9); border:1px solid var(--border-dark); border-radius:4px 16px 16px 16px; padding:18px 20px; font-size:15px; color:rgba(255,255,255,0.82); line-height:1.7; }
+    .ai-response-bubble p { margin-bottom:12px; }
+    .ai-response-bubble p:last-of-type { margin-bottom:0; }
+    .ai-response-footer { display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-top:16px; padding-top:14px; border-top:1px solid rgba(36,36,39,0.6); }
+    .ai-src-badge { display:inline-flex; align-items:center; gap:5px; padding:3px 9px; border-radius:6px; background:rgba(10,132,255,0.08); border:1px solid rgba(10,132,255,0.18); font-size:11px; color:var(--primary); font-weight:600; }
+    .ai-confidence-badge { font-size:11px; color:rgba(74,222,128,0.8); margin-left:auto; background:rgba(74,222,128,0.08); border:1px solid rgba(74,222,128,0.15); padding:3px 9px; border-radius:6px; }
+    .ai-feedback-row { display:flex; align-items:center; gap:6px; margin-top:12px; }
+    .ai-fb-btn { display:flex; align-items:center; gap:5px; padding:5px 12px; border-radius:8px; background:rgba(255,255,255,0.04); border:1px solid rgba(36,36,39,0.8); font-size:12px; color:rgba(142,142,147,0.6); cursor:default; }
+
+    /* ─── CASES ─── */
+    .cases-grid { display:grid; grid-template-columns:1fr; gap:20px; max-width:1024px; margin:56px auto 0; }
+    .case-card { padding:28px 32px; border-radius:20px; background:var(--card); border:1px solid var(--border); display:flex; align-items:flex-start; gap:20px; transition:border-color 0.25s ease; }
+    .case-card:hover { border-color:rgba(10,132,255,0.25); }
+    .case-card-icon { width:48px; height:48px; border-radius:14px; flex-shrink:0; background:rgba(10,132,255,0.1); border:1px solid rgba(10,132,255,0.2); display:flex; align-items:center; justify-content:center; }
+    .case-card-icon svg { color:var(--primary); }
+    .case-card-title { font-size:17px; font-weight:600; color:#fff; letter-spacing:-0.02em; margin-bottom:8px; }
+    .case-card-body { font-size:14px; color:var(--muted); line-height:1.65; }
+    @media(min-width:768px) { .cases-grid { grid-template-columns:1fr 1fr; } }
+    @media(min-width:1024px) { .cases-grid { grid-template-columns:1fr 1fr 1fr; } }
+
+    /* ─── WHY HAARKS ─── */
+    .context-compare { max-width:960px; margin:56px auto 0; display:grid; grid-template-columns:1fr; gap:24px; }
+    .context-col { padding:32px; border-radius:20px; background:var(--card); border:1px solid var(--border); }
+    .context-haarks { border-color:rgba(10,132,255,0.2); background:rgba(10,132,255,0.04); }
+    .context-col-label { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted); margin-bottom:20px; display:flex; align-items:center; gap:8px; }
+    .context-haarks .context-col-label { color:var(--primary); }
+    .context-col-label-dot { width:6px; height:6px; border-radius:50%; background:currentColor; }
+    .context-items { display:flex; flex-direction:column; gap:12px; }
+    .context-item { display:flex; align-items:center; gap:12px; font-size:14px; line-height:1.5; }
+    .context-check { color:var(--green-text); font-size:15px; flex-shrink:0; }
+    .context-x { color:rgba(142,142,147,0.25); font-size:15px; flex-shrink:0; }
+    .context-text-on { color:rgba(255,255,255,0.85); }
+    .context-text-off { color:rgba(142,142,147,0.35); }
+    @media(min-width:768px) { .context-compare { grid-template-columns:1fr 1fr; } }
+
+    /* ─── FOUNDING SURGEON (new card) ─── */
+    .founding-section-wrap { max-width:1024px; margin:0 auto; }
+    .founding-card { padding:64px; border-radius:24px; position:relative; overflow:hidden; background:linear-gradient(140deg, #0D1117 0%, #0D1F35 50%, #0A1628 100%); border:1px solid rgba(10,132,255,0.2); box-shadow:0 0 100px rgba(10,132,255,0.07),inset 0 1px 0 rgba(255,255,255,0.05); }
+    .founding-glow { position:absolute; top:-80px; right:-80px; width:400px; height:400px; background:radial-gradient(circle, rgba(10,132,255,0.12) 0%, transparent 70%); pointer-events:none; }
+    .founding-topline { position:absolute; top:0; left:10%; right:10%; height:1px; background:linear-gradient(90deg, transparent, rgba(10,132,255,0.5), transparent); }
+    .founding-eyebrow-new { display:inline-flex; align-items:center; gap:8px; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; color:var(--accent); margin-bottom:20px; }
+    .founding-eyebrow-dot { width:6px; height:6px; border-radius:50%; background:var(--accent); box-shadow:0 0 10px rgba(90,200,250,0.7); animation:eyebrow-pulse 2s ease-in-out infinite; }
+    @keyframes eyebrow-pulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
+    .founding-card-title { font-size:42px; font-weight:700; letter-spacing:-0.03em; color:#fff; line-height:1.08; margin-bottom:20px; }
+    .founding-card-body { font-size:17px; color:rgba(142,142,147,0.85); line-height:1.7; max-width:580px; margin-bottom:36px; }
+    .founding-card-perks { display:grid; grid-template-columns:1fr 1fr; gap:12px 32px; margin-bottom:40px; max-width:560px; }
+    .founding-card-perk { display:flex; align-items:center; gap:10px; font-size:14px; color:rgba(255,255,255,0.8); }
+    .founding-card-perk svg { color:var(--accent); flex-shrink:0; }
+    .founding-cta-row { display:flex; align-items:center; gap:20px; flex-wrap:wrap; }
+    .founding-spots-text { font-size:13px; color:rgba(142,142,147,0.6); }
+    .founding-spots-text strong { color:rgba(255,255,255,0.7); }
+    @media(max-width:767px) { .founding-card { padding:36px 24px; } .founding-card-title { font-size:30px; } .founding-card-perks { grid-template-columns:1fr; gap:10px; } }
+
+    /* ─── FAQ (new inline) ─── */
+    .faq-wrap { max-width:768px; margin:56px auto 0; }
+    .faq-wrap .faq-item { border-bottom:1px solid var(--border); border-radius:0; overflow:visible; }
+    .faq-wrap .faq-item:first-child { border-top:1px solid var(--border); }
+    .faq-wrap .faq-q { width:100%; display:flex; align-items:center; justify-content:space-between; padding:22px 0; font-size:16px; font-weight:500; color:rgba(255,255,255,0.9); text-align:left; cursor:pointer; background:none; gap:24px; letter-spacing:-0.01em; transition:color 0.2s ease; }
+    .faq-wrap .faq-q:hover { color:#fff; }
+    .faq-icon { width:20px; height:20px; flex-shrink:0; color:var(--muted); transition:transform 0.35s ease, color 0.2s ease; }
+    .faq-wrap .faq-item.faq-open .faq-q { color:#fff; }
+    .faq-wrap .faq-item.faq-open .faq-icon { transform:rotate(45deg); color:var(--primary); }
+    .faq-body { display:grid; grid-template-rows:0fr; transition:grid-template-rows 0.4s ease; }
+    .faq-wrap .faq-item.faq-open .faq-body { grid-template-rows:1fr; }
+    .faq-inner { overflow:hidden; }
+    .faq-a-text { padding:0 0 22px; font-size:15px; color:var(--muted); line-height:1.75; }
+
+    /* ─── BTN-HERO (missing from current) ─── */
+    .btn-hero { height:50px; padding:0 28px; font-size:16px; }
   </style>
 </head>
 <body>
@@ -677,6 +806,11 @@
       </svg>
       <span class="wordmark">Haarks Clinic</span>
     </a>
+    <div class="nav-center">
+      <a href="#how-it-works" class="nav-link">How It Works</a>
+      <a href="#pricing" class="nav-link">Pricing</a>
+      <a href="#founding" class="nav-link">Founding Surgeon</a>
+    </div>
     <button class="btn btn-primary btn-sm" onclick="openModal()">Request Early Access</button>
   </div>
 </nav>
@@ -693,9 +827,9 @@
           <span class="hero-eyebrow-dot"></span>
           <span>India's First Personal AI for Surgeons</span>
         </div>
-        <h1 class="hero-title">The Personal AI Every Surgeon Deserves.</h1>
-        <p class="hero-sub">Log a case in 60 seconds.</p>
-        <p class="hero-body">Your knowledge is already scattered — across drives, presentations, voice memos, case notes, and years of practice. Haarks Clinic brings it together into a personal intelligence layer that belongs entirely to you.</p>
+        <h1 class="hero-title">Every Doctor's Private AI.</h1>
+        <p class="hero-sub">Your knowledge. Your AI. Entirely yours.</p>
+        <p class="hero-body">Haarks Clinic is a personal AI that knows your cases, your protocols, and your clinical experience — not generic medical information from the internet. Ask questions. Get answers from your knowledge, with sources.</p>
         <div class="hero-ctas">
           <button class="btn btn-primary btn-lg" onclick="openModal()">Request Early Access</button>
           <a href="#pricing" class="btn btn-outline btn-lg">See Pricing</a>
@@ -745,7 +879,8 @@
                 <span class="source-chip">Google Drive</span>
                 <span class="source-chip">Voice Learnings</span>
                 <span class="source-chip">Cases</span>
-                <span class="source-chip">Research</span>
+                <span class="source-pill-soon">OneDrive · Soon</span>
+                <span class="source-pill-soon">Dropbox · Soon</span>
               </div>
             </div>
           </div>
@@ -755,103 +890,48 @@
   </div>
 </section>
 
-<!-- ══════════════ TRUST BELT ══════════════ -->
-<div class="trust-belt">
+<!-- ══════════════ TRUST STRIP ══════════════ -->
+<div class="trust-strip">
   <div class="container">
-    <div class="trust-belt-inner">
-      <div class="trust-item">
-        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        <span class="trust-text">Private namespace per surgeon</span>
-      </div>
-      <div class="trust-item">
-        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-        <span class="trust-text">AES-256 encryption at rest</span>
-      </div>
-      <div class="trust-item">
-        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>
-        <span class="trust-text">Zero shared model training</span>
-      </div>
-      <div class="trust-item">
-        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-        <span class="trust-text">Files stay on your Google Drive</span>
-      </div>
+    <div class="trust-items">
+      <div class="trust-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Per-surgeon isolation</div>
+      <div class="trust-divider"></div>
+      <div class="trust-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20a6 6 0 0 0-12 0"/><circle cx="12" cy="10" r="4"/><circle cx="12" cy="12" r="10"/></svg>Zero shared AI learning</div>
+      <div class="trust-divider"></div>
+      <div class="trust-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/><path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/></svg>Your files stay in your Drive</div>
+      <div class="trust-divider"></div>
+      <div class="trust-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>For registered medical professionals</div>
     </div>
   </div>
 </div>
 
 <!-- ══════════════ PROBLEM ══════════════ -->
-<section class="sec-pad">
+<section class="standard">
   <div class="container">
-    <div class="sec-head fade-up">
-      <span class="sec-eyebrow">The Problem</span>
-      <h2 class="sec-title">Surgeons accumulate knowledge.<br>They rarely get to use it.</h2>
-      <p class="sec-body">A decade of surgical practice generates an enormous body of personal knowledge. But it's locked away in formats that can't be retrieved at the moment you need them most.</p>
+    <div class="section-head fade-up">
+      <h2 class="section-title">Your Knowledge Exists.<br>You Just Can't Reach It.</h2>
+      <p class="section-body">Years of expertise live in drives, folders, memory, and notes. When you need it, you search. When you search, you don't find. And generic AI can't help — it doesn't know anything about you.</p>
     </div>
-    <div class="problem-grid mt-content">
-      <div class="problem-card fade-up">
-        <div class="problem-num">01 — Fragmentation</div>
-        <h3>Knowledge is everywhere. Accessible nowhere.</h3>
-        <p>Surgical notes in Google Drive. Learnings recorded on voice memos. Research papers in a Dropbox folder nobody opens. Presentations from conferences two years ago. It all exists — but none of it is connected.</p>
-      </div>
-      <div class="problem-card fade-up" style="transition-delay:0.1s">
-        <div class="problem-num">02 — Recall</div>
-        <h3>The case in front of you needs the case behind you.</h3>
-        <p>A surgeon's greatest resource is their own pattern of experience. But memory under pressure is unreliable. The technique that worked brilliantly last year, the complication you learned from — it should surface automatically, not after a frantic search.</p>
-      </div>
-      <div class="problem-card fade-up" style="transition-delay:0.2s">
-        <div class="problem-num">03 — Legacy</div>
-        <h3>Years of clinical learning shouldn't retire with you.</h3>
-        <p>The knowledge built over a career is irreplaceable. Today it lives only in formats tied to specific apps and devices. There is no structured way to compound it, organise it, or carry it forward as a living, growing professional asset.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════ HOW IT WORKS ══════════════ -->
-<section class="sec-pad sec-alt">
-  <div class="container">
-    <div class="sec-head fade-up">
-      <span class="sec-eyebrow">How It Works</span>
-      <h2 class="sec-title">Three steps. One continuous intelligence.</h2>
-      <p class="sec-body">Haarks Clinic runs quietly in the background — discovering, organising, and waiting to answer when you need it.</p>
-    </div>
-    <div class="hiw-steps mt-content fade-up">
-      <div class="hiw-step">
-        <div class="hiw-num">01</div>
-        <div class="hiw-content">
-          <h3>Connect your knowledge sources</h3>
-          <p>Link your Google Drive, OneDrive, Dropbox, and voice recordings. Haarks Clinic continuously indexes your presentations, protocols, case notes, research, and personal documents — without moving a single file off your storage.</p>
-          <div class="hiw-pills">
-            <span class="hiw-pill">Google Drive</span>
-            <span class="hiw-pill">OneDrive</span>
-            <span class="hiw-pill">Dropbox</span>
-            <span class="hiw-pill">Voice Memos</span>
-            <span class="hiw-pill">Case Notes</span>
-          </div>
+    <div class="problem-items-grid">
+      <div class="problem-item fade-up">
+        <span class="problem-item-num">01</span>
+        <div>
+          <div class="problem-item-title">Knowledge is scattered</div>
+          <div class="problem-item-body">Protocols in one folder, research in another, case notes in your memory, presentations on a drive you haven't opened in months.</div>
         </div>
       </div>
-      <div class="hiw-step">
-        <div class="hiw-num">02</div>
-        <div class="hiw-content">
-          <h3>Ask Haarks AI in natural language</h3>
-          <p>Ask anything about your own practice. What complications have you encountered in laparoscopic procedures? What does your training say about this implant system? Haarks AI searches only your personal knowledge — never the internet, never another surgeon's data.</p>
-          <div class="hiw-pills">
-            <span class="hiw-pill">Source-cited answers</span>
-            <span class="hiw-pill">Private retrieval</span>
-            <span class="hiw-pill">Medical-only guardrails</span>
-          </div>
+      <div class="problem-item fade-up">
+        <span class="problem-item-num">02</span>
+        <div>
+          <div class="problem-item-title">Generic AI doesn't know you</div>
+          <div class="problem-item-body">ChatGPT knows public medical literature. It knows nothing about your cases, your preferred techniques, your complications, your clinical patterns.</div>
         </div>
       </div>
-      <div class="hiw-step">
-        <div class="hiw-num">03</div>
-        <div class="hiw-content">
-          <h3>Log cases. Build your career intelligence.</h3>
-          <p>Log any case in 60 seconds. Every entry strengthens your personal knowledge layer. Over time, patterns emerge, gaps surface, and your AI becomes a genuine reflection of your surgical experience — not a generic tool, but a professional intelligence that is entirely yours.</p>
-          <div class="hiw-pills">
-            <span class="hiw-pill">60-second case log</span>
-            <span class="hiw-pill">Knowledge grows with use</span>
-            <span class="hiw-pill">Surgery Mode</span>
-          </div>
+      <div class="problem-item fade-up">
+        <span class="problem-item-num">03</span>
+        <div>
+          <div class="problem-item-title">No time to search</div>
+          <div class="problem-item-body">Between patients, during consults, post-surgery — the moment you need an answer is the moment you have no time to search for one.</div>
         </div>
       </div>
     </div>
@@ -880,7 +960,7 @@
   <div class="container">
     <div class="sec-head fade-up">
       <span class="sec-eyebrow">Career Intelligence</span>
-      <h2 class="sec-title">Build a brain that grows with your career.</h2>
+      <h2 class="sec-title">Build an AI That Grows With Your Career.</h2>
       <p class="sec-body">Your knowledge layer starts empty on day one. Every case, conversation, note, voice learning, and discovery strengthens it — compounding over the arc of your career.</p>
     </div>
     <div class="brain-timeline mt-content fade-up">
@@ -903,9 +983,100 @@
         </div>
         <div class="tl-stage">
           <div class="tl-dot inactive"></div>
-          <span class="tl-label inactive">Legacy Brain</span>
+          <span class="tl-label inactive">Legacy Companion</span>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ HOW IT WORKS ══════════════ -->
+<section class="standard alt" id="how-it-works">
+  <div class="container">
+    <div class="section-head fade-up">
+      <h2 class="section-title">Three Steps to Your Personal AI.</h2>
+      <p class="section-body">From the first case you log to the moment your Haarks AI answers a question from your own knowledge.</p>
+    </div>
+    <div class="steps-wrap fade-up">
+      <div class="step-row">
+        <div class="step-num-circle">1</div>
+        <div class="step-content">
+          <div class="step-heading">Log your cases</div>
+          <div class="step-body">Speak or type after every procedure. Haarks captures the case, structures it, and connects it to your knowledge base. Every case you log becomes something your AI can reference later.</div>
+          <span class="step-tag">Voice · Text · 60 seconds</span>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num-circle">2</div>
+        <div class="step-content">
+          <div class="step-heading">Build your vault</div>
+          <div class="step-body">Connect your Google Drive. Upload protocols, research papers, presentations, notes. Haarks indexes the knowledge layer — your original files never leave your drive.</div>
+          <span class="step-tag">Google Drive · Documents · Research</span>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num-circle">3</div>
+        <div class="step-content">
+          <div class="step-heading">Ask Haarks AI</div>
+          <div class="step-body">Ask anything. Every answer comes from your personal knowledge — your cases, your vault, your documented experience. Sources cited on every response. Confidence shown every time.</div>
+          <span class="step-tag">Your Cases · Your Vault · Sources Always Cited</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ HAARKS AI DEMO ══════════════ -->
+<section class="standard">
+  <div class="container">
+    <div class="section-head fade-up">
+      <h2 class="section-title">This Is What Your AI Looks Like.</h2>
+      <p class="section-body">Ask a question. Haarks AI searches your personal vault and cases, then answers with sources — not generic results from the internet.</p>
+    </div>
+    <div class="ai-demo-wrap fade-up">
+      <div class="ai-demo-card">
+        <div class="ai-demo-topbar">
+          <div class="ai-demo-traffic">
+            <div class="ai-traffic-dot" style="background:#FF453A"></div>
+            <div class="ai-traffic-dot" style="background:#FFD60A"></div>
+            <div class="ai-traffic-dot" style="background:#32D74B"></div>
+          </div>
+          <div class="ai-demo-label">Haarks AI</div>
+        </div>
+        <div class="ai-demo-body">
+          <div class="ai-user-msg">
+            <div class="ai-user-bubble">What's my usual approach for primary total knee replacement in valgus knees?</div>
+          </div>
+          <div class="ai-status-row">
+            <div class="ai-thinking-dots">
+              <div class="ai-thinking-dot"></div>
+              <div class="ai-thinking-dot"></div>
+              <div class="ai-thinking-dot"></div>
+            </div>
+            Searching your personal knowledge...
+          </div>
+          <div class="ai-found-row">
+            <div class="ai-found-badge"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>4 matching cases found</div>
+            <div class="ai-found-badge"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>1 protocol in your vault</div>
+          </div>
+          <div>
+            <div class="ai-response-bubble">
+              <p>Based on your 4 documented valgus TKR cases, your approach consistently uses a medial parapatellar approach with lateral retinacular release when required. Your vault protocol specifies pie-crusting of the posterolateral capsule as your preferred technique for soft tissue balancing.</p>
+              <p>In 3 of your 4 logged cases, you noted good ligament balance without constrained implants. Your most recent case documented an LCL release for a 16° valgus deformity.</p>
+              <div class="ai-response-footer">
+                <div class="ai-src-badge"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>Your Cases</div>
+                <div class="ai-src-badge"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Your Vault</div>
+                <div class="ai-confidence-badge">Confidence: 91%</div>
+              </div>
+            </div>
+            <div class="ai-feedback-row">
+              <div class="ai-fb-btn"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z"/><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg> Helpful</div>
+              <div class="ai-fb-btn"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3H10z"/><path d="M17 2h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"/></svg> Not helpful</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p style="text-align:center;margin-top:16px;font-size:11px;color:rgba(142,142,147,0.4);letter-spacing:0.04em;text-transform:uppercase;">Product illustration · Not a real patient case · Not clinical advice</p>
     </div>
   </div>
 </section>
@@ -940,6 +1111,39 @@
   </div>
 </section>
 
+<!-- ══════════════ CASES ══════════════ -->
+<section class="standard">
+  <div class="container">
+    <div class="section-head fade-up">
+      <h2 class="section-title">Log a Case in 60 Seconds.</h2>
+      <p class="section-body">Every case you log becomes part of your personal knowledge. The more you document, the more context your Haarks AI has to answer questions that matter to your practice.</p>
+    </div>
+    <div class="cases-grid">
+      <div class="case-card fade-up">
+        <div class="case-card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></div>
+        <div>
+          <div class="case-card-title">Voice Logging</div>
+          <div class="case-card-body">Speak naturally after a procedure. Haarks captures your words, structures them, and connects the case to your personal knowledge base — without typing a single line.</div>
+        </div>
+      </div>
+      <div class="case-card fade-up">
+        <div class="case-card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <div>
+          <div class="case-card-title">Structured Capture</div>
+          <div class="case-card-body">Procedure, approach, implant, complications, follow-up. Every field is yours to query. Structured cases become the foundation your personal AI builds on.</div>
+        </div>
+      </div>
+      <div class="case-card fade-up">
+        <div class="case-card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <div>
+          <div class="case-card-title">Compounding Value</div>
+          <div class="case-card-body">One case is a log. A hundred cases are a pattern. Your Haarks AI becomes more useful with every case you document — the value compounds over your career.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ══════════════ PRIVACY ══════════════ -->
 <section class="sec-pad sec-alt">
   <div class="container">
@@ -954,8 +1158,8 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
         <div class="priv-text">
-          <h3>Private Namespace Isolation</h3>
-          <p>Your knowledge runs in a private, isolated namespace. No other surgeon's query can reach your data — enforced at the infrastructure level, not just the application layer.</p>
+          <h3>AI Isolation</h3>
+          <p>Your Haarks AI runs in a private namespace. No other surgeon can access your data — ever.</p>
         </div>
       </div>
       <div class="priv-card fade-up" style="transition-delay:0.05s">
@@ -1007,6 +1211,42 @@
   </div>
 </section>
 
+<!-- ══════════════ WHY HAARKS ══════════════ -->
+<section class="standard">
+  <div class="container">
+    <div class="section-head fade-up">
+      <h2 class="section-title">The Difference Is Context.</h2>
+      <p class="section-body">Any AI can answer a generic medical question. Only Haarks AI can answer a question about your cases, your protocols, and your clinical experience.</p>
+    </div>
+    <div class="context-compare">
+      <div class="context-col fade-up">
+        <div class="context-col-label"><div class="context-col-label-dot"></div>Any AI</div>
+        <div class="context-items">
+          <div class="context-item"><span class="context-check">✓</span><span class="context-text-on">General medical knowledge</span></div>
+          <div class="context-item"><span class="context-check">✓</span><span class="context-text-on">Published research papers</span></div>
+          <div class="context-item"><span class="context-check">✓</span><span class="context-text-on">Clinical guidelines</span></div>
+          <div class="context-item"><span class="context-x">✗</span><span class="context-text-off">Your cases</span></div>
+          <div class="context-item"><span class="context-x">✗</span><span class="context-text-off">Your protocols</span></div>
+          <div class="context-item"><span class="context-x">✗</span><span class="context-text-off">Your clinical preferences</span></div>
+          <div class="context-item"><span class="context-x">✗</span><span class="context-text-off">Sources from your vault</span></div>
+        </div>
+      </div>
+      <div class="context-col context-haarks fade-up">
+        <div class="context-col-label"><div class="context-col-label-dot"></div>Haarks AI</div>
+        <div class="context-items">
+          <div class="context-item"><span class="context-check">✓</span><span class="context-text-on">General medical knowledge</span></div>
+          <div class="context-item"><span class="context-check">✓</span><span class="context-text-on">Published research papers</span></div>
+          <div class="context-item"><span class="context-check">✓</span><span class="context-text-on">Clinical guidelines</span></div>
+          <div class="context-item"><span class="context-check">✓</span><span class="context-text-on">Your cases — indexed and queryable</span></div>
+          <div class="context-item"><span class="context-check">✓</span><span class="context-text-on">Your protocols — from your vault</span></div>
+          <div class="context-item"><span class="context-check">✓</span><span class="context-text-on">Your clinical preferences — from your logs</span></div>
+          <div class="context-item"><span class="context-check">✓</span><span class="context-text-on">Sources cited on every response</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ══════════════ SPECIALTIES ══════════════ -->
 <section class="sec-pad">
   <div class="container">
@@ -1020,46 +1260,26 @@
 </section>
 
 <!-- ══════════════ FOUNDING SURGEON ══════════════ -->
-<section class="sec-pad sec-alt">
+<section class="standard alt" id="founding">
   <div class="container">
-    <div class="founding-wrap fade-up">
-      <div class="founding-badge" aria-hidden="true">
-        <div class="founding-badge-ring"></div>
-        <div class="founding-badge-inner">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-          </svg>
-          <span class="founding-badge-label">Founding<br>Surgeon</span>
+    <div class="founding-section-wrap">
+      <div class="founding-card fade-up">
+        <div class="founding-glow"></div>
+        <div class="founding-topline"></div>
+        <div class="founding-eyebrow-new"><div class="founding-eyebrow-dot"></div>Limited · 50 Spots Total</div>
+        <h3 class="founding-card-title">Founding Surgeon<br>Program.</h3>
+        <p class="founding-card-body">Join the surgeons who will define how medical knowledge is built and used in India. This is a founding offer — 50 places only. Your subscription price is locked at the founding rate forever, regardless of how we price the product in the future.</p>
+        <div class="founding-card-perks">
+          <div class="founding-card-perk"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Price locked for life</div>
+          <div class="founding-card-perk"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Founding badge in-app</div>
+          <div class="founding-card-perk"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Direct access to the founders</div>
+          <div class="founding-card-perk"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Priority support and features</div>
+          <div class="founding-card-perk"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Shape the product from day one</div>
         </div>
-      </div>
-      <div class="founding-copy">
-        <span class="sec-eyebrow">Early Access</span>
-        <h2>Be among the first.<br>Lock your price for life.</h2>
-        <p>We are inviting the first cohort of surgeons to build with us. Founding Surgeons get full platform access, a price that never increases, and a founding badge that marks them as part of the original Haarks Clinic community.</p>
-        <div class="founding-perks">
-          <div class="founding-perk">
-            <span class="founding-perk-dot"></span>
-            <span>Complete platform access — every feature, every update</span>
-          </div>
-          <div class="founding-perk">
-            <span class="founding-perk-dot"></span>
-            <span>Founding Surgeon price locked for life</span>
-          </div>
-          <div class="founding-perk">
-            <span class="founding-perk-dot"></span>
-            <span>Direct channel to the founders — shape the product</span>
-          </div>
-          <div class="founding-perk">
-            <span class="founding-perk-dot"></span>
-            <span>Founding Surgeon badge displayed in-app</span>
-          </div>
-          <div class="founding-perk">
-            <span class="founding-perk-dot"></span>
-            <span>Priority support — always</span>
-          </div>
+        <div class="founding-cta-row">
+          <button class="btn btn-primary btn-hero" onclick="openModal()">Claim Your Spot</button>
+          <p class="founding-spots-text"><strong>50 spots</strong> total · Annual subscription only</p>
         </div>
-        <button class="btn btn-primary btn-lg" onclick="openModal()">Request Early Access</button>
-        <p class="founding-note">Annual plan only · Non-refundable · Limited availability</p>
       </div>
     </div>
   </div>
@@ -1086,13 +1306,21 @@
 </section>
 
 <!-- ══════════════ FAQ ══════════════ -->
-<section class="sec-pad sec-alt">
+<section class="standard" id="faq">
   <div class="container">
-    <div class="sec-head fade-up">
-      <span class="sec-eyebrow">Questions</span>
-      <h2 class="sec-title">Common questions, honest answers.</h2>
+    <div class="section-head fade-up">
+      <h2 class="section-title">Questions.</h2>
+      <p class="section-body">Everything you need to know before you start.</p>
     </div>
-    <div class="faq-list fade-up mt-content" id="faqList"></div>
+    <div class="faq-wrap fade-up">
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is Haarks Clinic?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-body"><div class="faq-inner"><p class="faq-a-text">A personal AI platform built for surgeons and medical professionals. Your Haarks AI learns from your cases, knowledge, and experience — not from anyone else's. Ask it anything about your clinical work and it answers using your vault, your cases, and your documented preferences.</p></div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How is this different from ChatGPT or Gemini?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-body"><div class="faq-inner"><p class="faq-a-text">General AI systems know public medical knowledge. They know nothing about you. Haarks AI knows your cases, your protocols, and your clinical experience because you built it. Every answer cites the sources in your personal vault — not the internet.</p></div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Who can use Haarks Clinic?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-body"><div class="faq-inner"><p class="faq-a-text">Registered medical professionals only. Haarks Clinic is not available to the general public.</p></div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is my data private and secure?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-body"><div class="faq-inner"><p class="faq-a-text">Every surgeon's knowledge runs in a completely separate, isolated namespace. No other surgeon can access your data. Your knowledge is never used to train any shared AI model. All data is encrypted at rest (AES-256) and in transit (TLS 1.3).</p></div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Where are my files stored?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-body"><div class="faq-inner"><p class="faq-a-text">Your original documents remain in your Google Drive. Haarks indexes references only — your source files are never uploaded to or stored on Haarks servers.</p></div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is the Founding Surgeon program?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-body"><div class="faq-inner"><p class="faq-a-text">The first 50 surgeons who subscribe get their subscription price locked for life, a founding badge in-app, and direct access to the founding team. Annual subscription only, 50 places total.</p></div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is Haarks Clinic a diagnostic or clinical decision support tool?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-body"><div class="faq-inner"><p class="faq-a-text">No. Haarks Clinic is a personal knowledge management platform for medical professionals. It is not a diagnostic tool and not clinical decision support. All clinical decisions remain entirely the surgeon's responsibility.</p></div></div></div>
+    </div>
   </div>
 </section>
 
@@ -1171,7 +1399,7 @@
     <div id="modalSuccess" class="modal-success-wrap" style="display:none">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
       <h4>You're on the list.</h4>
-      <p>Welcome to Haarks Clinic. We'll be in touch.</p>
+      <p>Welcome to Haarks Clinic. Check your email client to complete your request.</p>
     </div>
   </div>
 </div>
@@ -1215,52 +1443,12 @@
   const specialties = ['Orthopaedics','Neurosurgery','Cardiac Surgery','Plastic Surgery','General Surgery','ENT','Urology','Gastro Surgery','Gynaecology','Oncology','Vascular Surgery','Paediatric Surgery','Thoracic Surgery','Transplant Surgery','Spine Surgery','Hepatobiliary','Colorectal Surgery','Maxillofacial'];
   document.getElementById('specGrid').innerHTML = specialties.map(s => '<span class="spec-pill">'+s+'</span>').join('');
 
-  /* ─── FAQ ─── */
-  const faqs = [
-    {
-      q: 'What exactly is Haarks Clinic?',
-      a: 'Haarks Clinic is a personal knowledge management platform for surgeons. It connects your documents, case notes, voice recordings, presentations, and research into a private AI layer that you can query in natural language. It is not a diagnostic tool or clinical decision support system — it is a personal knowledge intelligence built around your own professional experience.'
-    },
-    {
-      q: 'How is this different from ChatGPT or other AI assistants?',
-      a: 'Generic AI assistants answer from the internet and shared training data. Haarks AI answers from your personal knowledge — your own cases, protocols, notes, and learnings. The responses are sourced from what you have experienced and documented, not from generalised medical literature. Your data is never used to train any shared model.'
-    },
-    {
-      q: 'Is my data safe? Who can access it?',
-      a: 'Only you can access your knowledge. Haarks Clinic uses a private namespace architecture — each surgeon\'s data is completely isolated at the infrastructure level. All data is encrypted at rest (AES-256) and in transit (TLS 1.3). Your files stay on your own Google Drive or OneDrive and are never copied to Haarks servers. Your knowledge is never shared with, or used to train, any other user\'s AI.'
-    },
-    {
-      q: 'Do my documents get uploaded to your servers?',
-      a: 'No. Documents are indexed from your connected cloud storage (Google Drive, OneDrive, Dropbox). The semantic intelligence is extracted and stored in your private namespace — but the original files remain exactly where they are. We do not copy or retain your raw documents on Haarks infrastructure.'
-    },
-    {
-      q: 'Who can use Haarks Clinic?',
-      a: 'Haarks Clinic is exclusively available to registered medical professionals. It is not a consumer product. During early access, we are onboarding surgeons across all specialties who want to be among the first to build their personal knowledge intelligence.'
-    },
-    {
-      q: 'When does the app launch? What happens after I join the waitlist?',
-      a: 'We are currently in early access with a limited cohort of surgeons. Once you join the waitlist, our team will reach out directly with access details. Founding Surgeons get priority access and their price locked for life.'
-    },
-    {
-      q: 'What happens to my data if I cancel?',
-      a: 'Your data is retained for 90 days after cancellation, giving you time to reconsider or export what you need. After 90 days, all your data is permanently and irreversibly deleted from our systems. There are no exceptions.'
-    }
-  ];
-  document.getElementById('faqList').innerHTML = faqs.map((f, i) =>
-    '<div class="faq-item" id="faq-'+i+'">'
-    +'<button class="faq-q" onclick="toggleFaq('+i+')" aria-expanded="false">'
-    +'<span>'+f.q+'</span>'
-    +'<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>'
-    +'</button>'
-    +'<div class="faq-a"><div class="faq-a-inner">'+f.a+'</div></div>'
-    +'</div>'
-  ).join('');
-
-  function toggleFaq(i) {
-    const item = document.getElementById('faq-'+i);
-    const btn = item.querySelector('.faq-q');
-    const isOpen = item.classList.toggle('open');
-    btn.setAttribute('aria-expanded', isOpen);
+  /* ─── FAQ TOGGLE ─── */
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('faq-open');
+    document.querySelectorAll('.faq-wrap .faq-item.faq-open').forEach(i => i.classList.remove('faq-open'));
+    if (!isOpen) item.classList.add('faq-open');
   }
 
   /* ─── PRICING ─── */
@@ -1284,7 +1472,7 @@
       monthly: 'Rs.1,999', annual: 'Rs.19,999',
       desc: 'Deeper retrieval and faster knowledge discovery.',
       popular: true,
-      features: ['Everything in Basic', 'Faster AI responses', 'Deeper knowledge retrieval', 'Extended memory capacity', 'Priority processing']
+      features: ['Everything in Basic', 'Faster AI responses', 'Deeper knowledge retrieval', 'Extended knowledge memory', 'Priority processing']
     },
     {
       id: 'pro', eyebrow: '', name: 'Pro',
@@ -1354,16 +1542,11 @@
     if (!name) { eName.style.display = 'block'; ok = false; }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { eEmail.style.display = 'block'; ok = false; }
     if (!ok) return;
-    const subject = encodeURIComponent('Haarks Clinic Waitlist — ' + name);
-    const body = encodeURIComponent(
-      'Name: ' + name + '\n' +
-      'Email: ' + email + '\n' +
-      'Specialty: ' + spec + '\n' +
-      'Hospital: ' + (hosp || '—')
-    );
-    window.location.href = 'mailto:support@haarksclinic.com?subject=' + subject + '&body=' + body;
     document.getElementById('modalForm').style.display = 'none';
     document.getElementById('modalSuccess').style.display = 'block';
+    const subject = encodeURIComponent('Haarks Clinic — Early Access Request');
+    const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nSpecialty: ' + spec + '\nHospital/Clinic: ' + (hosp || 'Not provided'));
+    setTimeout(() => { window.open('mailto:support@haarksclinic.com?subject=' + subject + '&body=' + body); }, 300);
   }
 </script>
 </body>
