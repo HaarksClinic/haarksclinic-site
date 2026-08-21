@@ -1,0 +1,63 @@
+:root{
+  --bg:#000;--fg:#fff;--primary:#0A84FF;--accent:#5AC8FA;--logo-top:#5CB8FF;
+  --card:#0F0F0F;--surface-a:#111;--surface-b:#1C1C1E;--border:#242427;--border-dark:#2C2C2E;
+  --alt-bg:#0A0A0A;--muted:#8E8E93;
+  --font-display:'Syne',sans-serif;--font-body:'DM Sans',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+::selection{background:rgba(10,132,255,.30);color:#fff}
+body{font-family:var(--font-body);background:var(--bg);color:var(--fg);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;line-height:1.7;font-feature-settings:"ss01","ss02","cv01"}
+h1,h2,h3,h4{font-family:var(--font-display)}
+a{color:var(--primary);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:840px;margin:0 auto;padding:0 24px}
+
+nav{position:sticky;top:0;z-index:50;height:64px;display:flex;align-items:center;background:rgba(0,0,0,.7);backdrop-filter:blur(48px);-webkit-backdrop-filter:blur(48px);border-bottom:1px solid rgba(255,255,255,.05)}
+nav .container{max-width:1280px;display:flex;align-items:center;justify-content:space-between;width:100%}
+.brand{display:flex;align-items:center;gap:10px}
+.brand:hover{text-decoration:none}
+.wordmark{font-family:var(--font-display);font-weight:700;font-size:16px;letter-spacing:-.02em;color:#fff}
+.nav-back{font-size:14px;font-weight:500;color:var(--muted)}
+.nav-back:hover{color:#fff;text-decoration:none}
+
+.legal-header{padding:80px 0 40px;border-bottom:1px solid rgba(36,36,39,.5)}
+.legal-header .eyebrow{display:inline-block;padding:4px 12px;border-radius:9999px;border:1px solid var(--border);background:rgba(15,15,15,.5);font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:24px}
+.legal-header h1{font-weight:700;font-size:42px;letter-spacing:-.03em;line-height:1.05;margin-bottom:16px;background:linear-gradient(135deg,#fff 0%,#fff 55%,#5AC8FA 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.legal-header .meta{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+
+main{padding:48px 0 96px}
+main h2{font-family:var(--font-display);font-weight:600;font-size:24px;letter-spacing:-.02em;color:#fff;margin:48px 0 16px}
+main h2:first-child{margin-top:0}
+main h3{font-family:var(--font-display);font-weight:600;font-size:18px;color:#fff;margin:28px 0 10px}
+main p{font-size:15px;color:#C7C7CC;margin-bottom:16px}
+main ul,main ol{margin:0 0 16px 22px}
+main li{font-size:15px;color:#C7C7CC;margin-bottom:8px}
+main strong{color:#fff;font-weight:600}
+main a{font-weight:500}
+
+.callout{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--primary);border-radius:12px;padding:20px 24px;margin:24px 0}
+.callout p{margin-bottom:0;font-size:14px;color:#C7C7CC}
+.callout.warn{border-left-color:#FF9F0A}
+
+.toc{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px 28px;margin-bottom:40px}
+.toc h4{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:14px}
+.toc ol{margin:0 0 0 18px}
+.toc li{font-size:14px;margin-bottom:8px}
+.toc a{color:#C7C7CC;font-weight:500}
+.toc a:hover{color:var(--primary)}
+
+table.tbl{width:100%;border-collapse:collapse;margin:16px 0 24px;font-size:14px}
+table.tbl th,table.tbl td{border:1px solid var(--border-dark);padding:10px 14px;text-align:left;vertical-align:top}
+table.tbl th{background:var(--surface-b);color:#fff;font-weight:600;font-family:var(--font-display)}
+table.tbl td{color:#C7C7CC}
+
+footer{background:#000;border-top:1px solid rgba(36,36,39,.5);padding:48px 0 32px}
+footer .container{max-width:1280px}
+.footer-links{display:flex;flex-wrap:wrap;gap:24px;margin-bottom:20px}
+.footer-links a{font-size:14px;font-weight:500;color:var(--muted)}
+.footer-links a:hover{color:#fff;text-decoration:none}
+.footer-copy{font-size:12px;color:var(--muted);font-weight:500}
+.footer-disclaimer{font-size:10px;color:rgba(142,142,147,.6);text-transform:uppercase;letter-spacing:.05em;line-height:1.8;max-width:896px;margin-bottom:16px}
+
+@media (max-width:600px){.legal-header h1{font-size:32px}.legal-header{padding:56px 0 32px}}
