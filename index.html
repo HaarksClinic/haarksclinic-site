@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   <title>Haarks Clinic — Personal AI for Surgeons</title>
-  <meta name="description" content="Log a case in 60 seconds. India's first personal AI for surgeons — continuously discovers and organizes knowledge from drives, notes, research and cases." />
+  <meta name="description" content="India's first personal AI for surgeons. Log a case in 60 seconds. Build a knowledge intelligence that grows with your career and stays entirely yours." />
   <meta name="robots" content="index, follow" />
   <meta property="og:title" content="Haarks Clinic — Personal AI for Surgeons" />
   <meta property="og:description" content="The personal AI for every surgeon. Build a brain that grows with your career and stays entirely yours." />
@@ -17,29 +17,43 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
   <style>
+    /* ─── TOKENS ─── */
     :root {
       --bg: #000000;
       --fg: #FFFFFF;
       --primary: #0A84FF;
       --primary-90: rgba(10,132,255,0.9);
+      --primary-press: #0071E3;
+      --primary-dim: rgba(10,132,255,0.10);
+      --primary-glow: rgba(10,132,255,0.25);
       --accent: #5AC8FA;
       --logo-top: #5CB8FF;
       --card: #0F0F0F;
       --surface-a: #111111;
       --surface-b: #1C1C1E;
+      --surface-c: #18181D;
       --border: #242427;
       --border-dark: #2C2C2E;
+      --border-soft: rgba(255,255,255,0.06);
       --alt-bg: #0A0A0A;
       --muted: #8E8E93;
+      --muted-dim: rgba(142,142,147,0.55);
       --green: #22C55E;
       --green-text: #4ADE80;
+      --success: #30D158;
+      --success-dim: rgba(48,209,88,0.12);
       --font-display: 'Syne', sans-serif;
       --font-body: 'DM Sans', sans-serif;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    /* ─── RESET ─── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    ::selection { background: rgba(10,132,255,0.30); color: #fff; }
+    ::selection { background: rgba(10,132,255,0.28); color: #fff; }
 
     body {
       font-family: var(--font-body);
@@ -47,728 +61,1310 @@
       color: var(--fg);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      font-feature-settings: "ss01", "ss02", "cv01";
       overflow-x: hidden;
     }
-
     h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); }
-
     a { color: inherit; text-decoration: none; }
     button { font-family: var(--font-body); cursor: pointer; border: none; background: none; }
+    img { max-width: 100%; }
 
     .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
 
-    /* NAV */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
-      height: 64px;
-      display: flex; align-items: center;
-      transition: all 0.5s ease;
-      background: transparent;
-    }
-    nav.scrolled {
-      background: rgba(0,0,0,0.70);
-      backdrop-filter: blur(48px);
-      -webkit-backdrop-filter: blur(48px);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-    nav .container { display: flex; align-items: center; justify-content: space-between; width: 100%; }
-    .brand { display: flex; align-items: center; gap: 10px; }
-    .wordmark { font-family: var(--font-display); font-weight: 700; font-size: 16px; letter-spacing: -0.02em; color: #fff; }
-
+    /* ─── BUTTONS ─── */
     .btn {
       display: inline-flex; align-items: center; justify-content: center;
       font-family: var(--font-body); font-weight: 500;
-      border-radius: 12px; transition: all 0.3s ease; white-space: nowrap;
+      border-radius: var(--radius-md); transition: all 0.25s ease; white-space: nowrap;
     }
-    .btn-primary { background: var(--primary); color: #000; }
-    .btn-primary:hover { background: var(--primary-90); }
-    .btn-nav { height: 36px; padding: 0 20px; font-size: 14px; box-shadow: 0 0 15px rgba(10,132,255,0.3); transition: box-shadow 0.3s ease; }
-    .btn-nav:hover { box-shadow: 0 0 20px rgba(10,132,255,0.5); }
-    .btn-hero { height: 48px; padding: 0 32px; font-size: 16px; box-shadow: 0 0 15px rgba(10,132,255,0.2); }
-    .btn-cta { height: 56px; padding: 0 40px; font-size: 18px; box-shadow: 0 0 20px rgba(10,132,255,0.3); }
+    .btn-primary {
+      background: var(--primary); color: #000;
+      box-shadow: 0 0 0 rgba(10,132,255,0);
+    }
+    .btn-primary:hover {
+      background: var(--primary-press);
+      box-shadow: 0 0 24px var(--primary-glow);
+    }
     .btn-outline {
-      background: transparent; border: 1px solid var(--border); color: #fff;
-      height: 48px; padding: 0 32px; font-size: 16px;
+      background: transparent; border: 1px solid var(--border); color: var(--muted);
     }
-    .btn-outline:hover { background: var(--card); }
+    .btn-outline:hover { background: var(--surface-b); color: #fff; }
 
-    /* HERO */
+    .btn-sm  { height: 36px; padding: 0 18px; font-size: 14px; }
+    .btn-md  { height: 44px; padding: 0 28px; font-size: 15px; }
+    .btn-lg  { height: 52px; padding: 0 36px; font-size: 16px; }
+    .btn-xl  { height: 60px; padding: 0 44px; font-size: 17px; }
+
+    /* ─── NAV ─── */
+    nav#nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      height: 64px; display: flex; align-items: center;
+      transition: background 0.5s ease, border-color 0.5s ease;
+      border-bottom: 1px solid transparent;
+    }
+    nav#nav.scrolled {
+      background: rgba(0,0,0,0.72);
+      backdrop-filter: blur(48px); -webkit-backdrop-filter: blur(48px);
+      border-bottom-color: var(--border-soft);
+    }
+    nav#nav .container { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+    .brand { display: flex; align-items: center; gap: 10px; }
+    .wordmark { font-family: var(--font-display); font-weight: 700; font-size: 16px; letter-spacing: -0.02em; }
+
+    /* ─── SECTION ANATOMY ─── */
+    section { position: relative; }
+    .sec-pad { padding: 128px 0; }
+    .sec-pad-lg { padding: 160px 0; }
+    .sec-alt { background: var(--surface-a); }
+    .sec-head { text-align: center; max-width: 720px; margin: 0 auto; }
+    .sec-eyebrow {
+      display: inline-block; padding: 4px 12px; border-radius: 9999px;
+      border: 1px solid var(--border); background: rgba(15,15,20,0.6);
+      font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em;
+      color: var(--muted); margin-bottom: 28px;
+    }
+    h2.sec-title {
+      font-weight: 700; font-size: 36px; line-height: 1.1; letter-spacing: -0.025em;
+      color: #fff; margin-bottom: 20px; text-wrap: balance;
+    }
+    .sec-body {
+      font-weight: 300; font-size: 17px; color: var(--muted); line-height: 1.7;
+      max-width: 600px; margin: 0 auto;
+    }
+    .mt-content { margin-top: 56px; }
+
+    /* ─── HERO ─── */
     .hero {
-      position: relative; overflow: hidden;
-      min-height: 90vh; padding: calc(40px + 64px) 0 80px;
-      display: flex; align-items: center;
+      min-height: 96vh; padding: calc(48px + 64px) 0 80px;
+      display: flex; align-items: center; overflow: hidden;
     }
-    .hero-dotgrid {
-      position: absolute; inset: 0;
-      background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0);
-      background-size: 32px 32px;
-      pointer-events: none;
+    .hero-canvas {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.022) 1px, transparent 0);
+      background-size: 40px 40px;
     }
-    .orb { position: absolute; border-radius: 50%; pointer-events: none; }
-    .orb-1 {
-      width: 600px; height: 600px; top: 10%; left: 10%;
-      background: radial-gradient(circle, rgba(10,132,255,0.18) 0%, transparent 70%);
-      animation: orb-pulse 6s ease-in-out infinite;
+    .hero-orb {
+      position: absolute; border-radius: 50%; pointer-events: none; will-change: transform;
     }
-    .orb-2 {
-      width: 400px; height: 400px; bottom: 0; right: 12%;
-      background: radial-gradient(circle, rgba(90,200,250,0.10) 0%, transparent 70%);
-      animation: orb-pulse 6s ease-in-out infinite; animation-delay: 3s;
+    .hero-orb-1 {
+      width: 720px; height: 720px; top: -10%; left: -8%;
+      background: radial-gradient(circle, rgba(10,132,255,0.14) 0%, transparent 68%);
+      animation: orb-drift 8s ease-in-out infinite;
     }
-    @keyframes orb-pulse {
-      0%,100% { opacity: 0.15; transform: scale(1); }
-      50% { opacity: 0.25; transform: scale(1.08); }
+    .hero-orb-2 {
+      width: 500px; height: 500px; bottom: 5%; right: 8%;
+      background: radial-gradient(circle, rgba(90,200,250,0.08) 0%, transparent 68%);
+      animation: orb-drift 8s ease-in-out infinite; animation-delay: 4s;
     }
-    .hero-grid {
+    @keyframes orb-drift {
+      0%,100% { opacity: 0.8; transform: scale(1) translate(0,0); }
+      50% { opacity: 1; transform: scale(1.06) translate(12px,-12px); }
+    }
+    .hero-inner {
       position: relative; z-index: 2;
       display: grid; grid-template-columns: 1fr; gap: 64px; align-items: center;
     }
-    .eyebrow {
-      display: inline-block; padding: 4px 12px; border-radius: 9999px;
-      border: 1px solid var(--border); background: rgba(15,15,15,0.5);
-      font-size: 12px; text-transform: uppercase; letter-spacing: 0.025em;
-      color: var(--muted); margin-bottom: 32px;
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 5px 14px 5px 6px; border-radius: 9999px;
+      border: 1px solid var(--border); background: rgba(10,10,20,0.5);
+      font-size: 12px; color: var(--muted); margin-bottom: 32px;
+    }
+    .hero-eyebrow-dot {
+      width: 6px; height: 6px; border-radius: 50%; background: var(--primary);
+      box-shadow: 0 0 6px var(--primary); flex-shrink: 0;
     }
     h1.hero-title {
-      font-weight: 700; font-size: 48px; line-height: 1.0; letter-spacing: -0.03em;
-      margin-bottom: 24px;
-      background: linear-gradient(135deg, #ffffff 0%, #ffffff 55%, #5AC8FA 100%);
+      font-weight: 800; font-size: 52px; line-height: 1.0; letter-spacing: -0.035em;
+      margin-bottom: 24px; text-wrap: balance;
+      background: linear-gradient(145deg, #fff 0%, #fff 50%, var(--accent) 100%);
       -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
     }
-    .hero-sub { font-weight: 500; font-size: 20px; color: var(--accent); letter-spacing: -0.025em; margin-bottom: 32px; }
-    .hero-body { font-weight: 400; font-size: 16px; color: rgba(142,142,147,0.8); line-height: 1.625; max-width: 576px; margin-bottom: 40px; }
-    .hero-ctas { display: flex; flex-direction: column; gap: 16px; margin-bottom: 40px; }
-    .hero-legal { font-size: 11px; color: rgba(142,142,147,0.6); text-transform: uppercase; letter-spacing: 0.05em; line-height: 1.6; }
+    .hero-sub {
+      font-weight: 500; font-size: 19px; color: var(--accent);
+      letter-spacing: -0.02em; margin-bottom: 28px;
+    }
+    .hero-body {
+      font-weight: 300; font-size: 16px; color: var(--muted);
+      line-height: 1.7; max-width: 520px; margin-bottom: 40px;
+    }
+    .hero-ctas { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+    .hero-legal {
+      font-size: 10px; color: var(--muted-dim); text-transform: uppercase;
+      letter-spacing: 0.05em; line-height: 1.8;
+    }
 
-    /* MOCKUP */
+    /* ─── APP MOCKUP ─── */
     .mockup-wrap { position: relative; }
-    .mockup-backdrop {
-      position: absolute; inset: -4px; background: rgba(10,132,255,0.2);
-      filter: blur(64px); border-radius: 32px; opacity: 0.3; pointer-events: none;
+    .mockup-glow {
+      position: absolute; inset: -20px; pointer-events: none;
+      background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(10,132,255,0.18) 0%, transparent 70%);
+      filter: blur(32px);
     }
     .mockup {
-      position: relative; background: #111; border: 1px solid var(--border-dark);
-      border-radius: 12px; box-shadow: 0 0 40px rgba(10,132,255,0.1); overflow: hidden;
+      position: relative; background: var(--surface-b); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); overflow: hidden;
+      box-shadow: 0 40px 80px -20px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.04) inset;
     }
-    .mockup-topline {
-      position: absolute; top: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(10,132,255,0.5), transparent);
-    }
-    .mockup-header {
-      height: 48px; border-bottom: 1px solid var(--border-dark); background: rgba(28,28,30,0.5);
+    .mockup-topbar {
+      height: 48px; background: rgba(24,24,29,0.8); border-bottom: 1px solid var(--border);
       display: flex; align-items: center; justify-content: space-between; padding: 0 16px;
     }
-    .mockup-header-left { display: flex; align-items: center; gap: 8px; }
-    .green-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 8px rgba(34,197,94,0.5); }
-    .mockup-header-title { font-size: 12px; color: #fff; }
-    .mockup-header-status { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
-    .mockup-body { padding: 24px; display: flex; flex-direction: column; gap: 32px; }
-    .mockup-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
-    .progress-track { height: 4px; background: var(--surface-b); border-radius: 4px; overflow: hidden; }
-    .progress-fill { height: 100%; width: 12%; background: var(--primary); box-shadow: 0 0 10px rgba(10,132,255,0.5); border-radius: 4px; }
-    .badge-row { display: flex; gap: 8px; flex-wrap: wrap; }
-    .stat-badge { padding: 4px 8px; background: var(--surface-b); border: 1px solid var(--border-dark); border-radius: 8px; font-size: 12px; color: #fff; }
-    .stat-badge .v { color: var(--green-text); }
-    .activity-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .activity-item { padding: 12px; border-radius: 8px; background: var(--surface-b); border: 1px solid var(--border-dark); display: flex; align-items: center; gap: 8px; font-size: 12px; color: #fff; }
-    .activity-item svg { width: 16px; height: 16px; color: var(--primary); flex-shrink: 0; }
-    .source-pills { display: flex; flex-wrap: wrap; gap: 6px; }
-    .source-pill { padding: 4px 10px; border-radius: 9999px; background: rgba(10,132,255,0.1); border: 1px solid rgba(10,132,255,0.2); color: var(--primary); font-size: 11px; }
+    .mockup-dots { display: flex; gap: 6px; }
+    .mockup-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .mockup-dot-r { background: #FF5F57; }
+    .mockup-dot-y { background: #FEBC2E; }
+    .mockup-dot-g { background: #28C840; }
+    .mockup-title-row { display: flex; align-items: center; gap: 6px; }
+    .mockup-status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--success); box-shadow: 0 0 6px rgba(48,209,88,0.5); }
+    .mockup-title { font-size: 12px; font-weight: 500; color: #fff; }
+    .mockup-badge {
+      font-size: 9px; text-transform: uppercase; letter-spacing: 0.06em;
+      color: var(--muted); border: 1px solid var(--border); border-radius: 4px; padding: 1px 5px;
+    }
+    .mockup-body { padding: 20px; display: flex; flex-direction: column; gap: 20px; }
 
-    /* SECTIONS */
-    section.standard { padding: 128px 0; position: relative; }
-    section.alt { background: var(--alt-bg); }
-    .section-head { text-align: center; max-width: 768px; margin: 0 auto; }
-    h2.section-title { font-weight: 600; font-size: 36px; letter-spacing: -0.025em; color: #fff; margin-bottom: 24px; line-height: 1.2; }
-    .section-body { font-weight: 300; font-size: 18px; color: var(--muted); line-height: 1.625; max-width: 768px; margin: 0 auto; }
+    /* chat message rows */
+    .chat-row { display: flex; flex-direction: column; gap: 6px; }
+    .chat-role { font-size: 9px; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); padding: 0 2px; }
+    .chat-bubble {
+      padding: 10px 14px; border-radius: var(--radius-md); font-size: 13px; line-height: 1.5;
+      border: 1px solid;
+    }
+    .chat-bubble-user {
+      background: rgba(10,132,255,0.12); border-color: rgba(10,132,255,0.2);
+      color: var(--accent); align-self: flex-end; max-width: 88%;
+    }
+    .chat-bubble-ai {
+      background: var(--surface-c); border-color: var(--border);
+      color: rgba(255,255,255,0.85); max-width: 92%;
+    }
+    .chat-source-row { display: flex; gap: 6px; margin-top: 2px; flex-wrap: wrap; }
+    .chat-source {
+      font-size: 10px; padding: 2px 8px; border-radius: 9999px;
+      background: var(--primary-dim); border: 1px solid rgba(10,132,255,0.18);
+      color: var(--primary);
+    }
 
-    .ticker-wrap { height: 80px; display: flex; align-items: center; justify-content: center; margin-top: 32px; }
+    /* progress bar */
+    .prog-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 6px; }
+    .prog-row { display: flex; align-items: center; gap: 10px; }
+    .prog-track { flex: 1; height: 3px; background: var(--border); border-radius: 9999px; overflow: hidden; }
+    .prog-fill { height: 100%; width: 28%; background: var(--primary); border-radius: 9999px; }
+    .prog-value { font-size: 11px; color: var(--muted); min-width: 28px; text-align: right; }
+
+    /* source pills row */
+    .source-row { display: flex; gap: 6px; flex-wrap: wrap; }
+    .source-chip {
+      font-size: 11px; padding: 3px 10px; border-radius: 9999px;
+      border: 1px solid rgba(10,132,255,0.2); background: var(--primary-dim);
+      color: var(--primary);
+    }
+    .mockup-divider { height: 1px; background: var(--border); margin: 0 -20px; }
+
+    /* ─── TRUST BELT ─── */
+    .trust-belt {
+      border-top: 1px solid var(--border-soft); border-bottom: 1px solid var(--border-soft);
+      padding: 32px 0; background: var(--surface-a);
+    }
+    .trust-belt-inner {
+      display: flex; align-items: center; justify-content: center;
+      flex-wrap: wrap; gap: 32px;
+    }
+    .trust-item { display: flex; align-items: center; gap: 8px; }
+    .trust-icon { width: 16px; height: 16px; color: var(--primary); flex-shrink: 0; }
+    .trust-text { font-size: 13px; color: var(--muted); font-weight: 400; }
+
+    /* ─── PROBLEM ─── */
+    .problem-grid {
+      display: grid; grid-template-columns: 1fr; gap: 2px; margin-top: 56px;
+      border: 1px solid var(--border); border-radius: var(--radius-xl); overflow: hidden;
+    }
+    .problem-card {
+      padding: 40px; background: var(--surface-b);
+      transition: background 0.25s ease;
+    }
+    .problem-card:hover { background: var(--surface-c); }
+    .problem-num {
+      font-family: var(--font-display); font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em; color: var(--primary);
+      margin-bottom: 20px;
+    }
+    .problem-card h3 {
+      font-size: 22px; font-weight: 600; letter-spacing: -0.025em;
+      color: #fff; margin-bottom: 12px; line-height: 1.2;
+    }
+    .problem-card p { font-size: 15px; color: var(--muted); line-height: 1.65; font-weight: 300; }
+
+    /* ─── HOW IT WORKS ─── */
+    .hiw-steps { display: grid; grid-template-columns: 1fr; gap: 1px; margin-top: 56px; }
+    .hiw-step {
+      display: grid; grid-template-columns: 64px 1fr; gap: 32px; align-items: start;
+      padding: 40px 0; border-bottom: 1px solid var(--border);
+    }
+    .hiw-step:last-child { border-bottom: none; }
+    .hiw-num {
+      font-family: var(--font-display); font-size: 13px; font-weight: 700;
+      color: var(--primary); text-align: right; padding-top: 4px;
+    }
+    .hiw-content h3 {
+      font-size: 22px; font-weight: 600; letter-spacing: -0.025em;
+      color: #fff; margin-bottom: 10px;
+    }
+    .hiw-content p { font-size: 15px; color: var(--muted); line-height: 1.65; font-weight: 300; max-width: 560px; }
+    .hiw-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .hiw-pill {
+      font-size: 12px; padding: 4px 12px; border-radius: 9999px;
+      border: 1px solid var(--border); color: var(--muted);
+    }
+
+    /* ─── DISCOVERY TICKER ─── */
+    .ticker-wrap {
+      height: 72px; display: flex; align-items: center; justify-content: center;
+      margin-top: 40px; overflow: hidden;
+    }
     .ticker-text {
-      display: inline-flex; align-items: center; gap: 12px;
-      font-size: 20px; font-weight: 500; color: var(--primary); letter-spacing: -0.025em;
-      transition: opacity 0.5s ease, transform 0.5s ease;
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 20px; font-weight: 500; color: var(--primary); letter-spacing: -0.02em;
+      transition: opacity 0.4s ease, transform 0.4s ease;
     }
-    .ticker-text svg { width: 24px; height: 24px; }
+    .ticker-text svg { width: 22px; height: 22px; flex-shrink: 0; }
 
-    .timeline { max-width: 1024px; margin: 56px auto 0; position: relative; }
-    .timeline-line { position: absolute; top: 8px; left: 0; right: 0; height: 1px; background: var(--border); }
-    .timeline-line-grad { position: absolute; top: 8px; left: 0; width: 60%; height: 1px; background: linear-gradient(to right, rgba(10,132,255,0.5), transparent); }
-    .timeline-grid { position: relative; display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; }
-    .timeline-stage { display: flex; flex-direction: column; align-items: center; gap: 16px; }
-    .timeline-dot { width: 16px; height: 16px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid; }
-    .timeline-dot.active { background: var(--primary); border-color: var(--bg); }
-    .timeline-dot.active::after { content: ''; width: 6px; height: 6px; background: var(--bg); border-radius: 50%; }
-    .timeline-dot.inactive { background: var(--surface-b); border-color: var(--muted); }
-    .timeline-label { font-size: 14px; font-weight: 500; letter-spacing: 0.025em; text-transform: uppercase; text-align: center; }
-    .timeline-label.active { color: #fff; }
-    .timeline-label.inactive { color: var(--muted); }
+    /* ─── TIMELINE ─── */
+    .brain-timeline { max-width: 960px; margin: 56px auto 0; }
+    .timeline-track {
+      position: relative;
+      display: flex; align-items: flex-start; justify-content: space-between;
+    }
+    .timeline-track::before {
+      content: '';
+      position: absolute; top: 8px; left: 0; right: 0; height: 1px;
+      background: var(--border);
+    }
+    .timeline-track::after {
+      content: '';
+      position: absolute; top: 8px; left: 0; width: 60%; height: 1px;
+      background: linear-gradient(to right, rgba(10,132,255,0.6), transparent);
+    }
+    .tl-stage { display: flex; flex-direction: column; align-items: center; gap: 14px; z-index: 2; }
+    .tl-dot {
+      width: 16px; height: 16px; border-radius: 50%;
+      border: 2px solid; display: flex; align-items: center; justify-content: center;
+      background: var(--bg);
+    }
+    .tl-dot.active { background: var(--primary); border-color: var(--primary); }
+    .tl-dot.active::after { content: ''; width: 5px; height: 5px; background: #000; border-radius: 50%; }
+    .tl-dot.inactive { background: var(--surface-b); border-color: var(--border); }
+    .tl-label { font-size: 12px; font-weight: 500; letter-spacing: 0.025em; text-align: center; }
+    .tl-label.active { color: #fff; }
+    .tl-label.inactive { color: var(--muted); }
 
+    /* ─── KNOWLEDGE LENS ─── */
     .lens-card {
-      max-width: 896px; margin: 56px auto 0; background: #111; border: 1px solid var(--border-dark);
-      border-radius: 16px; padding: 32px; position: relative;
-      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+      max-width: 880px; margin: 56px auto 0;
+      background: var(--surface-b); border: 1px solid var(--border);
+      border-radius: var(--radius-xl); padding: 32px;
+      box-shadow: 0 40px 80px -24px rgba(0,0,0,0.6);
+      position: relative;
     }
-    .lens-topline { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 75%; height: 1px; background: linear-gradient(90deg, transparent, rgba(10,132,255,0.5), transparent); }
-    .lens-search { position: relative; margin-bottom: 24px; }
-    .lens-search svg { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; color: var(--muted); }
-    .lens-search input {
-      width: 100%; height: 56px; background: var(--surface-b); border: 1px solid var(--border-dark);
-      border-radius: 12px; padding: 0 16px 0 48px; color: #fff; font-size: 16px; font-family: var(--font-body); outline: none;
+    .lens-topline {
+      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 60%; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(10,132,255,0.5), transparent);
     }
-    .lens-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+    .lens-input-row {
+      position: relative; margin-bottom: 20px;
+    }
+    .lens-input-row svg {
+      position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
+      width: 18px; height: 18px; color: var(--muted); pointer-events: none;
+    }
+    .lens-input {
+      width: 100%; height: 52px;
+      background: var(--surface-a); border: 1px solid var(--border);
+      border-radius: var(--radius-md); padding: 0 16px 0 46px;
+      color: #fff; font-size: 15px; font-family: var(--font-body); outline: none;
+    }
+    .lens-input:focus { border-color: rgba(10,132,255,0.5); box-shadow: 0 0 0 3px rgba(10,132,255,0.12); }
+    .lens-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
     .lens-chip {
-      padding: 8px 16px; border-radius: 8px; background: var(--surface-b); border: 1px solid var(--border-dark);
-      font-size: 14px; color: rgba(142,142,147,0.8); transition: all 0.2s ease; cursor: default;
+      padding: 7px 14px; border-radius: var(--radius-sm);
+      background: var(--surface-c); border: 1px solid var(--border);
+      font-size: 13px; color: var(--muted); transition: all 0.2s ease; cursor: default;
     }
-    .lens-chip:hover { color: var(--primary); border-color: rgba(10,132,255,0.5); }
+    .lens-chip:hover { color: var(--primary); border-color: rgba(10,132,255,0.4); background: var(--primary-dim); }
 
-    .cards-grid { display: grid; grid-template-columns: 1fr; gap: 24px; max-width: 1152px; margin: 56px auto 0; }
-    .feature-card {
-      padding: 32px; border-radius: 16px; background: var(--card); border: 1px solid var(--border);
-      transition: border-color 0.3s ease;
+    /* ─── PRIVACY ─── */
+    .privacy-grid {
+      display: grid; grid-template-columns: 1fr; gap: 16px;
+      max-width: 1100px; margin: 56px auto 0;
     }
-    .feature-card:hover { border-color: rgba(36,36,39,0.8); }
-    .feature-icon {
-      width: 40px; height: 40px; border-radius: 8px; background: var(--surface-b); border: 1px solid var(--border-dark);
-      display: flex; align-items: center; justify-content: center; margin-bottom: 24px;
+    .priv-card {
+      display: flex; align-items: flex-start; gap: 20px;
+      padding: 28px; border-radius: var(--radius-lg);
+      background: var(--surface-b); border: 1px solid var(--border);
+      transition: border-color 0.25s ease;
     }
-    .feature-icon svg { width: 20px; height: 20px; color: var(--primary); }
-    .feature-card h3 { font-size: 18px; font-weight: 500; letter-spacing: -0.025em; margin-bottom: 8px; color: #fff; }
-    .feature-card p { font-size: 14px; color: var(--muted); line-height: 1.625; }
+    .priv-card:hover { border-color: rgba(10,132,255,0.25); }
+    .priv-icon-wrap {
+      width: 40px; height: 40px; border-radius: var(--radius-sm); flex-shrink: 0;
+      background: var(--primary-dim); border: 1px solid rgba(10,132,255,0.15);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .priv-icon-wrap svg { width: 18px; height: 18px; color: var(--primary); }
+    .priv-text h3 { font-size: 16px; font-weight: 600; letter-spacing: -0.02em; color: #fff; margin-bottom: 5px; }
+    .priv-text p { font-size: 14px; color: var(--muted); line-height: 1.6; font-weight: 300; }
 
-    .spec-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; max-width: 1024px; margin: 56px auto 0; }
+    /* ─── SPECIALTIES ─── */
+    .spec-cloud {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
+      max-width: 1000px; margin: 48px auto 0;
+    }
     .spec-pill {
-      display: inline-block; padding: 10px 20px; border-radius: 9999px;
-      border: 1px solid rgba(10,132,255,0.20); background: rgba(10,132,255,0.05);
-      font-size: 14px; font-weight: 500; color: #fff; transition: border-color 0.2s ease; cursor: default;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+      display: inline-block; padding: 9px 18px; border-radius: 9999px;
+      border: 1px solid rgba(10,132,255,0.18); background: rgba(10,132,255,0.05);
+      font-size: 13px; font-weight: 500; color: #fff;
+      transition: border-color 0.2s ease, background 0.2s ease; cursor: default;
     }
-    .spec-pill:hover { border-color: rgba(10,132,255,0.50); }
+    .spec-pill:hover { border-color: rgba(10,132,255,0.45); background: rgba(10,132,255,0.10); }
 
-    .billing-toggle-wrap { display: flex; align-items: center; justify-content: center; gap: 16px; margin: 40px auto 56px; }
-    .billing-label { font-size: 14px; font-weight: 500; color: var(--muted); transition: color 0.2s ease; }
-    .billing-label.active { color: #fff; }
-    .toggle {
-      width: 44px; height: 24px; border-radius: 12px; background: var(--border-dark); position: relative;
-      transition: background 0.2s ease; flex-shrink: 0;
+    /* ─── FOUNDING SURGEON ─── */
+    .founding-wrap {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr; gap: 48px; align-items: center;
     }
-    .toggle.on { background: var(--primary); }
-    .toggle .thumb { position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: #fff; transition: left 0.2s ease; }
-    .toggle.on .thumb { left: 23px; }
+    .founding-badge {
+      position: relative; width: 200px; height: 200px; margin: 0 auto;
+    }
+    .founding-badge-ring {
+      position: absolute; inset: 0; border-radius: 50%;
+      border: 1px solid rgba(10,132,255,0.3);
+      animation: badge-spin 12s linear infinite;
+    }
+    @keyframes badge-spin { to { transform: rotate(360deg); } }
+    .founding-badge-inner {
+      position: absolute; inset: 12px; border-radius: 50%;
+      background: radial-gradient(circle, var(--surface-c) 0%, var(--surface-b) 100%);
+      border: 1px solid rgba(10,132,255,0.2);
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+    }
+    .founding-badge-inner svg { width: 40px; height: 40px; color: var(--primary); }
+    .founding-badge-label {
+      font-family: var(--font-display); font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em; color: var(--primary); text-align: center;
+    }
+    .founding-copy h2 {
+      font-size: 36px; font-weight: 700; letter-spacing: -0.025em; line-height: 1.1;
+      margin-bottom: 16px; text-wrap: balance;
+    }
+    .founding-copy p { font-size: 16px; color: var(--muted); line-height: 1.7; font-weight: 300; margin-bottom: 32px; }
+    .founding-perks { display: flex; flex-direction: column; gap: 12px; margin-bottom: 36px; }
+    .founding-perk {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 14px; color: rgba(255,255,255,0.8);
+    }
+    .founding-perk-dot {
+      width: 6px; height: 6px; border-radius: 50%; background: var(--primary);
+      box-shadow: 0 0 6px var(--primary); flex-shrink: 0;
+    }
+    .founding-note { font-size: 12px; color: var(--muted-dim); margin-top: 16px; }
 
-    .pricing-grid { display: grid; grid-template-columns: 1fr; gap: 24px; max-width: 1152px; margin: 0 auto; }
+    /* ─── PRICING ─── */
+    .billing-toggle {
+      display: flex; align-items: center; justify-content: center; gap: 14px; margin: 40px 0 52px;
+    }
+    .billing-lbl { font-size: 14px; font-weight: 500; color: var(--muted); transition: color 0.2s; }
+    .billing-lbl.active { color: #fff; }
+    .toggle-pill {
+      width: 44px; height: 24px; border-radius: 12px; background: var(--border);
+      position: relative; transition: background 0.2s; flex-shrink: 0; cursor: pointer; border: none;
+    }
+    .toggle-pill.on { background: var(--primary); }
+    .toggle-thumb {
+      position: absolute; top: 3px; left: 3px; width: 18px; height: 18px;
+      border-radius: 50%; background: #fff; transition: left 0.2s;
+    }
+    .toggle-pill.on .toggle-thumb { left: 23px; }
+
+    .pricing-grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 1152px; margin: 0 auto; }
     .price-card {
-      padding: 32px; border-radius: 16px; background: var(--card); border: 1px solid var(--border-dark);
-      transition: all 0.3s ease; position: relative; display: flex; flex-direction: column;
+      padding: 32px; border-radius: var(--radius-xl); background: var(--surface-b);
+      border: 1px solid var(--border); position: relative; display: flex; flex-direction: column;
+      transition: border-color 0.25s ease;
     }
-    .price-card:hover { border-color: var(--border); }
-    .price-card.popular { border: 1px solid var(--primary); box-shadow: 0 0 30px rgba(10,132,255,0.15); }
+    .price-card:hover { border-color: rgba(10,132,255,0.22); }
+    .price-card.popular { border-color: var(--primary); box-shadow: 0 0 32px rgba(10,132,255,0.14); }
     .popular-badge {
-      position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%);
-      padding: 4px 12px; background: var(--primary); color: #000; font-size: 10px; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.05em; border-radius: 9999px;
+      position: absolute; top: -1px; left: 50%; transform: translate(-50%, -50%);
+      padding: 4px 14px; background: var(--primary); color: #000;
+      font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
+      border-radius: 9999px;
     }
-    .price-eyebrow { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 8px; min-height: 14px; }
-    .price-name { font-size: 20px; font-weight: 500; letter-spacing: -0.025em; margin-bottom: 4px; color: #fff; }
-    .price-row { display: flex; align-items: baseline; gap: 4px; margin-bottom: 4px; }
-    .price-amount { font-size: 30px; font-weight: 600; letter-spacing: -0.025em; color: #fff; }
-    .price-period { font-size: 14px; color: var(--muted); }
-    .price-desc { font-size: 12px; color: var(--muted); min-height: 40px; margin-bottom: 16px; line-height: 1.5; }
-    .price-features { list-style: none; display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px; flex-grow: 1; }
-    .price-features li { display: flex; align-items: flex-start; gap: 12px; font-size: 14px; color: var(--muted); }
-    .price-features svg { width: 16px; height: 16px; margin-top: 2px; flex-shrink: 0; }
+    .price-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: var(--accent); margin-bottom: 8px; min-height: 14px; }
+    .price-name { font-size: 20px; font-weight: 600; letter-spacing: -0.025em; margin-bottom: 4px; }
+    .price-amount-row { display: flex; align-items: baseline; gap: 4px; margin-bottom: 6px; }
+    .price-amount { font-size: 28px; font-weight: 600; letter-spacing: -0.025em; }
+    .price-period { font-size: 13px; color: var(--muted); }
+    .price-desc { font-size: 13px; color: var(--muted); line-height: 1.5; min-height: 36px; margin-bottom: 20px; font-weight: 300; }
+    .price-features { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px; flex-grow: 1; }
+    .price-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--muted); }
+    .price-features svg { width: 15px; height: 15px; margin-top: 2px; flex-shrink: 0; }
     .price-card.popular .price-features svg { color: var(--primary); }
-    .price-card:not(.popular) .price-features svg { color: rgba(142,142,147,0.5); }
-    .price-btn { width: 100%; height: 44px; font-size: 14px; }
-    .price-btn-outline { border: 1px solid var(--border-dark); color: #fff; background: transparent; border-radius: 12px; transition: background 0.2s ease; }
-    .price-btn-outline:hover { background: var(--surface-b); }
-    .pricing-legal { text-align: center; font-size: 11px; color: rgba(142,142,147,0.6); margin-top: 40px; text-transform: uppercase; letter-spacing: 0.04em; max-width: 768px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+    .price-card:not(.popular) .price-features svg { color: var(--border); }
+    .price-btn { width: 100%; height: 42px; font-size: 14px; border-radius: var(--radius-md); }
+    .price-btn-ghost { border: 1px solid var(--border); color: #fff; background: transparent; }
+    .price-btn-ghost:hover { background: var(--surface-c); }
+    .pricing-footer { text-align: center; font-size: 11px; color: var(--muted-dim); margin-top: 36px; text-transform: uppercase; letter-spacing: 0.04em; line-height: 1.8; }
 
-    .cta-section { padding: 160px 0; position: relative; overflow: hidden; text-align: center; }
-    .cta-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(10,132,255,0.12) 0%, transparent 70%); pointer-events: none; }
-    .cta-dotgrid { position: absolute; inset: 0; background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.025) 1px, transparent 0); background-size: 24px 24px; pointer-events: none; }
-    .cta-inner { position: relative; z-index: 2; max-width: 896px; margin: 0 auto; }
+    /* ─── FAQ ─── */
+    .faq-list { max-width: 720px; margin: 48px auto 0; display: flex; flex-direction: column; gap: 2px; }
+    .faq-item {
+      border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden;
+      transition: border-color 0.25s ease;
+    }
+    .faq-item.open { border-color: rgba(10,132,255,0.25); }
+    .faq-q {
+      width: 100%; display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 24px; background: var(--surface-b); gap: 16px;
+      text-align: left;
+    }
+    .faq-q span { font-size: 15px; font-weight: 500; color: #fff; letter-spacing: -0.01em; }
+    .faq-chevron { width: 18px; height: 18px; color: var(--muted); flex-shrink: 0; transition: transform 0.3s ease; }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+    .faq-a {
+      max-height: 0; overflow: hidden; background: var(--surface-b);
+      transition: max-height 0.35s ease, padding 0.25s ease;
+    }
+    .faq-item.open .faq-a { max-height: 300px; }
+    .faq-a-inner {
+      padding: 0 24px 20px; font-size: 14px; color: var(--muted);
+      line-height: 1.7; font-weight: 300;
+    }
+
+    /* ─── CTA SECTION ─── */
+    .cta-sec {
+      padding: 160px 0; text-align: center; position: relative; overflow: hidden;
+    }
+    .cta-bg {
+      position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(10,132,255,0.10) 0%, transparent 70%);
+    }
+    .cta-canvas {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.02) 1px, transparent 0);
+      background-size: 28px 28px;
+    }
+    .cta-inner { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
     h2.cta-title {
-      font-weight: 700; font-size: 48px; letter-spacing: -0.03em; margin-bottom: 24px; line-height: 1.05;
-      background: linear-gradient(135deg, #ffffff 0%, #5AC8FA 100%);
+      font-weight: 800; font-size: 52px; letter-spacing: -0.035em; line-height: 1.05;
+      margin-bottom: 20px; text-wrap: balance;
+      background: linear-gradient(145deg, #fff 0%, var(--accent) 100%);
       -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
     }
-    .cta-body { font-size: 18px; color: var(--muted); line-height: 1.625; max-width: 576px; margin: 0 auto 40px; font-weight: 300; }
+    .cta-body { font-size: 17px; color: var(--muted); line-height: 1.65; max-width: 500px; margin: 0 auto 40px; font-weight: 300; }
 
-    footer { background: #000; border-top: 1px solid rgba(36,36,39,0.5); padding: 64px 0 32px; }
-    .footer-upper { display: flex; flex-direction: column; gap: 32px; margin-bottom: 64px; align-items: center; text-align: center; }
-    .footer-brand-block { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    /* ─── FOOTER ─── */
+    footer {
+      background: #000; border-top: 1px solid var(--border-soft); padding: 64px 0 32px;
+    }
+    .footer-upper {
+      display: flex; flex-direction: column; gap: 40px;
+      margin-bottom: 56px; align-items: center; text-align: center;
+    }
+    .footer-brand-col { display: flex; flex-direction: column; align-items: center; gap: 8px; }
     .footer-brand { display: flex; align-items: center; gap: 10px; }
-    .footer-wordmark { font-family: var(--font-display); font-weight: 700; font-size: 15px; color: #fff; }
-    .footer-tagline { font-size: 14px; color: var(--muted); }
+    .footer-wordmark { font-family: var(--font-display); font-weight: 700; font-size: 15px; }
+    .footer-tagline { font-size: 13px; color: var(--muted); }
     .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; }
-    .footer-links a { font-size: 14px; font-weight: 500; color: var(--muted); transition: color 0.2s ease; }
+    .footer-links a { font-size: 13px; color: var(--muted); transition: color 0.2s; }
     .footer-links a:hover { color: #fff; }
-    .footer-email { font-size: 14px; font-weight: 500; color: var(--muted); transition: color 0.2s ease; }
+    .footer-email { font-size: 13px; color: var(--muted); transition: color 0.2s; }
     .footer-email:hover { color: #fff; }
-    .footer-lower { border-top: 1px solid rgba(36,36,39,0.5); padding-top: 32px; text-align: center; }
-    .footer-disclaimer { font-size: 10px; color: rgba(142,142,147,0.6); text-transform: uppercase; letter-spacing: 0.05em; max-width: 896px; margin: 0 auto 16px; line-height: 1.8; }
-    .footer-copy { font-size: 12px; color: var(--muted); font-weight: 500; }
+    .footer-lower { border-top: 1px solid var(--border-soft); padding-top: 28px; text-align: center; }
+    .footer-disclaimer { font-size: 10px; color: var(--muted-dim); text-transform: uppercase; letter-spacing: 0.04em; max-width: 840px; margin: 0 auto 12px; line-height: 1.9; }
+    .footer-copy { font-size: 12px; color: var(--muted); }
 
-    .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
-    .fade-up.visible { opacity: 1; transform: translateY(0); }
-
+    /* ─── MODAL ─── */
     .modal-overlay {
-      position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px);
+      position: fixed; inset: 0; background: rgba(0,0,0,0.72);
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
       display: none; align-items: center; justify-content: center; z-index: 100; padding: 24px;
     }
     .modal-overlay.open { display: flex; }
-    .modal {
-      width: 100%; max-width: 448px; background: var(--card); border: 1px solid var(--border);
-      border-radius: 12px; padding: 32px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.8); position: relative;
+    .modal-card {
+      width: 100%; max-width: 440px; background: var(--surface-b); border: 1px solid var(--border);
+      border-radius: var(--radius-xl); padding: 32px; position: relative;
+      box-shadow: 0 40px 80px -20px rgba(0,0,0,0.9);
     }
-    .modal h3 { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 6px; color: #fff; }
-    .modal p.sub { font-size: 14px; color: var(--muted); margin-bottom: 24px; }
-    .modal-close { position: absolute; top: 20px; right: 20px; color: var(--muted); font-size: 20px; line-height: 1; }
+    .modal-card h3 { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 6px; }
+    .modal-card .modal-sub { font-size: 14px; color: var(--muted); margin-bottom: 24px; font-weight: 300; }
+    .modal-close { position: absolute; top: 20px; right: 20px; color: var(--muted); font-size: 20px; line-height: 1; transition: color 0.2s; }
     .modal-close:hover { color: #fff; }
     .field { margin-bottom: 16px; }
-    .field label { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 8px; }
+    .field label { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 8px; }
     .field input, .field select {
-      width: 100%; height: 44px; background: #000; border: 1px solid var(--border); border-radius: 10px;
-      padding: 0 14px; color: #fff; font-size: 14px; font-family: var(--font-body); outline: none;
+      width: 100%; height: 44px; background: var(--surface-a); border: 1px solid var(--border);
+      border-radius: var(--radius-md); padding: 0 14px; color: #fff;
+      font-size: 14px; font-family: var(--font-body); outline: none; transition: border-color 0.2s, box-shadow 0.2s;
     }
-    .field input:focus, .field select:focus { border-color: var(--primary); box-shadow: 0 0 0 2px rgba(10,132,255,0.25); }
-    .field .err { font-size: 13px; color: #FF453A; font-weight: 500; margin-top: 6px; display: none; }
+    .field input:focus, .field select:focus {
+      border-color: rgba(10,132,255,0.5);
+      box-shadow: 0 0 0 3px rgba(10,132,255,0.12);
+    }
+    .field select option { background: var(--surface-c); }
+    .field-err { font-size: 12px; color: #FF453A; font-weight: 500; margin-top: 6px; display: none; }
     .modal-submit { width: 100%; height: 44px; margin-top: 8px; }
-    .modal-success { text-align: center; padding: 16px 0; }
-    .modal-success svg { width: 48px; height: 48px; color: var(--primary); margin: 0 auto 16px; display: block; }
-    .modal-success h4 { font-size: 18px; font-weight: 500; margin-bottom: 6px; color: #fff; }
-    .modal-success p { font-size: 14px; color: var(--muted); }
+    .modal-success-wrap { text-align: center; padding: 16px 0; }
+    .modal-success-wrap svg { width: 48px; height: 48px; color: var(--primary); margin: 0 auto 16px; display: block; }
+    .modal-success-wrap h4 { font-size: 18px; font-weight: 600; margin-bottom: 6px; letter-spacing: -0.015em; }
+    .modal-success-wrap p { font-size: 14px; color: var(--muted); font-weight: 300; }
 
+    /* ─── ANIMATIONS ─── */
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .fade-up, .hero-orb, .founding-badge-ring { animation: none !important; transition: none !important; } }
+
+    /* ─── RESPONSIVE ─── */
+    @media (min-width: 640px) {
+      .problem-grid { grid-template-columns: 1fr 1fr; }
+      .privacy-grid { grid-template-columns: 1fr 1fr; }
+    }
     @media (min-width: 768px) {
-      h2.section-title { font-size: 48px; }
-      h2.cta-title { font-size: 72px; }
-      .cards-grid { grid-template-columns: 1fr 1fr; }
+      h2.sec-title { font-size: 44px; }
+      h2.cta-title { font-size: 68px; }
+      .hiw-steps { max-width: 760px; margin-left: auto; margin-right: auto; }
       .pricing-grid { grid-template-columns: 1fr 1fr; }
-      .ticker-text { font-size: 24px; }
-      .footer-upper { flex-direction: row; justify-content: space-between; align-items: flex-start; text-align: left; }
-      .footer-brand-block { align-items: flex-start; }
+      .footer-upper { flex-direction: row; justify-content: space-between; text-align: left; }
+      .footer-brand-col { align-items: flex-start; }
     }
     @media (min-width: 1024px) {
-      .hero-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .hero-inner { grid-template-columns: 5fr 4fr; gap: 48px; }
       h1.hero-title { font-size: 80px; }
-      .hero-sub { font-size: 24px; }
-      .hero-body { font-size: 18px; }
       .hero-ctas { flex-direction: row; }
-      .cards-grid { grid-template-columns: 1fr 1fr 1fr; }
+      .problem-grid { grid-template-columns: repeat(3, 1fr); }
+      .privacy-grid { grid-template-columns: repeat(3, 1fr); }
       .pricing-grid { grid-template-columns: repeat(4, 1fr); }
-      .price-card.popular { margin-top: -16px; margin-bottom: 16px; z-index: 10; }
+      .price-card.popular { margin-top: -16px; margin-bottom: 16px; }
+      .founding-wrap { grid-template-columns: 280px 1fr; }
+      .founding-badge { margin: 0; }
     }
     @media (max-width: 767px) {
-      section.standard { padding: 80px 0; }
-      .cta-section { padding: 100px 0; }
-      .timeline-grid { grid-template-columns: 1fr; gap: 32px; }
-      .timeline-line, .timeline-line-grad { display: none; }
+      .sec-pad { padding: 88px 0; }
+      .sec-pad-lg { padding: 112px 0; }
+      .timeline-track { flex-direction: column; gap: 20px; align-items: flex-start; }
+      .timeline-track::before, .timeline-track::after { display: none; }
+      .tl-stage { flex-direction: row; gap: 14px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav id="nav">
-    <div class="container">
-      <a href="#" class="brand" aria-label="Haarks Clinic home">
-        <svg viewBox="55 18 275 285" width="28" height="28" aria-hidden="true">
-          <defs>
-            <linearGradient id="logoGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#5CB8FF"/>
-              <stop offset="100%" stop-color="#0A84FF"/>
-            </linearGradient>
-          </defs>
-          <rect x="60" y="30" width="46" height="260" rx="12" fill="url(#logoGrad)"/>
-          <rect x="136" y="104" width="58" height="112" rx="12" fill="url(#logoGrad)"/>
-          <rect x="194" y="155" width="50" height="11" rx="5.5" fill="url(#logoGrad)"/>
-          <circle cx="254" cy="160" r="8" fill="url(#logoGrad)"/>
-          <rect x="280" y="22" width="46" height="276" rx="12" fill="url(#logoGrad)"/>
-        </svg>
-        <span class="wordmark">Haarks Clinic</span>
-      </a>
-      <button class="btn btn-primary btn-nav" onclick="openModal()">Request Early Access</button>
-    </div>
-  </nav>
+<!-- ══════════════ NAV ══════════════ -->
+<nav id="nav">
+  <div class="container">
+    <a href="#" class="brand" aria-label="Haarks Clinic home">
+      <svg viewBox="55 18 275 285" width="28" height="28" aria-hidden="true">
+        <defs>
+          <linearGradient id="lg1" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#5CB8FF"/>
+            <stop offset="100%" stop-color="#0A84FF"/>
+          </linearGradient>
+        </defs>
+        <rect x="60" y="30" width="46" height="260" rx="12" fill="url(#lg1)"/>
+        <rect x="136" y="104" width="58" height="112" rx="12" fill="url(#lg1)"/>
+        <rect x="194" y="155" width="50" height="11" rx="5.5" fill="url(#lg1)"/>
+        <circle cx="254" cy="160" r="8" fill="url(#lg1)"/>
+        <rect x="280" y="22" width="46" height="276" rx="12" fill="url(#lg1)"/>
+      </svg>
+      <span class="wordmark">Haarks Clinic</span>
+    </a>
+    <button class="btn btn-primary btn-sm" onclick="openModal()">Request Early Access</button>
+  </div>
+</nav>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-dotgrid"></div>
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="container">
-      <div class="hero-grid">
-        <div class="hero-left fade-up">
-          <span class="eyebrow">Personal AI for Surgeons</span>
-          <h1 class="hero-title">The Personal AI for Every Surgeon.</h1>
-          <p class="hero-sub">Log a case in 60 seconds.</p>
-          <p class="hero-body">Connect your knowledge across Google Drive, OneDrive, Dropbox, voice learnings, research, presentations, protocols, surgical notes and cases. Haarks Clinic continuously discovers, organizes and retrieves knowledge so you spend less time searching and more time practicing.</p>
-          <div class="hero-ctas">
-            <button class="btn btn-primary btn-hero" onclick="openModal()">Request Early Access</button>
-          </div>
-          <p class="hero-legal">For Registered Medical Professionals Only • Personal Knowledge Platform • Not a Diagnostic Tool • Not Clinical Decision Support</p>
+<!-- ══════════════ HERO ══════════════ -->
+<section class="hero">
+  <div class="hero-canvas"></div>
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-left fade-up">
+        <div class="hero-eyebrow">
+          <span class="hero-eyebrow-dot"></span>
+          <span>India's First Personal AI for Surgeons</span>
         </div>
+        <h1 class="hero-title">The Personal AI Every Surgeon Deserves.</h1>
+        <p class="hero-sub">Log a case in 60 seconds.</p>
+        <p class="hero-body">Your knowledge is already scattered — across drives, presentations, voice memos, case notes, and years of practice. Haarks Clinic brings it together into a personal intelligence layer that belongs entirely to you.</p>
+        <div class="hero-ctas">
+          <button class="btn btn-primary btn-lg" onclick="openModal()">Request Early Access</button>
+          <a href="#pricing" class="btn btn-outline btn-lg">See Pricing</a>
+        </div>
+        <p class="hero-legal">For Registered Medical Professionals Only&ensp;·&ensp;Personal Knowledge Platform&ensp;·&ensp;Not a Diagnostic Tool&ensp;·&ensp;Not Clinical Decision Support</p>
+      </div>
 
-        <div class="hero-right fade-up">
-          <div class="mockup-wrap">
-            <div class="mockup-backdrop"></div>
-            <div class="mockup">
-              <div class="mockup-topline"></div>
-              <div class="mockup-header">
-                <div class="mockup-header-left">
-                  <span class="green-dot"></span>
-                  <span class="mockup-header-title">Personal AI Brain</span>
-                </div>
-                <span class="mockup-header-status">ACTIVE</span>
+      <div class="hero-right fade-up" style="animation-delay:0.1s">
+        <div class="mockup-wrap">
+          <div class="mockup-glow"></div>
+          <div class="mockup">
+            <div class="mockup-topbar">
+              <div class="mockup-dots">
+                <span class="mockup-dot mockup-dot-r"></span>
+                <span class="mockup-dot mockup-dot-y"></span>
+                <span class="mockup-dot mockup-dot-g"></span>
               </div>
-              <div class="mockup-body">
-                <div>
-                  <div class="mockup-label">Brain Strength</div>
-                  <div class="progress-track"><div class="progress-fill"></div></div>
-                  <div style="display:flex;justify-content:space-between;margin-top:8px;font-size:11px;color:var(--muted)"><span>12%</span><span>Growing</span></div>
+              <div class="mockup-title-row">
+                <span class="mockup-status-dot"></span>
+                <span class="mockup-title">Haarks AI</span>
+              </div>
+              <span class="mockup-badge">LIVE</span>
+            </div>
+            <div class="mockup-body">
+              <div class="prog-label">Knowledge Strength</div>
+              <div class="prog-row">
+                <div class="prog-track"><div class="prog-fill"></div></div>
+                <span class="prog-value">28%</span>
+              </div>
+              <div class="mockup-divider"></div>
+              <div class="chat-row">
+                <div class="chat-role">You</div>
+                <div class="chat-bubble chat-bubble-user">What's my preferred closure technique for laparoscopic cholecystectomy?</div>
+              </div>
+              <div class="chat-row">
+                <div class="chat-role">Haarks AI</div>
+                <div class="chat-bubble chat-bubble-ai">Based on 14 of your logged cases, you consistently use Hem-o-lok clips at the cystic duct with a 5mm port closure using Carter-Thomason. Your notes from March emphasise avoiding monopolar near the CBD.</div>
+                <div class="chat-source-row">
+                  <span class="chat-source">14 cases</span>
+                  <span class="chat-source">March notes</span>
+                  <span class="chat-source">Protocol v2</span>
                 </div>
-                <div class="badge-row">
-                  <span class="stat-badge">Maturity: <span class="v">Growing</span></span>
-                  <span class="stat-badge">Knowledge Health: <span class="v">Excellent</span></span>
-                </div>
-                <div>
-                  <div class="mockup-label">Recent Activity</div>
-                  <div class="activity-grid">
-                    <div class="activity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>3 Protocols Discovered</div>
-                    <div class="activity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h20v14H2z"/><path d="M8 21h8M12 17v4"/></svg>12 Presentations Indexed</div>
-                    <div class="activity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>4 Research Papers Connected</div>
-                    <div class="activity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2 Follow-Ups Due</div>
-                  </div>
-                </div>
-                <div>
-                  <div class="mockup-label">Connected Sources</div>
-                  <div class="source-pills">
-                    <span class="source-pill">Google Drive</span>
-                    <span class="source-pill">OneDrive</span>
-                    <span class="source-pill">Dropbox</span>
-                    <span class="source-pill">Voice Learnings</span>
-                    <span class="source-pill">Research</span>
-                    <span class="source-pill">Presentations</span>
-                    <span class="source-pill">Cases</span>
-                  </div>
-                </div>
+              </div>
+              <div class="mockup-divider"></div>
+              <div class="prog-label">Connected Sources</div>
+              <div class="source-row">
+                <span class="source-chip">Google Drive</span>
+                <span class="source-chip">Voice Learnings</span>
+                <span class="source-chip">Cases</span>
+                <span class="source-chip">Research</span>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- KNOWLEDGE DISCOVERY -->
-  <section class="standard">
-    <div class="container">
-      <div class="section-head fade-up">
-        <h2 class="section-title">Your Knowledge Already Exists.<br>Haarks Clinic Helps You Find It.</h2>
-        <p class="section-body">Years of knowledge are already scattered across drives, presentations, notes, protocols, videos and research. Haarks Clinic continuously discovers and organizes that knowledge into a personal intelligence layer built exclusively for you.</p>
+<!-- ══════════════ TRUST BELT ══════════════ -->
+<div class="trust-belt">
+  <div class="container">
+    <div class="trust-belt-inner">
+      <div class="trust-item">
+        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span class="trust-text">Private namespace per surgeon</span>
       </div>
-      <div class="ticker-wrap fade-up">
-        <span class="ticker-text" id="discovery">
-          <svg id="discovery-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-          <span id="discovery-text">Discovering Orthopaedic Protocols</span>
-        </span>
+      <div class="trust-item">
+        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <span class="trust-text">AES-256 encryption at rest</span>
       </div>
-    </div>
-  </section>
-
-  <!-- BRAIN TIMELINE -->
-  <section class="standard alt">
-    <div class="container">
-      <div class="section-head fade-up">
-        <h2 class="section-title">Build a Brain That Grows With Your Career.</h2>
-        <p class="section-body">Your Brain starts empty. Every case, conversation, note, voice learning and discovery strengthens your personal intelligence layer.</p>
+      <div class="trust-item">
+        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>
+        <span class="trust-text">Zero shared model training</span>
       </div>
-      <div class="timeline fade-up">
-        <div class="timeline-line"></div>
-        <div class="timeline-line-grad"></div>
-        <div class="timeline-grid">
-          <div class="timeline-stage"><div class="timeline-dot active"></div><span class="timeline-label active">New</span></div>
-          <div class="timeline-stage"><div class="timeline-dot active"></div><span class="timeline-label active">Growing</span></div>
-          <div class="timeline-stage"><div class="timeline-dot active"></div><span class="timeline-label active">Trusted</span></div>
-          <div class="timeline-stage"><div class="timeline-dot inactive"></div><span class="timeline-label inactive">Expert Companion</span></div>
-          <div class="timeline-stage"><div class="timeline-dot inactive"></div><span class="timeline-label inactive">Legacy Brain</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- KNOWLEDGE LENS -->
-  <section class="standard">
-    <div class="container">
-      <div class="section-head fade-up">
-        <h2 class="section-title">Not Search. Understanding.</h2>
-      </div>
-      <div class="lens-card fade-up">
-        <div class="lens-topline"></div>
-        <div class="lens-search">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-          <input type="text" placeholder="Ask your Brain..." disabled />
-        </div>
-        <div class="lens-chips">
-          <span class="lens-chip">Protocols</span>
-          <span class="lens-chip">Cases</span>
-          <span class="lens-chip">Research</span>
-          <span class="lens-chip">Videos</span>
-          <span class="lens-chip">Presentations</span>
-          <span class="lens-chip">Personal Notes</span>
-          <span class="lens-chip">Voice Learnings</span>
-          <span class="lens-chip">Related Knowledge</span>
-          <span class="lens-chip">Knowledge Gaps</span>
-          <span class="lens-chip">Suggested Exploration</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRIVACY -->
-  <section class="standard alt">
-    <div class="container">
-      <div class="section-head fade-up">
-        <h2 class="section-title">Your Knowledge Stays Yours.</h2>
-      </div>
-      <div class="cards-grid">
-        <div class="feature-card fade-up">
-          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-          <h3>Brain Isolation</h3><p>Your AI runs in a private namespace. No other surgeon can access it.</p>
-        </div>
-        <div class="feature-card fade-up">
-          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/><path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/></svg></div>
-          <h3>Doctor-Owned Data</h3><p>Every output belongs to you. We own infrastructure. You own knowledge.</p>
-        </div>
-        <div class="feature-card fade-up">
-          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-          <h3>Private Retrieval</h3><p>Retrieval happens within your isolated context. Never shared.</p>
-        </div>
-        <div class="feature-card fade-up">
-          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8V4H8"/><rect x="2" y="2" width="20" height="8" rx="2"/><path d="M2 12h20"/><path d="M6 16h.01M10 16h.01"/></svg></div>
-          <h3>Encrypted Infrastructure</h3><p>AES-256 at rest. TLS 1.3 in transit. Always.</p>
-        </div>
-        <div class="feature-card fade-up">
-          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20a6 6 0 0 0-12 0"/><circle cx="12" cy="10" r="4"/><circle cx="12" cy="12" r="10"/></svg></div>
-          <h3>Zero Shared Learning</h3><p>Your knowledge never trains shared AI models. Ever.</p>
-        </div>
-        <div class="feature-card fade-up">
-          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/></svg></div>
-          <h3>Professional Verification</h3><p>Available exclusively to registered medical professionals.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SPECIALTIES -->
-  <section class="standard">
-    <div class="container">
-      <div class="section-head fade-up">
-        <h2 class="section-title">One Platform. Every Surgical Specialty.</h2>
-        <p class="section-body">Not separate products. One intelligent platform that adapts to your specialty, your terminology, your workflow.</p>
-      </div>
-      <div class="spec-grid fade-up" id="specGrid"></div>
-    </div>
-  </section>
-
-  <!-- PRICING -->
-  <section class="standard alt" id="pricing">
-    <div class="container">
-      <div class="section-head fade-up">
-        <h2 class="section-title">One Platform. Four Tiers.</h2>
-        <p class="section-body">All Plans Include Every Core Haarks Feature. Plans differ only by Processing Priority, Discovery Speed, Knowledge Capacity, Voice Training, and Support Priority.</p>
-      </div>
-      <div class="billing-toggle-wrap fade-up">
-        <span class="billing-label active" id="lblMonthly">Monthly</span>
-        <button class="toggle on" id="billingToggle" role="switch" aria-checked="true" onclick="toggleBilling()"><span class="thumb"></span></button>
-        <span class="billing-label active" id="lblAnnual">Annually</span>
-      </div>
-      <div class="pricing-grid fade-up" id="pricingGrid"></div>
-      <p class="pricing-legal">7-day full refund on first payment only · 7-day grace period after expiry · Data retained 90 days post-cancellation, then permanently deleted</p>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta-section">
-    <div class="cta-bg"></div>
-    <div class="cta-dotgrid"></div>
-    <div class="container">
-      <div class="cta-inner fade-up">
-        <h2 class="cta-title">Stop Managing Knowledge.<br>Start Using It.</h2>
-        <p class="cta-body">Build a personal AI that grows with your career and stays entirely yours.</p>
-        <button class="btn btn-primary btn-cta" onclick="openModal()">Request Early Access</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <div class="footer-upper">
-        <div class="footer-brand-block">
-          <div class="footer-brand">
-            <svg viewBox="55 18 275 285" width="26" height="26" aria-hidden="true">
-              <rect x="60" y="30" width="46" height="260" rx="12" fill="url(#logoGrad)"/>
-              <rect x="136" y="104" width="58" height="112" rx="12" fill="url(#logoGrad)"/>
-              <rect x="194" y="155" width="50" height="11" rx="5.5" fill="url(#logoGrad)"/>
-              <circle cx="254" cy="160" r="8" fill="url(#logoGrad)"/>
-              <rect x="280" y="22" width="46" height="276" rx="12" fill="url(#logoGrad)"/>
-            </svg>
-            <span class="footer-wordmark">Haarks Clinic</span>
-          </div>
-          <span class="footer-tagline">The Future OS for Surgeons.</span>
-        </div>
-        <nav class="footer-links">
-          <a href="privacy.html">Privacy Policy</a>
-          <a href="terms.html">Terms of Service</a>
-          <a href="disclaimer.html">Medical Disclaimer</a>
-          <a href="account-deletion.html">Delete Account</a>
-        </nav>
-        <a href="mailto:support@haarksclinic.com" class="footer-email">support@haarksclinic.com</a>
-      </div>
-      <div class="footer-lower">
-        <p class="footer-disclaimer">Haarks Clinic is a personal knowledge management platform for medical professionals. Not a diagnostic tool, clinical decision support system, or regulated medical device. All clinical decisions remain the sole responsibility of the treating surgeon.</p>
-        <p class="footer-copy">© 2025 Haarks International Pvt Ltd. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- WAITLIST MODAL -->
-  <div class="modal-overlay" id="modal">
-    <div class="modal">
-      <button class="modal-close" onclick="closeModal()" aria-label="Close">&#x2715;</button>
-      <div id="modalForm">
-        <h3>Request Early Access</h3>
-        <p class="sub">Join the waitlist for the personal AI built for surgeons.</p>
-        <div class="field">
-          <label for="f-name">Full Name</label>
-          <input type="text" id="f-name" placeholder="Dr. Firstname Lastname" />
-          <span class="err" id="e-name">Please enter your name.</span>
-        </div>
-        <div class="field">
-          <label for="f-email">Email</label>
-          <input type="email" id="f-email" placeholder="doctor@hospital.com" />
-          <span class="err" id="e-email">Please enter a valid email.</span>
-        </div>
-        <div class="field">
-          <label for="f-spec">Specialty</label>
-          <select id="f-spec"></select>
-        </div>
-        <div class="field">
-          <label for="f-hosp">Hospital / Clinic (optional)</label>
-          <input type="text" id="f-hosp" placeholder="Where you practice" />
-        </div>
-        <button class="btn btn-primary modal-submit" onclick="submitWaitlist()">Join the Waitlist</button>
-      </div>
-      <div id="modalSuccess" class="modal-success" style="display:none">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-        <h4>You're on the list.</h4>
-        <p>Welcome to Haarks Clinic.</p>
+      <div class="trust-item">
+        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        <span class="trust-text">Files stay on your Google Drive</span>
       </div>
     </div>
   </div>
+</div>
 
-  <script>
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 20) nav.classList.add('scrolled'); else nav.classList.remove('scrolled');
-    });
+<!-- ══════════════ PROBLEM ══════════════ -->
+<section class="sec-pad">
+  <div class="container">
+    <div class="sec-head fade-up">
+      <span class="sec-eyebrow">The Problem</span>
+      <h2 class="sec-title">Surgeons accumulate knowledge.<br>They rarely get to use it.</h2>
+      <p class="sec-body">A decade of surgical practice generates an enormous body of personal knowledge. But it's locked away in formats that can't be retrieved at the moment you need them most.</p>
+    </div>
+    <div class="problem-grid mt-content">
+      <div class="problem-card fade-up">
+        <div class="problem-num">01 — Fragmentation</div>
+        <h3>Knowledge is everywhere. Accessible nowhere.</h3>
+        <p>Surgical notes in Google Drive. Learnings recorded on voice memos. Research papers in a Dropbox folder nobody opens. Presentations from conferences two years ago. It all exists — but none of it is connected.</p>
+      </div>
+      <div class="problem-card fade-up" style="transition-delay:0.1s">
+        <div class="problem-num">02 — Recall</div>
+        <h3>The case in front of you needs the case behind you.</h3>
+        <p>A surgeon's greatest resource is their own pattern of experience. But memory under pressure is unreliable. The technique that worked brilliantly last year, the complication you learned from — it should surface automatically, not after a frantic search.</p>
+      </div>
+      <div class="problem-card fade-up" style="transition-delay:0.2s">
+        <div class="problem-num">03 — Legacy</div>
+        <h3>Years of clinical learning shouldn't retire with you.</h3>
+        <p>The knowledge built over a career is irreplaceable. Today it lives only in formats tied to specific apps and devices. There is no structured way to compound it, organise it, or carry it forward as a living, growing professional asset.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
-    }, { rootMargin: '-80px' });
-    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
-    setTimeout(() => document.querySelectorAll('.hero .fade-up').forEach(el => el.classList.add('visible')), 100);
+<!-- ══════════════ HOW IT WORKS ══════════════ -->
+<section class="sec-pad sec-alt">
+  <div class="container">
+    <div class="sec-head fade-up">
+      <span class="sec-eyebrow">How It Works</span>
+      <h2 class="sec-title">Three steps. One continuous intelligence.</h2>
+      <p class="sec-body">Haarks Clinic runs quietly in the background — discovering, organising, and waiting to answer when you need it.</p>
+    </div>
+    <div class="hiw-steps mt-content fade-up">
+      <div class="hiw-step">
+        <div class="hiw-num">01</div>
+        <div class="hiw-content">
+          <h3>Connect your knowledge sources</h3>
+          <p>Link your Google Drive, OneDrive, Dropbox, and voice recordings. Haarks Clinic continuously indexes your presentations, protocols, case notes, research, and personal documents — without moving a single file off your storage.</p>
+          <div class="hiw-pills">
+            <span class="hiw-pill">Google Drive</span>
+            <span class="hiw-pill">OneDrive</span>
+            <span class="hiw-pill">Dropbox</span>
+            <span class="hiw-pill">Voice Memos</span>
+            <span class="hiw-pill">Case Notes</span>
+          </div>
+        </div>
+      </div>
+      <div class="hiw-step">
+        <div class="hiw-num">02</div>
+        <div class="hiw-content">
+          <h3>Ask Haarks AI in natural language</h3>
+          <p>Ask anything about your own practice. What complications have you encountered in laparoscopic procedures? What does your training say about this implant system? Haarks AI searches only your personal knowledge — never the internet, never another surgeon's data.</p>
+          <div class="hiw-pills">
+            <span class="hiw-pill">Source-cited answers</span>
+            <span class="hiw-pill">Private retrieval</span>
+            <span class="hiw-pill">Medical-only guardrails</span>
+          </div>
+        </div>
+      </div>
+      <div class="hiw-step">
+        <div class="hiw-num">03</div>
+        <div class="hiw-content">
+          <h3>Log cases. Build your career intelligence.</h3>
+          <p>Log any case in 60 seconds. Every entry strengthens your personal knowledge layer. Over time, patterns emerge, gaps surface, and your AI becomes a genuine reflection of your surgical experience — not a generic tool, but a professional intelligence that is entirely yours.</p>
+          <div class="hiw-pills">
+            <span class="hiw-pill">60-second case log</span>
+            <span class="hiw-pill">Knowledge grows with use</span>
+            <span class="hiw-pill">Surgery Mode</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    const discoveryItems = [
-      "Discovering Orthopaedic Protocols",
-      "Discovering Implant Records",
-      "Discovering Surgical Notes",
-      "Discovering Presentations",
-      "Discovering Research Papers",
-      "Discovering Clinical Workflows"
-    ];
-    let di = 0;
-    const dText = document.getElementById('discovery-text');
-    const dWrap = document.getElementById('discovery');
-    setInterval(() => {
-      dWrap.style.opacity = 0; dWrap.style.transform = 'translateY(-20px)';
-      setTimeout(() => {
-        di = (di + 1) % discoveryItems.length;
-        dText.textContent = discoveryItems[di];
-        dWrap.style.transform = 'translateY(20px)';
-        requestAnimationFrame(() => { dWrap.style.opacity = 1; dWrap.style.transform = 'translateY(0)'; });
-      }, 500);
-    }, 2500);
+<!-- ══════════════ KNOWLEDGE DISCOVERY ══════════════ -->
+<section class="sec-pad">
+  <div class="container">
+    <div class="sec-head fade-up">
+      <span class="sec-eyebrow">Discovery Engine</span>
+      <h2 class="sec-title">Your knowledge already exists.<br>Haarks Clinic finds it.</h2>
+      <p class="sec-body">Years of knowledge are scattered across drives, presentations, notes, protocols, and research. Haarks Clinic continuously discovers and organises that knowledge into a personal intelligence layer built exclusively for you.</p>
+    </div>
+    <div class="ticker-wrap fade-up">
+      <span class="ticker-text" id="discovery">
+        <svg id="discovery-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <span id="discovery-text">Discovering Orthopaedic Protocols</span>
+      </span>
+    </div>
+  </div>
+</section>
 
-    const specialties = ["Orthopaedics","Neurosurgery","Cardiac Surgery","Plastic Surgery","General Surgery","ENT","Urology","Gastro Surgery","Gynaecology","Oncology","Vascular Surgery","Paediatric Surgery","Thoracic Surgery","Transplant Surgery","Spine Surgery","Hepatobiliary","Colorectal Surgery","Maxillofacial"];
-    document.getElementById('specGrid').innerHTML = specialties.map(s => '<span class="spec-pill">'+s+'</span>').join('');
+<!-- ══════════════ BRAIN TIMELINE ══════════════ -->
+<section class="sec-pad sec-alt">
+  <div class="container">
+    <div class="sec-head fade-up">
+      <span class="sec-eyebrow">Career Intelligence</span>
+      <h2 class="sec-title">Build a brain that grows with your career.</h2>
+      <p class="sec-body">Your knowledge layer starts empty on day one. Every case, conversation, note, voice learning, and discovery strengthens it — compounding over the arc of your career.</p>
+    </div>
+    <div class="brain-timeline mt-content fade-up">
+      <div class="timeline-track">
+        <div class="tl-stage">
+          <div class="tl-dot active"></div>
+          <span class="tl-label active">New</span>
+        </div>
+        <div class="tl-stage">
+          <div class="tl-dot active"></div>
+          <span class="tl-label active">Growing</span>
+        </div>
+        <div class="tl-stage">
+          <div class="tl-dot active"></div>
+          <span class="tl-label active">Trusted</span>
+        </div>
+        <div class="tl-stage">
+          <div class="tl-dot inactive"></div>
+          <span class="tl-label inactive">Expert Companion</span>
+        </div>
+        <div class="tl-stage">
+          <div class="tl-dot inactive"></div>
+          <span class="tl-label inactive">Legacy Brain</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    const plans = [
-      { id:'founding', eyebrow:'First 100', name:'Founding Surgeon', monthly:null, annual:'Rs.9,999', desc:'Annual only · Price locked for life · Non-refundable', popular:false,
-        features:['Complete platform forever','Founding badge in-app','Price never increases','Direct founder channel','Priority support'] },
-      { id:'basic', eyebrow:'', name:'Basic', monthly:'Rs.999', annual:'Rs.9,999', desc:'Essential features for your practice.', popular:false,
-        features:['Personal AI Brain','Voice case logging','Case management','Knowledge Vault','Standard processing'] },
-      { id:'advanced', eyebrow:'', name:'Advanced', monthly:'Rs.1,999', annual:'Rs.19,999', desc:'Deeper retrieval & faster processing.', popular:true,
-        features:['Everything in Basic','Faster AI responses','Deeper retrieval','Extended brain memory','Priority processing'] },
-      { id:'pro', eyebrow:'', name:'Pro', monthly:'Rs.2,999', annual:'Rs.29,999', desc:'Maximum speed and unlimited depth.', popular:false,
-        features:['Everything in Advanced','Maximum AI speed','Unlimited brain depth','Dedicated support','Early feature access'] }
-    ];
-    let billing = 'annual';
-    const check = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>';
+<!-- ══════════════ KNOWLEDGE LENS ══════════════ -->
+<section class="sec-pad">
+  <div class="container">
+    <div class="sec-head fade-up">
+      <span class="sec-eyebrow">Haarks AI</span>
+      <h2 class="sec-title">Not search. Understanding.</h2>
+      <p class="sec-body">Haarks AI retrieves across every dimension of your personal knowledge — not keyword matching, but genuine semantic understanding of what you've learned, logged, and practiced.</p>
+    </div>
+    <div class="lens-card mt-content fade-up">
+      <div class="lens-topline"></div>
+      <div class="lens-input-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input class="lens-input" type="text" placeholder="Ask Haarks AI anything about your practice..." disabled />
+      </div>
+      <div class="lens-chips">
+        <span class="lens-chip">Protocols</span>
+        <span class="lens-chip">Cases</span>
+        <span class="lens-chip">Research</span>
+        <span class="lens-chip">Videos</span>
+        <span class="lens-chip">Presentations</span>
+        <span class="lens-chip">Personal Notes</span>
+        <span class="lens-chip">Voice Learnings</span>
+        <span class="lens-chip">Related Knowledge</span>
+        <span class="lens-chip">Knowledge Gaps</span>
+        <span class="lens-chip">Suggested Exploration</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-    function renderPricing() {
-      document.getElementById('pricingGrid').innerHTML = plans.map(p => {
-        const isAnnual = billing === 'annual';
-        const price = (!isAnnual && p.monthly) ? p.monthly : p.annual;
-        const period = (!isAnnual && p.monthly) ? '/mo' : '/yr';
-        const annualOnly = (p.id === 'founding');
-        return '<div class="price-card '+(p.popular ? 'popular' : '')+'">'
-          +(p.popular ? '<span class="popular-badge">Most Popular</span>' : '')
-          +'<div class="price-eyebrow">'+p.eyebrow+'</div>'
-          +'<div class="price-name">'+p.name+'</div>'
-          +'<div class="price-row"><span class="price-amount">'+(annualOnly ? p.annual : price)+'</span><span class="price-period">'+(annualOnly ? '/yr' : period)+'</span></div>'
-          +'<div class="price-desc">'+p.desc+'</div>'
-          +'<ul class="price-features">'+p.features.map(f => '<li>'+check+'<span>'+f+'</span></li>').join('')+'</ul>'
-          +'<button class="btn '+(p.popular ? 'btn-primary' : 'price-btn-outline')+' price-btn" onclick="selectPlan(\''+p.name+'\')">Select Plan</button>'
-          +'</div>';
-      }).join('');
+<!-- ══════════════ PRIVACY ══════════════ -->
+<section class="sec-pad sec-alt">
+  <div class="container">
+    <div class="sec-head fade-up">
+      <span class="sec-eyebrow">Privacy Architecture</span>
+      <h2 class="sec-title">Your knowledge stays yours. Always.</h2>
+      <p class="sec-body">Haarks Clinic is built on a zero-isolation architecture. No surgeon's knowledge is ever accessible to another. Privacy is not a feature — it is the foundation.</p>
+    </div>
+    <div class="privacy-grid mt-content">
+      <div class="priv-card fade-up">
+        <div class="priv-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="priv-text">
+          <h3>Private Namespace Isolation</h3>
+          <p>Your knowledge runs in a private, isolated namespace. No other surgeon's query can reach your data — enforced at the infrastructure level, not just the application layer.</p>
+        </div>
+      </div>
+      <div class="priv-card fade-up" style="transition-delay:0.05s">
+        <div class="priv-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/><path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/></svg>
+        </div>
+        <div class="priv-text">
+          <h3>You Own the Knowledge</h3>
+          <p>Every output, every indexed document, every AI response belongs to you. We own the infrastructure. You own the intelligence. You can delete everything, at any time.</p>
+        </div>
+      </div>
+      <div class="priv-card fade-up" style="transition-delay:0.10s">
+        <div class="priv-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <div class="priv-text">
+          <h3>AES-256 + TLS 1.3</h3>
+          <p>All data is encrypted at rest with AES-256 and in transit with TLS 1.3. Industry-standard encryption with no exceptions — not configurable, not optional.</p>
+        </div>
+      </div>
+      <div class="priv-card fade-up" style="transition-delay:0.15s">
+        <div class="priv-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <div class="priv-text">
+          <h3>Zero Shared Learning</h3>
+          <p>Your knowledge never trains shared AI models. No aggregation, no cross-surgeon learning, no data used to improve any product other than your own private layer.</p>
+        </div>
+      </div>
+      <div class="priv-card fade-up" style="transition-delay:0.20s">
+        <div class="priv-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        </div>
+        <div class="priv-text">
+          <h3>Files Stay on Your Storage</h3>
+          <p>Documents are indexed from your Google Drive and OneDrive — they are never copied to Haarks servers. The intelligence is extracted. The file remains exactly where it is.</p>
+        </div>
+      </div>
+      <div class="priv-card fade-up" style="transition-delay:0.25s">
+        <div class="priv-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/></svg>
+        </div>
+        <div class="priv-text">
+          <h3>Medical Professionals Only</h3>
+          <p>Available exclusively to registered medical professionals.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ SPECIALTIES ══════════════ -->
+<section class="sec-pad">
+  <div class="container">
+    <div class="sec-head fade-up">
+      <span class="sec-eyebrow">Specialties</span>
+      <h2 class="sec-title">One platform. Every surgical specialty.</h2>
+      <p class="sec-body">Not separate products for each specialty. One intelligent platform that adapts to your terminology, your workflow, and your clinical language.</p>
+    </div>
+    <div class="spec-cloud fade-up mt-content" id="specGrid"></div>
+  </div>
+</section>
+
+<!-- ══════════════ FOUNDING SURGEON ══════════════ -->
+<section class="sec-pad sec-alt">
+  <div class="container">
+    <div class="founding-wrap fade-up">
+      <div class="founding-badge" aria-hidden="true">
+        <div class="founding-badge-ring"></div>
+        <div class="founding-badge-inner">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+          <span class="founding-badge-label">Founding<br>Surgeon</span>
+        </div>
+      </div>
+      <div class="founding-copy">
+        <span class="sec-eyebrow">Early Access</span>
+        <h2>Be among the first.<br>Lock your price for life.</h2>
+        <p>We are inviting the first cohort of surgeons to build with us. Founding Surgeons get full platform access, a price that never increases, and a founding badge that marks them as part of the original Haarks Clinic community.</p>
+        <div class="founding-perks">
+          <div class="founding-perk">
+            <span class="founding-perk-dot"></span>
+            <span>Complete platform access — every feature, every update</span>
+          </div>
+          <div class="founding-perk">
+            <span class="founding-perk-dot"></span>
+            <span>Founding Surgeon price locked for life</span>
+          </div>
+          <div class="founding-perk">
+            <span class="founding-perk-dot"></span>
+            <span>Direct channel to the founders — shape the product</span>
+          </div>
+          <div class="founding-perk">
+            <span class="founding-perk-dot"></span>
+            <span>Founding Surgeon badge displayed in-app</span>
+          </div>
+          <div class="founding-perk">
+            <span class="founding-perk-dot"></span>
+            <span>Priority support — always</span>
+          </div>
+        </div>
+        <button class="btn btn-primary btn-lg" onclick="openModal()">Request Early Access</button>
+        <p class="founding-note">Annual plan only · Non-refundable · Limited availability</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ PRICING ══════════════ -->
+<section class="sec-pad" id="pricing">
+  <div class="container">
+    <div class="sec-head fade-up">
+      <span class="sec-eyebrow">Pricing</span>
+      <h2 class="sec-title">One platform. Four tiers.</h2>
+      <p class="sec-body">All plans include every core Haarks feature. Plans differ only by processing priority, discovery speed, knowledge capacity, and support tier.</p>
+    </div>
+    <div class="billing-toggle fade-up">
+      <span class="billing-lbl" id="lblMonthly">Monthly</span>
+      <button class="toggle-pill on" id="billingToggle" role="switch" aria-checked="true" onclick="toggleBilling()">
+        <span class="toggle-thumb"></span>
+      </button>
+      <span class="billing-lbl active" id="lblAnnual">Annually</span>
+    </div>
+    <div class="pricing-grid fade-up" id="pricingGrid"></div>
+    <p class="pricing-footer">7-day full refund on first payment only&ensp;·&ensp;7-day grace period after expiry&ensp;·&ensp;Data retained 90 days post-cancellation, then permanently deleted</p>
+  </div>
+</section>
+
+<!-- ══════════════ FAQ ══════════════ -->
+<section class="sec-pad sec-alt">
+  <div class="container">
+    <div class="sec-head fade-up">
+      <span class="sec-eyebrow">Questions</span>
+      <h2 class="sec-title">Common questions, honest answers.</h2>
+    </div>
+    <div class="faq-list fade-up mt-content" id="faqList"></div>
+  </div>
+</section>
+
+<!-- ══════════════ CTA ══════════════ -->
+<section class="cta-sec">
+  <div class="cta-bg"></div>
+  <div class="cta-canvas"></div>
+  <div class="container">
+    <div class="cta-inner fade-up">
+      <h2 class="cta-title">Stop managing knowledge.<br>Start using it.</h2>
+      <p class="cta-body">Build a personal AI that grows with your career and stays entirely yours.</p>
+      <button class="btn btn-primary btn-xl" onclick="openModal()">Request Early Access</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-upper">
+      <div class="footer-brand-col">
+        <div class="footer-brand">
+          <svg viewBox="55 18 275 285" width="24" height="24" aria-hidden="true">
+            <rect x="60" y="30" width="46" height="260" rx="12" fill="url(#lg1)"/>
+            <rect x="136" y="104" width="58" height="112" rx="12" fill="url(#lg1)"/>
+            <rect x="194" y="155" width="50" height="11" rx="5.5" fill="url(#lg1)"/>
+            <circle cx="254" cy="160" r="8" fill="url(#lg1)"/>
+            <rect x="280" y="22" width="46" height="276" rx="12" fill="url(#lg1)"/>
+          </svg>
+          <span class="footer-wordmark">Haarks Clinic</span>
+        </div>
+        <span class="footer-tagline">The Future OS for Surgeons.</span>
+      </div>
+      <nav class="footer-links" aria-label="Footer links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="disclaimer.html">Medical Disclaimer</a>
+        <a href="account-deletion.html">Delete Account</a>
+      </nav>
+      <a href="mailto:support@haarksclinic.com" class="footer-email">support@haarksclinic.com</a>
+    </div>
+    <div class="footer-lower">
+      <p class="footer-disclaimer">Haarks Clinic is a personal knowledge management platform for medical professionals. It is not a diagnostic tool, clinical decision support system, or regulated medical device. All clinical decisions remain the sole responsibility of the treating surgeon. Haarks International Pvt Ltd, Bengaluru, India.</p>
+      <p class="footer-copy">© 2026 Haarks International Pvt Ltd. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════ MODAL ══════════════ -->
+<div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-card">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close">&#x2715;</button>
+    <div id="modalForm">
+      <h3 id="modal-title">Request Early Access</h3>
+      <p class="modal-sub">Join the waitlist for the personal AI built for surgeons.</p>
+      <div class="field">
+        <label for="f-name">Full Name</label>
+        <input type="text" id="f-name" placeholder="Dr. Firstname Lastname" autocomplete="name" />
+        <span class="field-err" id="e-name">Please enter your name.</span>
+      </div>
+      <div class="field">
+        <label for="f-email">Email</label>
+        <input type="email" id="f-email" placeholder="doctor@hospital.com" autocomplete="email" />
+        <span class="field-err" id="e-email">Please enter a valid email.</span>
+      </div>
+      <div class="field">
+        <label for="f-spec">Specialty</label>
+        <select id="f-spec"></select>
+      </div>
+      <div class="field">
+        <label for="f-hosp">Hospital / Clinic <span style="color:var(--muted);font-size:10px">(optional)</span></label>
+        <input type="text" id="f-hosp" placeholder="Where you practice" autocomplete="organization" />
+      </div>
+      <button class="btn btn-primary modal-submit" onclick="submitWaitlist()">Join the Waitlist</button>
+    </div>
+    <div id="modalSuccess" class="modal-success-wrap" style="display:none">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      <h4>You're on the list.</h4>
+      <p>Welcome to Haarks Clinic. We'll be in touch.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  /* ─── NAV SCROLL ─── */
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 20);
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  /* ─── FADE-UP OBSERVER ─── */
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { rootMargin: '-60px' });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+  setTimeout(() => document.querySelectorAll('.hero .fade-up').forEach(el => el.classList.add('visible')), 80);
+
+  /* ─── DISCOVERY TICKER ─── */
+  const items = [
+    'Discovering Orthopaedic Protocols',
+    'Indexing Conference Presentations',
+    'Connecting Research Papers',
+    'Organising Surgical Notes',
+    'Finding Clinical Workflows',
+    'Linking Voice Learnings'
+  ];
+  let di = 0;
+  const dText = document.getElementById('discovery-text');
+  const dWrap = document.getElementById('discovery');
+  setInterval(() => {
+    dWrap.style.opacity = 0; dWrap.style.transform = 'translateY(-16px)';
+    setTimeout(() => {
+      di = (di + 1) % items.length;
+      dText.textContent = items[di];
+      dWrap.style.transform = 'translateY(16px)';
+      requestAnimationFrame(() => { dWrap.style.opacity = 1; dWrap.style.transform = 'translateY(0)'; });
+    }, 400);
+  }, 2800);
+
+  /* ─── SPECIALTIES ─── */
+  const specialties = ['Orthopaedics','Neurosurgery','Cardiac Surgery','Plastic Surgery','General Surgery','ENT','Urology','Gastro Surgery','Gynaecology','Oncology','Vascular Surgery','Paediatric Surgery','Thoracic Surgery','Transplant Surgery','Spine Surgery','Hepatobiliary','Colorectal Surgery','Maxillofacial'];
+  document.getElementById('specGrid').innerHTML = specialties.map(s => '<span class="spec-pill">'+s+'</span>').join('');
+
+  /* ─── FAQ ─── */
+  const faqs = [
+    {
+      q: 'What exactly is Haarks Clinic?',
+      a: 'Haarks Clinic is a personal knowledge management platform for surgeons. It connects your documents, case notes, voice recordings, presentations, and research into a private AI layer that you can query in natural language. It is not a diagnostic tool or clinical decision support system — it is a personal knowledge intelligence built around your own professional experience.'
+    },
+    {
+      q: 'How is this different from ChatGPT or other AI assistants?',
+      a: 'Generic AI assistants answer from the internet and shared training data. Haarks AI answers from your personal knowledge — your own cases, protocols, notes, and learnings. The responses are sourced from what you have experienced and documented, not from generalised medical literature. Your data is never used to train any shared model.'
+    },
+    {
+      q: 'Is my data safe? Who can access it?',
+      a: 'Only you can access your knowledge. Haarks Clinic uses a private namespace architecture — each surgeon\'s data is completely isolated at the infrastructure level. All data is encrypted at rest (AES-256) and in transit (TLS 1.3). Your files stay on your own Google Drive or OneDrive and are never copied to Haarks servers. Your knowledge is never shared with, or used to train, any other user\'s AI.'
+    },
+    {
+      q: 'Do my documents get uploaded to your servers?',
+      a: 'No. Documents are indexed from your connected cloud storage (Google Drive, OneDrive, Dropbox). The semantic intelligence is extracted and stored in your private namespace — but the original files remain exactly where they are. We do not copy or retain your raw documents on Haarks infrastructure.'
+    },
+    {
+      q: 'Who can use Haarks Clinic?',
+      a: 'Haarks Clinic is exclusively available to registered medical professionals. It is not a consumer product. During early access, we are onboarding surgeons across all specialties who want to be among the first to build their personal knowledge intelligence.'
+    },
+    {
+      q: 'When does the app launch? What happens after I join the waitlist?',
+      a: 'We are currently in early access with a limited cohort of surgeons. Once you join the waitlist, our team will reach out directly with access details. Founding Surgeons get priority access and their price locked for life.'
+    },
+    {
+      q: 'What happens to my data if I cancel?',
+      a: 'Your data is retained for 90 days after cancellation, giving you time to reconsider or export what you need. After 90 days, all your data is permanently and irreversibly deleted from our systems. There are no exceptions.'
     }
-    function toggleBilling() {
-      billing = billing === 'annual' ? 'monthly' : 'annual';
-      const t = document.getElementById('billingToggle');
-      t.classList.toggle('on', billing === 'annual');
-      t.setAttribute('aria-checked', billing === 'annual');
-      document.getElementById('lblMonthly').classList.toggle('active', billing === 'monthly');
-      document.getElementById('lblAnnual').classList.toggle('active', billing === 'annual');
-      renderPricing();
+  ];
+  document.getElementById('faqList').innerHTML = faqs.map((f, i) =>
+    '<div class="faq-item" id="faq-'+i+'">'
+    +'<button class="faq-q" onclick="toggleFaq('+i+')" aria-expanded="false">'
+    +'<span>'+f.q+'</span>'
+    +'<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>'
+    +'</button>'
+    +'<div class="faq-a"><div class="faq-a-inner">'+f.a+'</div></div>'
+    +'</div>'
+  ).join('');
+
+  function toggleFaq(i) {
+    const item = document.getElementById('faq-'+i);
+    const btn = item.querySelector('.faq-q');
+    const isOpen = item.classList.toggle('open');
+    btn.setAttribute('aria-expanded', isOpen);
+  }
+
+  /* ─── PRICING ─── */
+  const plans = [
+    {
+      id: 'founding', eyebrow: 'First 100', name: 'Founding Surgeon',
+      monthly: null, annual: 'Rs.9,999',
+      desc: 'Annual only · Price locked for life · Non-refundable',
+      popular: false,
+      features: ['Complete platform — every feature', 'Founding Surgeon badge in-app', 'Price never increases', 'Direct founder channel', 'Priority support, always']
+    },
+    {
+      id: 'basic', eyebrow: '', name: 'Basic',
+      monthly: 'Rs.999', annual: 'Rs.9,999',
+      desc: 'Essential features for building your knowledge layer.',
+      popular: false,
+      features: ['Haarks AI — personal queries', 'Voice case logging', 'Case management', 'Knowledge Vault', 'Standard processing priority']
+    },
+    {
+      id: 'advanced', eyebrow: '', name: 'Advanced',
+      monthly: 'Rs.1,999', annual: 'Rs.19,999',
+      desc: 'Deeper retrieval and faster knowledge discovery.',
+      popular: true,
+      features: ['Everything in Basic', 'Faster AI responses', 'Deeper knowledge retrieval', 'Extended memory capacity', 'Priority processing']
+    },
+    {
+      id: 'pro', eyebrow: '', name: 'Pro',
+      monthly: 'Rs.2,999', annual: 'Rs.29,999',
+      desc: 'Maximum speed and unlimited depth.',
+      popular: false,
+      features: ['Everything in Advanced', 'Maximum AI response speed', 'Unlimited knowledge depth', 'Dedicated support line', 'Early feature access']
     }
-    function selectPlan(name) { openModal(); }
+  ];
+
+  let billing = 'annual';
+  const checkIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>';
+
+  function renderPricing() {
+    document.getElementById('pricingGrid').innerHTML = plans.map(p => {
+      const isAnnual = billing === 'annual' || p.id === 'founding';
+      const price = isAnnual ? p.annual : (p.monthly || p.annual);
+      const period = (p.id === 'founding') ? '/yr' : (isAnnual ? '/yr' : '/mo');
+      return '<div class="price-card '+(p.popular ? 'popular' : '')+'">'
+        +(p.popular ? '<span class="popular-badge">Most Popular</span>' : '')
+        +'<div class="price-eyebrow">'+p.eyebrow+'</div>'
+        +'<div class="price-name">'+p.name+'</div>'
+        +'<div class="price-amount-row"><span class="price-amount">'+price+'</span><span class="price-period">'+period+'</span></div>'
+        +'<div class="price-desc">'+p.desc+'</div>'
+        +'<ul class="price-features">'+p.features.map(f => '<li>'+checkIcon+'<span>'+f+'</span></li>').join('')+'</ul>'
+        +'<button class="btn '+(p.popular ? 'btn-primary' : 'price-btn-ghost')+' price-btn" onclick="openModal()">Select Plan</button>'
+        +'</div>';
+    }).join('');
+  }
+
+  function toggleBilling() {
+    billing = billing === 'annual' ? 'monthly' : 'annual';
+    const t = document.getElementById('billingToggle');
+    t.classList.toggle('on', billing === 'annual');
+    t.setAttribute('aria-checked', billing === 'annual');
+    document.getElementById('lblMonthly').classList.toggle('active', billing === 'monthly');
+    document.getElementById('lblAnnual').classList.toggle('active', billing === 'annual');
     renderPricing();
+  }
+  renderPricing();
 
-    const SPEC_OPTS = [...specialties, 'Other'];
-    document.getElementById('f-spec').innerHTML = SPEC_OPTS.map(s => '<option value="'+s+'">'+s+'</option>').join('');
-    function openModal() { document.getElementById('modal').classList.add('open'); document.body.style.overflow = 'hidden'; }
-    function closeModal() {
-      document.getElementById('modal').classList.remove('open'); document.body.style.overflow = '';
-      document.getElementById('modalForm').style.display = 'block';
-      document.getElementById('modalSuccess').style.display = 'none';
-    }
-    document.getElementById('modal').addEventListener('click', e => { if (e.target.id === 'modal') closeModal(); });
-    function submitWaitlist() {
-      const name = document.getElementById('f-name').value.trim();
-      const email = document.getElementById('f-email').value.trim();
-      let ok = true;
-      const eName = document.getElementById('e-name'), eEmail = document.getElementById('e-email');
-      eName.style.display = 'none'; eEmail.style.display = 'none';
-      if (!name) { eName.style.display = 'block'; ok = false; }
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { eEmail.style.display = 'block'; ok = false; }
-      if (!ok) return;
-      document.getElementById('modalForm').style.display = 'none';
-      document.getElementById('modalSuccess').style.display = 'block';
-    }
-  </script>
+  /* ─── MODAL ─── */
+  const SPEC_OPTS = [...specialties, 'Other'];
+  document.getElementById('f-spec').innerHTML = SPEC_OPTS.map(s => '<option value="'+s+'">'+s+'</option>').join('');
+
+  function openModal() {
+    document.getElementById('modal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    document.getElementById('modal').classList.remove('open');
+    document.body.style.overflow = '';
+    document.getElementById('modalForm').style.display = 'block';
+    document.getElementById('modalSuccess').style.display = 'none';
+  }
+  document.getElementById('modal').addEventListener('click', e => { if (e.target.id === 'modal') closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  function submitWaitlist() {
+    const name = document.getElementById('f-name').value.trim();
+    const email = document.getElementById('f-email').value.trim();
+    const spec = document.getElementById('f-spec').value;
+    const hosp = document.getElementById('f-hosp').value.trim();
+    let ok = true;
+    const eName = document.getElementById('e-name'), eEmail = document.getElementById('e-email');
+    eName.style.display = 'none'; eEmail.style.display = 'none';
+    if (!name) { eName.style.display = 'block'; ok = false; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { eEmail.style.display = 'block'; ok = false; }
+    if (!ok) return;
+    const subject = encodeURIComponent('Haarks Clinic Waitlist — ' + name);
+    const body = encodeURIComponent(
+      'Name: ' + name + '\n' +
+      'Email: ' + email + '\n' +
+      'Specialty: ' + spec + '\n' +
+      'Hospital: ' + (hosp || '—')
+    );
+    window.location.href = 'mailto:support@haarksclinic.com?subject=' + subject + '&body=' + body;
+    document.getElementById('modalForm').style.display = 'none';
+    document.getElementById('modalSuccess').style.display = 'block';
+  }
+</script>
 </body>
 </html>
