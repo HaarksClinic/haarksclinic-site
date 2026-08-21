@@ -2,17 +2,35 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="application-name" content="Haarks Clinic" />
+  <meta name="theme-color" content="#0A84FF" />
   <title>Haarks Clinic — Personal AI for Surgeons</title>
   <meta name="description" content="India's first personal AI for surgeons. Log a case in 60 seconds. Build a knowledge intelligence that grows with your career and stays entirely yours." />
-  <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="Haarks Clinic — Personal AI for Surgeons" />
-  <meta property="og:description" content="The personal AI for every surgeon. Build a brain that grows with your career and stays entirely yours." />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <link rel="canonical" href="https://www.haarksclinic.com/" />
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Haarks Clinic" />
+  <meta property="og:locale" content="en_IN" />
+  <meta property="og:url" content="https://www.haarksclinic.com/" />
+  <meta property="og:title" content="Haarks Clinic — Personal AI for Surgeons" />
+  <meta property="og:description" content="India's first personal AI for surgeons. Log a case in 60 seconds. Build a knowledge intelligence that grows with your career and stays entirely yours." />
+  <meta property="og:image" content="https://www.haarksclinic.com/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:alt" content="Haarks Clinic — Personal AI for Surgeons" />
+  <!-- Twitter / X Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Haarks Clinic — Personal AI for Surgeons" />
-  <meta name="twitter:description" content="The personal AI for every surgeon. Build a brain that grows with your career and stays entirely yours." />
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="twitter:description" content="India's first personal AI for surgeons. Log a case in 60 seconds. Build a knowledge intelligence that grows with your career and stays entirely yours." />
+  <meta name="twitter:image" content="https://www.haarksclinic.com/og.png" />
+  <meta name="twitter:image:alt" content="Haarks Clinic — Personal AI for Surgeons" />
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
@@ -660,6 +678,16 @@
       .tl-stage { flex-direction: row; gap: 14px; }
     }
 
+    /* ─── SKIP NAVIGATION ─── */
+    .skip-nav {
+      position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden;
+    }
+    .skip-nav:focus {
+      position: fixed; top: 16px; left: 16px; width: auto; height: auto; overflow: visible;
+      z-index: 9999; padding: 8px 18px; background: var(--primary); color: #000;
+      font-size: 14px; font-weight: 600; border-radius: var(--radius-md); text-decoration: none;
+    }
+
     /* ─── SECTION ANATOMY (Part C classes) ─── */
     section.standard { padding:128px 0; position:relative; }
     section.standard.alt { background:var(--alt-bg); }
@@ -784,8 +812,111 @@
     /* ─── BTN-HERO (missing from current) ─── */
     .btn-hero { height:50px; padding:0 28px; font-size:16px; }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.haarksclinic.com/#organization",
+        "name": "Haarks Clinic",
+        "legalName": "Haarks International Pvt Ltd",
+        "url": "https://www.haarksclinic.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "@id": "https://www.haarksclinic.com/#logo",
+          "url": "https://www.haarksclinic.com/og.png",
+          "width": 1200,
+          "height": 630
+        },
+        "description": "India's first personal AI platform for surgeons. Log cases, build a private knowledge vault, and query your own clinical experience.",
+        "foundingDate": "2025",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Bengaluru",
+          "addressRegion": "Karnataka",
+          "addressCountry": "IN"
+        },
+        "email": "support@haarksclinic.com",
+        "sameAs": [
+          "https://www.linkedin.com/company/haarks-clinic/",
+          "https://www.instagram.com/haarksclinic/"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.haarksclinic.com/#website",
+        "url": "https://www.haarksclinic.com/",
+        "name": "Haarks Clinic",
+        "description": "Personal AI knowledge platform for surgeons",
+        "inLanguage": "en",
+        "publisher": { "@id": "https://www.haarksclinic.com/#organization" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://www.haarksclinic.com/#app",
+        "name": "Haarks Clinic",
+        "applicationCategory": "BusinessApplication",
+        "applicationSubCategory": "MedicalApplication",
+        "operatingSystem": "iOS, Android",
+        "inLanguage": "en",
+        "description": "Personal AI platform for surgeons. Log cases in 60 seconds, connect your knowledge vault, and get answers from your own clinical experience.",
+        "url": "https://www.haarksclinic.com/",
+        "publisher": { "@id": "https://www.haarksclinic.com/#organization" },
+        "offers": [
+          { "@type": "Offer", "name": "Basic",    "price": "10.00", "priceCurrency": "USD" },
+          { "@type": "Offer", "name": "Advanced", "price": "21.00", "priceCurrency": "USD" },
+          { "@type": "Offer", "name": "Pro",      "price": "31.00", "priceCurrency": "USD" }
+        ],
+        "audience": { "@type": "Audience", "audienceType": "Medical Professionals" }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.haarksclinic.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is Haarks Clinic?",
+            "acceptedAnswer": { "@type": "Answer", "text": "A personal AI platform built for surgeons and medical professionals. Your Haarks AI learns from your cases, knowledge, and experience — not from anyone else's. Ask it anything about your clinical work and it answers using your vault, your cases, and your documented preferences." }
+          },
+          {
+            "@type": "Question",
+            "name": "How is this different from ChatGPT or Gemini?",
+            "acceptedAnswer": { "@type": "Answer", "text": "General AI systems know public medical knowledge. They know nothing about you. Haarks AI knows your cases, your protocols, and your clinical experience because you built it. Every answer cites the sources in your personal vault — not the internet." }
+          },
+          {
+            "@type": "Question",
+            "name": "Who can use Haarks Clinic?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Registered medical professionals only. Haarks Clinic is not available to the general public." }
+          },
+          {
+            "@type": "Question",
+            "name": "Is my data private and secure?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Every surgeon's knowledge runs in a completely separate, isolated namespace. No other surgeon can access your data. Your knowledge is never used to train any shared AI model. All data is encrypted at rest (AES-256) and in transit (TLS 1.3)." }
+          },
+          {
+            "@type": "Question",
+            "name": "Where are my files stored?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Your original documents remain in your Google Drive. Haarks indexes references only — your source files are never uploaded to or stored on Haarks servers." }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the Founding Surgeon program?",
+            "acceptedAnswer": { "@type": "Answer", "text": "The first 50 surgeons who subscribe get their subscription price locked for life, a founding badge in-app, and direct access to the founding team. Annual subscription only, 50 places total." }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Haarks Clinic a diagnostic or clinical decision support tool?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. Haarks Clinic is a personal knowledge management platform for medical professionals. It is not a diagnostic tool and not clinical decision support. All clinical decisions remain entirely the surgeon's responsibility." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
+<a href="#main-content" class="skip-nav">Skip to main content</a>
 
 <!-- ══════════════ NAV ══════════════ -->
 <nav id="nav">
@@ -816,7 +947,7 @@
 </nav>
 
 <!-- ══════════════ HERO ══════════════ -->
-<section class="hero">
+<section class="hero" id="main-content">
   <div class="hero-canvas"></div>
   <div class="hero-orb hero-orb-1"></div>
   <div class="hero-orb hero-orb-2"></div>
@@ -827,7 +958,7 @@
           <span class="hero-eyebrow-dot"></span>
           <span>India's First Personal AI for Surgeons</span>
         </div>
-        <h1 class="hero-title">Every Doctor's Private AI.</h1>
+        <h1 class="hero-title">Every Surgeon's Personal AI.</h1>
         <p class="hero-sub">Your knowledge. Your AI. Entirely yours.</p>
         <p class="hero-body">Haarks Clinic is a personal AI that knows your cases, your protocols, and your clinical experience — not generic medical information from the internet. Ask questions. Get answers from your knowledge, with sources.</p>
         <div class="hero-ctas">
@@ -894,13 +1025,13 @@
 <div class="trust-strip">
   <div class="container">
     <div class="trust-items">
-      <div class="trust-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Per-surgeon isolation</div>
+      <div class="trust-item"><svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Per-surgeon isolation</div>
       <div class="trust-divider"></div>
-      <div class="trust-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20a6 6 0 0 0-12 0"/><circle cx="12" cy="10" r="4"/><circle cx="12" cy="12" r="10"/></svg>Zero shared AI learning</div>
+      <div class="trust-item"><svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20a6 6 0 0 0-12 0"/><circle cx="12" cy="10" r="4"/><circle cx="12" cy="12" r="10"/></svg>Zero shared AI learning</div>
       <div class="trust-divider"></div>
-      <div class="trust-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/><path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/></svg>Your files stay in your Drive</div>
+      <div class="trust-item"><svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/><path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/></svg>Your files stay in your Drive</div>
       <div class="trust-divider"></div>
-      <div class="trust-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>For registered medical professionals</div>
+      <div class="trust-item"><svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>For registered medical professionals</div>
     </div>
   </div>
 </div>
@@ -1344,23 +1475,33 @@
       <div class="footer-brand-col">
         <div class="footer-brand">
           <svg viewBox="55 18 275 285" width="24" height="24" aria-hidden="true">
-            <rect x="60" y="30" width="46" height="260" rx="12" fill="url(#lg1)"/>
-            <rect x="136" y="104" width="58" height="112" rx="12" fill="url(#lg1)"/>
-            <rect x="194" y="155" width="50" height="11" rx="5.5" fill="url(#lg1)"/>
-            <circle cx="254" cy="160" r="8" fill="url(#lg1)"/>
-            <rect x="280" y="22" width="46" height="276" rx="12" fill="url(#lg1)"/>
+            <defs>
+              <linearGradient id="lg-footer" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#5CB8FF"/>
+                <stop offset="100%" stop-color="#0A84FF"/>
+              </linearGradient>
+            </defs>
+            <rect x="60" y="30" width="46" height="260" rx="12" fill="url(#lg-footer)"/>
+            <rect x="136" y="104" width="58" height="112" rx="12" fill="url(#lg-footer)"/>
+            <rect x="194" y="155" width="50" height="11" rx="5.5" fill="url(#lg-footer)"/>
+            <circle cx="254" cy="160" r="8" fill="url(#lg-footer)"/>
+            <rect x="280" y="22" width="46" height="276" rx="12" fill="url(#lg-footer)"/>
           </svg>
           <span class="footer-wordmark">Haarks Clinic</span>
         </div>
         <span class="footer-tagline">The Future OS for Surgeons.</span>
       </div>
       <nav class="footer-links" aria-label="Footer links">
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms of Service</a>
-        <a href="disclaimer.html">Medical Disclaimer</a>
-        <a href="account-deletion.html">Delete Account</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Service</a>
+        <a href="/disclaimer">Medical Disclaimer</a>
+        <a href="/account-deletion">Delete Account</a>
       </nav>
-      <a href="mailto:support@haarksclinic.com" class="footer-email">support@haarksclinic.com</a>
+      <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:center;">
+        <a href="mailto:support@haarksclinic.com" class="footer-email">support@haarksclinic.com</a>
+        <a href="https://www.linkedin.com/company/haarks-clinic/" rel="noopener noreferrer" target="_blank" class="footer-email" aria-label="Haarks Clinic on LinkedIn">LinkedIn</a>
+        <a href="https://www.instagram.com/haarksclinic/" rel="noopener noreferrer" target="_blank" class="footer-email" aria-label="Haarks Clinic on Instagram">Instagram</a>
+      </div>
     </div>
     <div class="footer-lower">
       <p class="footer-disclaimer">Haarks Clinic is a personal knowledge management platform for medical professionals. It is not a diagnostic tool, clinical decision support system, or regulated medical device. All clinical decisions remain the sole responsibility of the treating surgeon. Haarks International Pvt Ltd, Bengaluru, India.</p>
@@ -1454,7 +1595,7 @@
   /* ─── PRICING ─── */
   const plans = [
     {
-      id: 'founding', eyebrow: 'First 100', name: 'Founding Surgeon',
+      id: 'founding', eyebrow: 'First 50', name: 'Founding Surgeon',
       monthly: null, annual: '$99',
       desc: 'Annual only · Price locked for life · Non-refundable',
       popular: false,
