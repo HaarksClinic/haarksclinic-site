@@ -1298,7 +1298,7 @@
       <button class="toggle-pill on" id="billingToggle" role="switch" aria-checked="true" onclick="toggleBilling()">
         <span class="toggle-thumb"></span>
       </button>
-      <span class="billing-lbl active" id="lblAnnual">Annually</span>
+      <span class="billing-lbl active" id="lblAnnual">Annually <span style="font-size:10px;font-weight:600;color:var(--primary);letter-spacing:0.04em;">15% OFF</span></span>
     </div>
     <div class="pricing-grid fade-up" id="pricingGrid"></div>
     <p class="pricing-footer">7-day full refund on first payment only&ensp;·&ensp;7-day grace period after expiry&ensp;·&ensp;Data retained 90 days post-cancellation, then permanently deleted</p>
@@ -1455,28 +1455,28 @@
   const plans = [
     {
       id: 'founding', eyebrow: 'First 100', name: 'Founding Surgeon',
-      monthly: null, annual: 'Rs.9,999',
+      monthly: null, annual: '$99',
       desc: 'Annual only · Price locked for life · Non-refundable',
       popular: false,
       features: ['Complete platform — every feature', 'Founding Surgeon badge in-app', 'Price never increases', 'Direct founder channel', 'Priority support, always']
     },
     {
       id: 'basic', eyebrow: '', name: 'Basic',
-      monthly: 'Rs.999', annual: 'Rs.9,999',
+      monthly: '$10', annual: '$102',
       desc: 'Essential features for building your knowledge layer.',
       popular: false,
       features: ['Haarks AI — personal queries', 'Voice case logging', 'Case management', 'Knowledge Vault', 'Standard processing priority']
     },
     {
-      id: 'advanced', eyebrow: '', name: 'Advanced',
-      monthly: 'Rs.1,999', annual: 'Rs.19,999',
+      id: 'advanced', eyebrow: '⭐', name: 'Advanced',
+      monthly: '$21', annual: '$214',
       desc: 'Deeper retrieval and faster knowledge discovery.',
       popular: true,
       features: ['Everything in Basic', 'Faster AI responses', 'Deeper knowledge retrieval', 'Extended knowledge memory', 'Priority processing']
     },
     {
       id: 'pro', eyebrow: '', name: 'Pro',
-      monthly: 'Rs.2,999', annual: 'Rs.29,999',
+      monthly: '$31', annual: '$316',
       desc: 'Maximum speed and unlimited depth.',
       popular: false,
       features: ['Everything in Advanced', 'Maximum AI response speed', 'Unlimited knowledge depth', 'Dedicated support line', 'Early feature access']
