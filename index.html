@@ -537,6 +537,7 @@
     .price-btn-ghost { border: 1px solid var(--border); color: #fff; background: transparent; }
     .price-btn-ghost:hover { background: var(--surface-c); }
     .pricing-footer { text-align: center; font-size: 11px; color: var(--muted-dim); margin-top: 36px; text-transform: uppercase; letter-spacing: 0.04em; line-height: 1.8; }
+    .pricing-trial-note { text-align: center; font-size: 13px; color: var(--primary); font-weight: 500; margin-bottom: 36px; }
 
     /* ─── FAQ ─── */
     .faq-list { max-width: 720px; margin: 48px auto 0; display: flex; flex-direction: column; gap: 2px; }
@@ -1425,13 +1426,14 @@
       <p class="sec-body">All plans include every core Haarks feature. Plans differ only by processing priority, discovery speed, knowledge capacity, and support tier.</p>
     </div>
     <div class="billing-toggle fade-up">
-      <span class="billing-lbl" id="lblMonthly">Monthly</span>
-      <button class="toggle-pill on" id="billingToggle" role="switch" aria-checked="true" onclick="toggleBilling()">
+      <span class="billing-lbl active" id="lblMonthly">Monthly</span>
+      <button class="toggle-pill" id="billingToggle" role="switch" aria-checked="false" onclick="toggleBilling()">
         <span class="toggle-thumb"></span>
       </button>
-      <span class="billing-lbl active" id="lblAnnual">Annually <span style="font-size:10px;font-weight:600;color:var(--primary);letter-spacing:0.04em;">15% OFF</span></span>
+      <span class="billing-lbl" id="lblAnnual">Annually <span style="font-size:10px;font-weight:600;color:var(--primary);letter-spacing:0.04em;">15% OFF</span></span>
     </div>
     <div class="pricing-grid fade-up" id="pricingGrid"></div>
+    <p class="pricing-trial-note">14-day free trial</p>
     <p class="pricing-footer">7-day full refund on first payment only&ensp;·&ensp;7-day grace period after expiry&ensp;·&ensp;Data retained 90 days post-cancellation, then permanently deleted</p>
   </div>
 </section>
@@ -1624,7 +1626,7 @@
     }
   ];
 
-  let billing = 'annual';
+  let billing = 'monthly';
   const checkIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>';
 
   function renderPricing() {
