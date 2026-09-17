@@ -866,6 +866,12 @@
     .founding-spots-text { font-size:13px; color:rgba(142,142,147,0.6); }
     .founding-spots-text strong { color:rgba(255,255,255,0.7); }
     @media(max-width:767px) { .founding-card { padding:36px 24px; } .founding-card-title { font-size:30px; } .founding-card-perks { grid-template-columns:1fr; gap:10px; } }
+    .founding-product-img { display:block; width:72vw; max-width:260px; height:auto; margin:32px auto 0; border-radius:28px; box-shadow:0 32px 64px -16px rgba(0,0,0,0.65); }
+    @media(min-width:768px) {
+      .founding-card { display:flex; align-items:center; gap:56px; }
+      .founding-card-inner { flex:1; min-width:0; }
+      .founding-product-img { width:clamp(200px, 20vw, 280px); height:auto; flex-shrink:0; margin:0; border-radius:28px; }
+    }
 
     /* ─── FAQ (new inline) ─── */
     .faq-wrap { max-width:768px; margin:56px auto 0; }
@@ -1449,20 +1455,29 @@
       <div class="founding-card fade-up">
         <div class="founding-glow"></div>
         <div class="founding-topline"></div>
-        <div class="founding-eyebrow-new"><div class="founding-eyebrow-dot"></div>Limited · 50 Spots Total</div>
-        <h3 class="founding-card-title">Founding Surgeon<br>Program.</h3>
-        <p class="founding-card-body">Join the surgeons who will define how medical knowledge is built and used in India. This is a founding offer — 50 places only. Your subscription price is fixed at the $99/year founding rate for 3 years.</p>
-        <div class="founding-card-perks">
-          <div class="founding-card-perk"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Price fixed for 3 years</div>
-          <div class="founding-card-perk"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Founding badge in-app</div>
-          <div class="founding-card-perk"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Direct access to the founders</div>
-          <div class="founding-card-perk"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Priority support and features</div>
-          <div class="founding-card-perk"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Shape the product from day one</div>
+        <div class="founding-card-inner">
+          <div class="founding-eyebrow-new"><div class="founding-eyebrow-dot"></div>Limited · 50 Spots Total</div>
+          <h3 class="founding-card-title">Founding Surgeon<br>Program.</h3>
+          <p class="founding-card-body">Join the surgeons who will define how medical knowledge is built and used in India. This is a founding offer — 50 places only. Your subscription price is fixed at the $99/year founding rate for 3 years.</p>
+          <div class="founding-card-perks">
+            <div class="founding-card-perk"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Price fixed for 3 years</div>
+            <div class="founding-card-perk"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Founding badge in-app</div>
+            <div class="founding-card-perk"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Direct access to the founders</div>
+            <div class="founding-card-perk"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Priority support and features</div>
+            <div class="founding-card-perk"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Shape the product from day one</div>
+          </div>
+          <div class="founding-cta-row">
+            <button class="btn btn-primary btn-hero" onclick="openModal()">Claim Your Spot</button>
+            <p class="founding-spots-text"><strong>50 spots</strong> total · Annual subscription only</p>
+          </div>
         </div>
-        <div class="founding-cta-row">
-          <button class="btn btn-primary btn-hero" onclick="openModal()">Claim Your Spot</button>
-          <p class="founding-spots-text"><strong>50 spots</strong> total · Annual subscription only</p>
-        </div>
+        <img
+          class="founding-product-img"
+          src="app-screenshots/founding-surgeon-badge.png"
+          alt="Founding Surgeon badge in the Haarks Clinic app"
+          width="941"
+          height="1672"
+        >
       </div>
     </div>
   </div>
