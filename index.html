@@ -156,7 +156,7 @@
 
     /* ─── HERO ─── */
     .hero {
-      min-height: 96vh; padding: calc(48px + 64px) 0 80px;
+      min-height: 100vh; padding: calc(48px + 64px) 0 100px;
       display: flex; align-items: center; overflow: hidden;
     }
     .hero-canvas {
@@ -283,6 +283,14 @@
     }
     .source-pill-soon { padding:3px 10px; border-radius:9999px; background:rgba(142,142,147,0.06); border:1px solid rgba(142,142,147,0.12); color:rgba(142,142,147,0.5); font-size:11px; }
     .mockup-divider { height: 1px; background: var(--border); margin: 0 -20px; }
+
+    /* ─── HERO PRODUCT IMAGE ─── */
+    .hero-product-img {
+      display: block; width: 88vw; max-width: 360px; height: auto;
+      margin: 0 auto;
+      border-radius: 36px;
+      box-shadow: 0 40px 80px -20px rgba(0,0,0,0.8), 0 0 60px rgba(10,132,255,0.08);
+    }
 
     /* ─── TRUST BELT ─── */
     .trust-belt {
@@ -722,9 +730,11 @@
       .footer-brand-col { align-items: flex-start; }
     }
     @media (min-width: 1024px) {
-      .hero-inner { grid-template-columns: 5fr 4fr; gap: 48px; }
+      .hero-inner { grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+      .hero-right { display: flex; align-items: center; justify-content: center; }
       h1.hero-title { font-size: 80px; }
       .hero-ctas { flex-direction: row; }
+      .hero-product-img { width: clamp(360px, 34vw, 460px); height: auto; max-width: 100%; margin: 0; }
       .problem-grid { grid-template-columns: repeat(3, 1fr); }
       .privacy-grid { grid-template-columns: repeat(3, 1fr); }
       .pricing-grid { grid-template-columns: repeat(4, 1fr); }
@@ -1033,53 +1043,13 @@
       </div>
 
       <div class="hero-right fade-up" style="animation-delay:0.1s">
-        <div class="mockup-wrap">
-          <div class="mockup-glow"></div>
-          <div class="mockup">
-            <div class="mockup-topbar">
-              <div class="mockup-dots">
-                <span class="mockup-dot mockup-dot-r"></span>
-                <span class="mockup-dot mockup-dot-y"></span>
-                <span class="mockup-dot mockup-dot-g"></span>
-              </div>
-              <div class="mockup-title-row">
-                <span class="mockup-status-dot"></span>
-                <span class="mockup-title">Haarks AI</span>
-              </div>
-              <span class="mockup-badge">LIVE</span>
-            </div>
-            <div class="mockup-body">
-              <div class="prog-label">Knowledge Strength</div>
-              <div class="prog-row">
-                <div class="prog-track"><div class="prog-fill"></div></div>
-                <span class="prog-value">28%</span>
-              </div>
-              <div class="mockup-divider"></div>
-              <div class="chat-row">
-                <div class="chat-role">You</div>
-                <div class="chat-bubble chat-bubble-user">What's my preferred closure technique for laparoscopic cholecystectomy?</div>
-              </div>
-              <div class="chat-row">
-                <div class="chat-role">Haarks AI</div>
-                <div class="chat-bubble chat-bubble-ai">Based on 14 of your logged cases, you consistently use Hem-o-lok clips at the cystic duct with a 5mm port closure using Carter-Thomason. Your notes from March emphasise avoiding monopolar near the CBD.</div>
-                <div class="chat-source-row">
-                  <span class="chat-source">14 cases</span>
-                  <span class="chat-source">March notes</span>
-                  <span class="chat-source">Protocol v2</span>
-                </div>
-              </div>
-              <div class="mockup-divider"></div>
-              <div class="prog-label">Connected Sources</div>
-              <div class="source-row">
-                <span class="source-chip">Google Drive</span>
-                <span class="source-chip">Voice Learnings</span>
-                <span class="source-chip">Cases</span>
-                <span class="source-pill-soon">OneDrive · Soon</span>
-                <span class="source-pill-soon">Dropbox · Soon</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <img
+          class="hero-product-img"
+          src="app-screenshots/haarks-product-preview.png"
+          alt="Haarks Clinic — Personal AI for Surgeons"
+          width="941"
+          height="1672"
+        >
       </div>
     </div>
   </div>
@@ -1239,6 +1209,24 @@
           <div class="ai-demo-label">Haarks AI</div>
         </div>
         <div class="ai-demo-body">
+          <div>
+            <div class="prog-label">Knowledge Strength</div>
+            <div class="prog-row">
+              <div class="prog-track"><div class="prog-fill"></div></div>
+              <span class="prog-value">28%</span>
+            </div>
+          </div>
+          <div>
+            <div class="prog-label">Connected Sources</div>
+            <div class="source-row">
+              <span class="source-chip">Google Drive</span>
+              <span class="source-chip">Voice Learnings</span>
+              <span class="source-chip">Cases</span>
+              <span class="source-pill-soon">OneDrive · Soon</span>
+              <span class="source-pill-soon">Dropbox · Soon</span>
+            </div>
+          </div>
+          <div style="height:1px;background:rgba(255,255,255,0.07);margin:0 -28px"></div>
           <div class="ai-user-msg">
             <div class="ai-user-bubble">What's my usual approach for primary total knee replacement in valgus knees?</div>
           </div>
