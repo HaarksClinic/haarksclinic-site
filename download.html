@@ -5,28 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
   <meta name="application-name" content="Haarks Clinic"/>
   <meta name="theme-color" content="#0A84FF"/>
-  <title>Haarks Clinic — Download the App</title>
-  <meta name="description" content="Download Haarks Clinic, the private AI platform built for surgeons."/>
-  <meta name="robots" content="index, follow"/>
+  <title>Haarks Clinic — Get the App</title>
+  <meta name="description" content="Haarks Clinic is the private AI built exclusively for surgeons — case logging, AI knowledge vault, voice dictation and surgical intelligence. Coming soon to iOS and Android."/>
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large"/>
   <link rel="canonical" href="https://www.haarksclinic.com/download"/>
   <!-- Open Graph -->
   <meta property="og:type" content="website"/>
   <meta property="og:site_name" content="Haarks Clinic"/>
   <meta property="og:locale" content="en_IN"/>
   <meta property="og:url" content="https://www.haarksclinic.com/download"/>
-  <meta property="og:title" content="Haarks Clinic — Download the App"/>
-  <meta property="og:description" content="Download Haarks Clinic, the private AI platform built for surgeons."/>
+  <meta property="og:title" content="Haarks Clinic — Get the App"/>
+  <meta property="og:description" content="The private AI built exclusively for surgeons. Case logging, AI knowledge vault, voice dictation and surgical intelligence. Coming soon to iOS and Android."/>
   <meta property="og:image" content="https://www.haarksclinic.com/og.png"/>
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
   <meta property="og:image:type" content="image/png"/>
-  <meta property="og:image:alt" content="Haarks Clinic — Personal AI for Surgeons"/>
+  <meta property="og:image:alt" content="Haarks Clinic — Private AI for Surgeons"/>
   <!-- Twitter / X Card -->
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Haarks Clinic — Download the App"/>
-  <meta name="twitter:description" content="Download Haarks Clinic, the private AI platform built for surgeons."/>
+  <meta name="twitter:title" content="Haarks Clinic — Get the App"/>
+  <meta name="twitter:description" content="The private AI built exclusively for surgeons. Coming soon to iOS and Android."/>
   <meta name="twitter:image" content="https://www.haarksclinic.com/og.png"/>
-  <meta name="twitter:image:alt" content="Haarks Clinic — Personal AI for Surgeons"/>
+  <meta name="twitter:image:alt" content="Haarks Clinic — Private AI for Surgeons"/>
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"/>
@@ -35,23 +35,76 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet"/>
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.haarksclinic.com/#organization",
+        "name": "Haarks Clinic",
+        "url": "https://www.haarksclinic.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "@id": "https://www.haarksclinic.com/#logo",
+          "url": "https://www.haarksclinic.com/apple-touch-icon.png",
+          "width": 180,
+          "height": 180
+        }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://www.haarksclinic.com/download#app",
+        "name": "Haarks Clinic",
+        "applicationCategory": "MedicalApplication",
+        "operatingSystem": "iOS, Android",
+        "description": "Haarks Clinic is the private AI built exclusively for surgeons — case logging, AI knowledge vault, voice dictation and surgical intelligence.",
+        "offers": {
+          "@type": "Offer",
+          "availability": "https://schema.org/PreOrder",
+          "price": "0",
+          "priceCurrency": "INR"
+        },
+        "publisher": {
+          "@id": "https://www.haarksclinic.com/#organization"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.haarksclinic.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Download", "item": "https://www.haarksclinic.com/download" }
+        ]
+      }
+    ]
+  }
+  </script>
   <style>
+    /* ── TOKENS (identical to main site) ── */
     :root {
       --bg: #000000;
-      --fg: #ffffff;
+      --fg: #FFFFFF;
       --primary: #0A84FF;
+      --primary-90: rgba(10,132,255,0.9);
       --primary-press: #0071E3;
+      --primary-dim: rgba(10,132,255,0.10);
       --primary-glow: rgba(10,132,255,0.25);
       --accent: #5AC8FA;
       --logo-top: #5CB8FF;
+      --card: #0F0F0F;
+      --surface-a: #111111;
       --surface-b: #1C1C1E;
-      --surface-c: #111111;
+      --surface-c: #18181D;
       --border: #242427;
+      --border-dark: #2C2C2E;
       --border-soft: rgba(255,255,255,0.06);
+      --alt-bg: #0A0A0A;
       --muted: #8E8E93;
-      --muted-dim: rgba(142,142,147,0.5);
+      --muted-dim: rgba(142,142,147,0.55);
       --font-display: 'Syne', sans-serif;
       --font-body: 'DM Sans', sans-serif;
+      --radius-sm: 8px;
       --radius-md: 12px;
       --radius-lg: 16px;
       --radius-xl: 24px;
@@ -67,11 +120,13 @@
       color: var(--fg);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
 
+    h1, h2, h3 { font-family: var(--font-display); }
     a { color: inherit; text-decoration: none; }
 
     /* ── NAV ── */
@@ -90,7 +145,7 @@
     .brand { display: flex; align-items: center; gap: 10px; }
     .wordmark {
       font-family: var(--font-display); font-weight: 700;
-      font-size: 16px; letter-spacing: -0.02em; color: #fff;
+      font-size: 16px; letter-spacing: -0.02em;
     }
     .nav-back {
       font-size: 14px; font-weight: 500; color: var(--muted);
@@ -98,23 +153,66 @@
     }
     .nav-back:hover { color: #fff; }
 
-    /* ── MAIN ── */
+    /* ── MAIN SCAFFOLD ── */
     main {
       flex: 1;
+      position: relative;
       display: flex; flex-direction: column; align-items: center;
-      padding: 72px 24px 64px;
+      padding: 88px 24px 80px;
       text-align: center;
+      overflow: hidden;
     }
 
-    /* ── EYEBROW ── */
+    /* ── BACKGROUND: dot grid ── */
+    .bg-canvas {
+      position: absolute; inset: 0; pointer-events: none; z-index: 0;
+      background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.022) 1px, transparent 0);
+      background-size: 40px 40px;
+    }
+
+    /* ── BACKGROUND: atmospheric orbs ── */
+    .bg-orb {
+      position: absolute; border-radius: 50%;
+      pointer-events: none; z-index: 0; will-change: transform;
+    }
+    .bg-orb-1 {
+      width: 600px; height: 600px;
+      top: -15%; left: 50%; transform: translateX(-50%);
+      background: radial-gradient(circle, rgba(10,132,255,0.11) 0%, transparent 68%);
+      animation: orb-breathe 9s ease-in-out infinite;
+    }
+    .bg-orb-2 {
+      width: 360px; height: 360px;
+      bottom: 0; right: -10%;
+      background: radial-gradient(circle, rgba(90,200,250,0.06) 0%, transparent 68%);
+      animation: orb-breathe 9s ease-in-out infinite; animation-delay: 4.5s;
+    }
+    @keyframes orb-breathe {
+      0%, 100% { opacity: 0.7; transform: translateX(-50%) scale(1); }
+      50%       { opacity: 1;   transform: translateX(-50%) scale(1.08); }
+    }
+    .bg-orb-2 { animation: orb-breathe-2 9s ease-in-out infinite; animation-delay: 4.5s; }
+    @keyframes orb-breathe-2 {
+      0%, 100% { opacity: 0.7; transform: scale(1); }
+      50%       { opacity: 1;   transform: scale(1.08); }
+    }
+
+    /* ── ALL CONTENT sits above orbs ── */
+    .dl-content {
+      position: relative; z-index: 2;
+      display: flex; flex-direction: column; align-items: center;
+      width: 100%; max-width: 480px;
+    }
+
+    /* ── EYEBROW CHIP ── */
     .eyebrow {
-      display: inline-flex; align-items: center; gap: 7px;
-      padding: 5px 14px; border-radius: 9999px;
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 5px 14px 5px 8px; border-radius: 9999px;
       border: 1px solid var(--border);
-      background: rgba(15,15,20,0.6);
-      font-size: 11px; text-transform: uppercase;
-      letter-spacing: 0.07em; color: var(--muted);
-      margin-bottom: 28px;
+      background: rgba(10,10,20,0.5);
+      font-size: 11px; text-transform: uppercase; letter-spacing: 0.07em;
+      color: var(--muted);
+      margin-bottom: 36px;
     }
     .eyebrow-dot {
       width: 6px; height: 6px; border-radius: 50%;
@@ -123,149 +221,196 @@
       flex-shrink: 0;
     }
 
-    /* ── LOGO MARK ── */
-    .logo-mark { margin-bottom: 24px; }
+    /* ── HAARKS MARK WITH RING ── */
+    .mark-wrap {
+      position: relative;
+      width: 88px; height: 88px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 32px;
+    }
+    .mark-ring {
+      position: absolute; inset: 0; border-radius: 50%;
+      border: 1px solid rgba(10,132,255,0.35);
+      animation: ring-spin 16s linear infinite;
+    }
+    .mark-ring-2 {
+      position: absolute; inset: 7px; border-radius: 50%;
+      border: 1px solid rgba(10,132,255,0.15);
+      animation: ring-spin 16s linear infinite reverse; animation-delay: -8s;
+    }
+    @keyframes ring-spin { to { transform: rotate(360deg); } }
+    .mark-glow {
+      position: absolute; inset: -12px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(10,132,255,0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
 
-    /* ── HEADING ── */
-    .page-title {
-      font-family: var(--font-display);
+    /* ── TYPOGRAPHY ── */
+    .dl-title {
       font-weight: 800;
-      font-size: clamp(38px, 9vw, 60px);
+      font-size: clamp(36px, 8.5vw, 56px);
       letter-spacing: -0.035em;
       line-height: 1.04;
-      margin-bottom: 14px;
-      background: linear-gradient(145deg, #fff 0%, #fff 52%, var(--accent) 100%);
+      margin-bottom: 16px;
+      text-wrap: balance;
+      background: linear-gradient(145deg, #fff 0%, #fff 50%, var(--accent) 100%);
       -webkit-background-clip: text; background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    .page-subtitle {
-      font-weight: 300;
+    .dl-sub {
+      font-weight: 500;
       font-size: clamp(16px, 4vw, 20px);
+      color: var(--accent);
+      letter-spacing: -0.02em;
+      margin-bottom: 18px;
+    }
+    .dl-body {
+      font-weight: 300;
+      font-size: 15px;
       color: var(--muted);
-      letter-spacing: -0.01em;
-      margin-bottom: 48px;
-      max-width: 320px;
+      line-height: 1.7;
+      max-width: 380px;
+      margin-bottom: 44px;
     }
 
     /* ── PLATFORM HINT ── */
     .platform-hint {
-      font-size: 12px;
+      font-size: 10px;
       color: var(--muted-dim);
       text-transform: uppercase;
-      letter-spacing: 0.06em;
-      margin-bottom: 16px;
-      min-height: 16px;
+      letter-spacing: 0.07em;
+      margin-bottom: 14px;
+      min-height: 14px;
+      font-weight: 500;
     }
 
-    /* ── STORE BUTTONS ── */
-    .store-buttons {
+    /* ── STORE CARDS ── */
+    .store-cards {
       display: flex;
       flex-direction: column;
-      align-items: center;
       gap: 12px;
       width: 100%;
-      max-width: 300px;
-      margin-bottom: 40px;
+      margin-bottom: 44px;
     }
 
-    .store-btn {
-      position: relative;
-      display: flex; align-items: center; gap: 14px;
-      width: 100%; padding: 0 20px;
-      height: 60px;
+    .store-card {
+      display: flex; align-items: center; gap: 16px;
+      padding: 0 20px;
+      height: 68px;
       border-radius: var(--radius-lg);
-      font-family: var(--font-body);
+      background: var(--card);
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.5);
       cursor: default;
       user-select: none;
       -webkit-tap-highlight-color: transparent;
-      border: 1px solid var(--border);
-      opacity: 0.55;
-      transition: opacity 0.2s ease;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
     }
 
-    .store-btn-ios {
-      background: rgba(255,255,255,0.04);
-    }
-    .store-btn-android {
-      background: rgba(255,255,255,0.03);
-    }
-
-    /* Detected platform gets a slight highlight */
-    .store-btn.platform-match {
-      opacity: 0.72;
-      border-color: rgba(10,132,255,0.35);
+    /* Platform-matched card gets a blue halo */
+    .store-card.platform-match {
+      border-color: rgba(10,132,255,0.4);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.5), 0 0 20px rgba(10,132,255,0.10);
     }
 
-    .store-btn-icon {
-      width: 22px; height: 22px; flex-shrink: 0; color: var(--muted);
+    .store-icon-wrap {
+      width: 40px; height: 40px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border-dark);
+      border-radius: 10px;
+    }
+    .store-icon {
+      width: 20px; height: 20px; color: rgba(255,255,255,0.8);
     }
 
-    .store-btn-label {
+    .store-card-label {
       display: flex; flex-direction: column; align-items: flex-start;
       line-height: 1.2; flex: 1; text-align: left;
     }
-    .store-btn-sup {
+    .store-card-sup {
       font-size: 10px; font-weight: 500;
-      color: var(--muted-dim); letter-spacing: 0.02em;
+      color: var(--muted-dim); letter-spacing: 0.03em;
     }
-    .store-btn-name {
-      font-size: 16px; font-weight: 700;
-      letter-spacing: -0.02em; color: var(--muted);
+    .store-card-name {
+      font-size: 17px; font-weight: 700;
+      letter-spacing: -0.025em; color: rgba(255,255,255,0.7);
     }
 
-    .coming-soon-badge {
+    .coming-pill {
+      display: inline-flex; align-items: center;
       font-size: 9px; font-weight: 700;
       letter-spacing: 0.1em; text-transform: uppercase;
       color: var(--primary);
-      border: 1px solid rgba(10,132,255,0.4);
-      border-radius: 4px;
-      padding: 2px 6px;
-      white-space: nowrap;
-      flex-shrink: 0;
+      border: 1px solid rgba(10,132,255,0.35);
+      border-radius: var(--radius-sm);
+      padding: 3px 8px;
+      white-space: nowrap; flex-shrink: 0;
+      background: rgba(10,132,255,0.06);
     }
 
-    /* ── QR NOTE ── */
-    .qr-note {
-      max-width: 280px;
-      padding: 16px 20px;
+    /* ── FOUNDING SURGEON NOTE ── */
+    .founder-note {
+      width: 100%;
+      padding: 20px 24px;
       background: var(--surface-c);
       border: 1px solid var(--border);
+      border-left: 3px solid rgba(10,132,255,0.5);
       border-radius: var(--radius-md);
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.6;
+      text-align: left;
     }
-    .qr-note strong {
-      color: rgba(255,255,255,0.75);
-      font-weight: 600;
+    .founder-note-head {
+      font-family: var(--font-display);
+      font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    .founder-note p {
+      font-size: 14px; font-weight: 300;
+      color: var(--muted); line-height: 1.65;
     }
 
     /* ── FOOTER ── */
     footer {
-      background: #000;
       border-top: 1px solid var(--border-soft);
-      padding: 24px;
+      padding: 28px 24px;
       text-align: center;
     }
     .footer-copy {
       font-size: 12px; color: var(--muted); font-weight: 500;
     }
 
-    /* Safe-area insets */
-    @supports (padding-bottom: env(safe-area-inset-bottom)) {
-      footer { padding-bottom: calc(24px + env(safe-area-inset-bottom)); }
+    /* Safe-area for notched iPhones */
+    @supports (padding: env(safe-area-inset-bottom)) {
+      main  { padding-bottom: calc(80px + env(safe-area-inset-bottom)); }
+      footer { padding-bottom: calc(28px + env(safe-area-inset-bottom)); }
     }
 
     /* ── TABLET / DESKTOP ── */
-    @media (min-width: 600px) {
-      .store-buttons { flex-direction: row; max-width: 600px; }
-      .store-btn { max-width: 280px; }
-      main { padding-top: 96px; }
+    @media (min-width: 560px) {
+      .store-cards { flex-direction: row; }
+      .store-card { flex: 1; }
+      main { padding-top: 112px; }
+    }
+
+    @media (min-width: 900px) {
+      .dl-title { font-size: 60px; }
+    }
+
+    /* ── MOBILE FINE-TUNING ── */
+    @media (max-width: 380px) {
+      .dl-title { font-size: 32px; }
+      .store-card { padding: 0 16px; height: 64px; }
+      .store-icon-wrap { width: 36px; height: 36px; }
     }
   </style>
 </head>
 <body>
 
+<a href="#main-content" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 18px;background:var(--primary);color:#000;font-size:14px;font-weight:600;border-radius:12px;text-decoration:none;" onfocus="this.style.left='16px';this.style.top='80px';this.style.width='auto';this.style.height='auto';this.style.overflow='visible';" onblur="this.style.left='-9999px';">Skip to content</a>
+
+<!-- ── NAV ── -->
 <nav aria-label="Site navigation">
   <div class="nav-inner">
     <a href="/" class="brand" aria-label="Haarks Clinic home">
@@ -288,74 +433,101 @@
   </div>
 </nav>
 
-<main>
+<!-- ── MAIN ── -->
+<main id="main-content">
 
-  <div class="eyebrow" aria-label="Founding Surgeon">
-    <span class="eyebrow-dot" aria-hidden="true"></span>
-    <span>Founding Surgeon</span>
-  </div>
+  <!-- Background elements -->
+  <div class="bg-canvas" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb-1" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb-2" aria-hidden="true"></div>
 
-  <div class="logo-mark" aria-hidden="true">
-    <svg viewBox="55 18 275 285" width="52" height="52">
-      <defs>
-        <linearGradient id="dlg-main" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#5CB8FF"/>
-          <stop offset="100%" stop-color="#0A84FF"/>
-        </linearGradient>
-      </defs>
-      <rect x="60" y="30" width="46" height="260" rx="12" fill="url(#dlg-main)"/>
-      <rect x="136" y="104" width="58" height="112" rx="12" fill="url(#dlg-main)"/>
-      <rect x="194" y="155" width="50" height="11" rx="5.5" fill="url(#dlg-main)"/>
-      <circle cx="254" cy="160" r="8" fill="url(#dlg-main)"/>
-      <rect x="280" y="22" width="46" height="276" rx="12" fill="url(#dlg-main)"/>
-    </svg>
-  </div>
+  <div class="dl-content">
 
-  <h1 class="page-title">Get Haarks Clinic</h1>
-  <p class="page-subtitle">Your Private AI for Surgery</p>
-
-  <p class="platform-hint" id="platform-hint" aria-live="polite"></p>
-
-  <div class="store-buttons" role="list" aria-label="App download options">
-
-    <!-- iOS App Store -->
-    <div class="store-btn store-btn-ios" id="btn-ios" role="listitem"
-         aria-label="App Store — Coming Soon">
-      <!-- href will be added here once the App Store listing is live: apps.apple.com/app/... -->
-      <svg class="store-btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-      </svg>
-      <span class="store-btn-label">
-        <span class="store-btn-sup">Download on the</span>
-        <span class="store-btn-name">App Store</span>
-      </span>
-      <span class="coming-soon-badge" aria-label="Coming soon">Coming Soon</span>
+    <!-- Eyebrow -->
+    <div class="eyebrow" aria-label="For Founding Surgeons">
+      <span class="eyebrow-dot" aria-hidden="true"></span>
+      <span>Founding Surgeon</span>
     </div>
 
-    <!-- Google Play Store -->
-    <div class="store-btn store-btn-android" id="btn-android" role="listitem"
-         aria-label="Google Play — Coming Soon">
-      <!-- href will be added here once the Play Store listing is live: play.google.com/store/apps/details?id=com.haarks.clinic -->
-      <svg class="store-btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M3.18 23.76c.37.2.8.22 1.19.04l12.12-6.99-2.63-2.64-10.68 9.59zM.4 1.47C.15 1.81 0 2.29 0 2.9v18.2c0 .61.15 1.09.4 1.43l.07.07 10.2-10.2v-.24L.47 1.4.4 1.47zM19.99 10.19L17.49 8.7 14.68 11.5l2.81 2.81 2.51-1.5c.72-.43.72-1.19 0-1.62zM4.37.24L16.5 7.23l-2.63 2.63L3.18.27C3.57.09 4.01.1 4.37.24z"/>
+    <!-- Haarks mark with rotating rings -->
+    <div class="mark-wrap" aria-hidden="true">
+      <div class="mark-glow"></div>
+      <div class="mark-ring"></div>
+      <div class="mark-ring-2"></div>
+      <svg viewBox="55 18 275 285" width="44" height="44">
+        <defs>
+          <linearGradient id="dlg-mark" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#5CB8FF"/>
+            <stop offset="100%" stop-color="#0A84FF"/>
+          </linearGradient>
+        </defs>
+        <rect x="60" y="30" width="46" height="260" rx="12" fill="url(#dlg-mark)"/>
+        <rect x="136" y="104" width="58" height="112" rx="12" fill="url(#dlg-mark)"/>
+        <rect x="194" y="155" width="50" height="11" rx="5.5" fill="url(#dlg-mark)"/>
+        <circle cx="254" cy="160" r="8" fill="url(#dlg-mark)"/>
+        <rect x="280" y="22" width="46" height="276" rx="12" fill="url(#dlg-mark)"/>
       </svg>
-      <span class="store-btn-label">
-        <span class="store-btn-sup">Get it on</span>
-        <span class="store-btn-name">Google Play</span>
-      </span>
-      <span class="coming-soon-badge" aria-label="Coming soon">Coming Soon</span>
     </div>
 
-  </div>
+    <!-- Typography -->
+    <h1 class="dl-title">Get Haarks Clinic</h1>
+    <p class="dl-sub">Your Private AI for Surgery</p>
+    <p class="dl-body">Your private AI environment for surgeons — built around your knowledge, your cases and your clinical resources.</p>
 
-  <div class="qr-note" role="note">
-    <strong>Founding Surgeon</strong> — You scanned the QR on your Haarks Clinic badge.
-    The app is coming soon to iOS and Android.
-    You will be notified when it is available.
-  </div>
+    <!-- Platform detection hint -->
+    <p class="platform-hint" id="platform-hint" aria-live="polite"></p>
+
+    <!-- Store cards -->
+    <div class="store-cards" role="list" aria-label="App download options">
+
+      <!-- iOS App Store -->
+      <!-- When the App Store listing is live, convert this div to an anchor:
+           <a href="https://apps.apple.com/app/..." ...> and remove aria-disabled -->
+      <div class="store-card store-card-ios" id="btn-ios" role="listitem"
+           aria-label="App Store — Coming Soon" aria-disabled="true">
+        <div class="store-icon-wrap" aria-hidden="true">
+          <svg class="store-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+          </svg>
+        </div>
+        <span class="store-card-label">
+          <span class="store-card-sup">Download on the</span>
+          <span class="store-card-name">App Store</span>
+        </span>
+        <span class="coming-pill" aria-label="Coming soon">Coming Soon</span>
+      </div>
+
+      <!-- Google Play Store -->
+      <!-- When the Play Store listing is live, convert this div to an anchor:
+           <a href="https://play.google.com/store/apps/details?id=com.haarks.clinic" ...> and remove aria-disabled -->
+      <div class="store-card store-card-android" id="btn-android" role="listitem"
+           aria-label="Google Play — Coming Soon" aria-disabled="true">
+        <div class="store-icon-wrap" aria-hidden="true">
+          <svg class="store-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M3.18 23.76c.37.2.8.22 1.19.04l12.12-6.99-2.63-2.64-10.68 9.59zM.4 1.47C.15 1.81 0 2.29 0 2.9v18.2c0 .61.15 1.09.4 1.43l.07.07 10.2-10.2v-.24L.47 1.4.4 1.47zM19.99 10.19L17.49 8.7 14.68 11.5l2.81 2.81 2.51-1.5c.72-.43.72-1.19 0-1.62zM4.37.24L16.5 7.23l-2.63 2.63L3.18.27C3.57.09 4.01.1 4.37.24z"/>
+          </svg>
+        </div>
+        <span class="store-card-label">
+          <span class="store-card-sup">Get it on</span>
+          <span class="store-card-name">Google Play</span>
+        </span>
+        <span class="coming-pill" aria-label="Coming soon">Coming Soon</span>
+      </div>
+
+    </div>
+
+    <!-- Founding Surgeon contextual note -->
+    <aside class="founder-note" role="note" aria-label="Founding Surgeon context">
+      <div class="founder-note-head">Founding Surgeon</div>
+      <p>You scanned the QR code on your Haarks Clinic badge.
+         The Haarks Clinic app is coming soon to iOS and Android.</p>
+    </aside>
+
+  </div><!-- /.dl-content -->
 
 </main>
 
+<!-- ── FOOTER ── -->
 <footer>
   <p class="footer-copy">© 2026 Haarks International Pvt Ltd. All rights reserved.</p>
 </footer>
@@ -363,25 +535,23 @@
 <script>
   (function () {
     var ua = navigator.userAgent || '';
-    var isIOS = /iPhone|iPad|iPod/i.test(ua);
+    var isIOS     = /iPhone|iPad|iPod/i.test(ua);
     var isAndroid = /Android/i.test(ua);
-    var hint = document.getElementById('platform-hint');
-    var btnIOS = document.getElementById('btn-ios');
-    var btnAndroid = document.getElementById('btn-android');
-    var buttons = document.querySelector('.store-buttons');
+    var hint      = document.getElementById('platform-hint');
+    var btnIOS    = document.getElementById('btn-ios');
+    var btnAnd    = document.getElementById('btn-android');
+    var cards     = document.querySelector('.store-cards');
 
     if (isIOS) {
-      hint.textContent = 'Detected: iOS device';
-      btnIOS.classList.add('platform-match');
+      if (hint) hint.textContent = 'iOS device detected';
+      if (btnIOS) btnIOS.classList.add('platform-match');
     } else if (isAndroid) {
-      hint.textContent = 'Detected: Android device';
-      btnAndroid.classList.add('platform-match');
-      /* Surface Android button first on Android devices */
-      if (buttons && btnAndroid && btnIOS) {
-        buttons.insertBefore(btnAndroid, btnIOS);
-      }
+      if (hint) hint.textContent = 'Android device detected';
+      if (btnAnd) btnAnd.classList.add('platform-match');
+      /* Surface Android card first on Android devices */
+      if (cards && btnAnd && btnIOS) cards.insertBefore(btnAnd, btnIOS);
     }
-  })();
+  }());
 </script>
 
 </body>
