@@ -854,6 +854,34 @@
 
     /* ─── BTN-HERO (missing from current) ─── */
     .btn-hero { height:50px; padding:0 28px; font-size:16px; }
+
+    /* ─── HOSPITAL GATEWAY ─── */
+    .hosp-gateway {
+      padding: 64px 0;
+      background: var(--surface-a);
+      border-top: 1px solid var(--border-soft);
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .gateway-inner {
+      display: flex; flex-direction: column; gap: 28px; align-items: flex-start;
+      max-width: 960px; margin: 0 auto;
+    }
+    @media (min-width: 768px) {
+      .gateway-inner { flex-direction: row; align-items: center; justify-content: space-between; gap: 48px; }
+    }
+    .gateway-eyebrow {
+      display: inline-block; padding: 4px 12px; border-radius: 9999px;
+      border: 1px solid var(--border); background: rgba(15,15,20,0.6);
+      font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em;
+      color: var(--muted); margin-bottom: 14px;
+    }
+    .gateway-title {
+      font-family: var(--font-display); font-size: 22px; font-weight: 700;
+      letter-spacing: -0.025em; color: #fff; margin-bottom: 10px; line-height: 1.2;
+    }
+    @media (min-width: 768px) { .gateway-title { font-size: 26px; } }
+    .gateway-body { font-size: 15px; color: var(--muted); line-height: 1.65; font-weight: 300; max-width: 480px; }
+    .gateway-cta { white-space: nowrap; flex-shrink: 0; }
   </style>
   <script type="application/ld+json">
   {
@@ -986,6 +1014,7 @@
       <a href="#how-it-works" class="nav-link">How It Works</a>
       <a href="#pricing" class="nav-link">Pricing</a>
       <a href="#founding" class="nav-link">Founding Surgeon</a>
+      <a href="/hospitals" class="nav-link">For Hospitals</a>
     </div>
   </div>
 </nav>
@@ -1485,6 +1514,20 @@
   </div>
 </section>
 
+<!-- ══════════════ HOSPITAL GATEWAY ══════════════ -->
+<section class="hosp-gateway">
+  <div class="container">
+    <div class="gateway-inner">
+      <div class="gateway-copy">
+        <span class="gateway-eyebrow">For Hospitals</span>
+        <h2 class="gateway-title">From personal surgical intelligence to organizational intelligence.</h2>
+        <p class="gateway-body">Haarks is extending toward a hospital model — an intelligence layer built around the knowledge your hospital already has, while keeping every surgeon's private workspace exactly that: private.</p>
+      </div>
+      <a href="/hospitals" class="btn btn-outline btn-md gateway-cta">Explore Haarks for Hospitals →</a>
+    </div>
+  </div>
+</section>
+
 <!-- ══════════════ CTA ══════════════ -->
 <section class="cta-sec">
   <div class="cta-bg"></div>
@@ -1521,6 +1564,7 @@
         <span class="footer-tagline">The Future OS for Surgeons.</span>
       </div>
       <nav class="footer-links" aria-label="Footer links">
+        <a href="/hospitals">For Hospitals</a>
         <a href="/privacy.html">Privacy Policy</a>
         <a href="/terms.html">Terms of Service</a>
         <a href="/disclaimer.html">Medical Disclaimer</a>

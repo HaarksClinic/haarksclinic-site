@@ -1,0 +1,1758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="application-name" content="Haarks Clinic" />
+  <meta name="theme-color" content="#0A84FF" />
+  <title>Haarks Clinic for Hospitals — Organizational Knowledge Intelligence</title>
+  <meta name="description" content="Haarks is building an intelligence layer for hospitals — organizing protocols, SOPs, and institutional knowledge so authorized surgical teams can actually work with it." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.haarksclinic.com/hospitals" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Haarks Clinic" />
+  <meta property="og:locale" content="en_IN" />
+  <meta property="og:url" content="https://www.haarksclinic.com/hospitals" />
+  <meta property="og:title" content="Haarks Clinic for Hospitals — Organizational Knowledge Intelligence" />
+  <meta property="og:description" content="Haarks is building an intelligence layer for hospitals — organizing protocols, SOPs, and institutional knowledge so authorized surgical teams can actually work with it." />
+  <meta property="og:image" content="https://www.haarksclinic.com/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:alt" content="Haarks Clinic for Hospitals" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Haarks Clinic for Hospitals — Organizational Knowledge Intelligence" />
+  <meta name="twitter:description" content="Haarks is building an intelligence layer for hospitals — organizing protocols, SOPs, and institutional knowledge so authorized surgical teams can actually work with it." />
+  <meta name="twitter:image" content="https://www.haarksclinic.com/og.png" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+  <style>
+    /* ─── TOKENS ─── */
+    :root {
+      --bg: #000000;
+      --fg: #FFFFFF;
+      --primary: #0A84FF;
+      --primary-90: rgba(10,132,255,0.9);
+      --primary-press: #0071E3;
+      --primary-dim: rgba(10,132,255,0.10);
+      --primary-glow: rgba(10,132,255,0.25);
+      --accent: #5AC8FA;
+      --logo-top: #5CB8FF;
+      --card: #0F0F0F;
+      --surface-a: #111111;
+      --surface-b: #1C1C1E;
+      --surface-c: #18181D;
+      --border: #242427;
+      --border-dark: #2C2C2E;
+      --border-soft: rgba(255,255,255,0.06);
+      --alt-bg: #0A0A0A;
+      --muted: #8E8E93;
+      --muted-dim: rgba(142,142,147,0.55);
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+    }
+
+    /* ─── RESET ─── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    ::selection { background: rgba(10,132,255,0.28); color: #fff; }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--fg);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: var(--font-body); cursor: pointer; border: none; background: none; }
+    img { max-width: 100%; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+    /* ─── FOCUS VISIBLE ─── */
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* ─── BUTTONS ─── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      font-family: var(--font-body); font-weight: 500;
+      border-radius: var(--radius-md); transition: all 0.25s ease; white-space: nowrap;
+    }
+    .btn-primary { background: var(--primary); color: #000; }
+    .btn-primary:hover { background: var(--primary-press); box-shadow: 0 0 24px var(--primary-glow); }
+    .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--muted); }
+    .btn-outline:hover { background: var(--surface-b); color: #fff; }
+    .btn-sm  { height: 36px; padding: 0 18px; font-size: 14px; }
+    .btn-md  { height: 44px; padding: 0 28px; font-size: 15px; }
+    .btn-lg  { height: 52px; padding: 0 36px; font-size: 16px; }
+
+    /* ─── NAV ─── */
+    nav#nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      height: 64px; display: flex; align-items: center;
+      transition: background 0.5s ease, border-color 0.5s ease;
+      border-bottom: 1px solid transparent;
+    }
+    nav#nav.scrolled {
+      background: rgba(0,0,0,0.72);
+      backdrop-filter: blur(48px); -webkit-backdrop-filter: blur(48px);
+      border-bottom-color: var(--border-soft);
+    }
+    nav#nav .container { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+    .brand { display: flex; align-items: center; gap: 10px; }
+    .wordmark { font-family: var(--font-display); font-weight: 700; font-size: 16px; letter-spacing: -0.02em; }
+    .nav-center { display: none; }
+    @media (min-width: 900px) { .nav-center { display: flex; align-items: center; gap: 32px; } }
+    .nav-link { font-size: 14px; font-weight: 500; color: var(--muted); transition: color 0.2s ease; }
+    .nav-link:hover { color: #fff; }
+    .nav-link--active { color: rgba(255,255,255,0.9); }
+
+    /* ─── SECTION ANATOMY ─── */
+    section.std { padding: 128px 0; position: relative; }
+    section.std.alt { background: var(--surface-a); }
+    .sec-head { text-align: center; max-width: 768px; margin: 0 auto; }
+    h2.sec-title {
+      font-weight: 700; font-size: 36px; letter-spacing: -0.025em;
+      color: #fff; margin-bottom: 24px; line-height: 1.15; text-wrap: balance;
+    }
+    .sec-body {
+      font-weight: 300; font-size: 17px; color: var(--muted);
+      line-height: 1.7; max-width: 640px; margin: 0 auto;
+    }
+    .sec-eyebrow {
+      display: inline-block; padding: 4px 12px; border-radius: 9999px;
+      border: 1px solid var(--border); background: rgba(15,15,20,0.6);
+      font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em;
+      color: var(--muted); margin-bottom: 28px;
+    }
+    @media (min-width: 768px) { h2.sec-title { font-size: 48px; } }
+    @media (max-width: 767px) { section.std { padding: 80px 0; } }
+
+    /* ─── SKIP NAV ─── */
+    .skip-nav { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+    .skip-nav:focus {
+      position: fixed; top: 16px; left: 16px; width: auto; height: auto; overflow: visible;
+      z-index: 9999; padding: 8px 18px; background: var(--primary); color: #000;
+      font-size: 14px; font-weight: 600; border-radius: var(--radius-md); text-decoration: none;
+    }
+
+    /* ─── FADE UP ─── */
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      .fade-up { opacity: 1; transform: none; transition: none; }
+      .hero-orb, .hero-eyebrow-dot { animation: none !important; }
+    }
+
+    /* ─── HERO ─── */
+    .hosp-hero {
+      min-height: 100vh; padding: calc(64px + 88px) 0 100px;
+      display: flex; align-items: center; position: relative; overflow: hidden;
+    }
+    .hero-canvas {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.018) 1px, transparent 0);
+      background-size: 40px 40px;
+    }
+    .hero-orb {
+      position: absolute; pointer-events: none; border-radius: 50%;
+      width: 900px; height: 900px; top: -20%; left: -12%;
+      background: radial-gradient(circle, rgba(10,132,255,0.10) 0%, transparent 65%);
+      animation: orb-drift 9s ease-in-out infinite;
+    }
+    .hero-orb-2 {
+      width: 600px; height: 600px; top: auto; bottom: -10%; left: auto; right: -8%;
+      background: radial-gradient(circle, rgba(90,200,250,0.06) 0%, transparent 65%);
+      animation-delay: 4.5s;
+    }
+    @keyframes orb-drift {
+      0%,100% { transform: scale(1) translate(0,0); }
+      50% { transform: scale(1.05) translate(10px,-10px); }
+    }
+    .hero-inner {
+      position: relative; z-index: 2;
+      display: grid; grid-template-columns: 1fr; gap: 64px; align-items: center;
+    }
+    @media (min-width: 1024px) { .hero-inner { grid-template-columns: 1fr 1fr; gap: 56px; } }
+
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 5px 14px 5px 6px; border-radius: 9999px;
+      border: 1px solid var(--border); background: rgba(10,10,20,0.5);
+      font-size: 12px; color: var(--muted); margin-bottom: 32px;
+    }
+    .hero-eyebrow-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--primary); box-shadow: 0 0 6px var(--primary); flex-shrink: 0;
+      animation: eyebrow-pulse 2s ease-in-out infinite;
+    }
+    @keyframes eyebrow-pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+    h1.hero-title {
+      font-weight: 800; line-height: 1.0; letter-spacing: -0.035em;
+      margin-bottom: 24px; text-wrap: balance;
+      font-size: 48px;
+      background: linear-gradient(145deg, #fff 0%, #fff 55%, var(--accent) 100%);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    @media (min-width: 768px)  { h1.hero-title { font-size: 60px; } }
+    @media (min-width: 1024px) { h1.hero-title { font-size: 72px; } }
+    @media (max-width: 479px)  { h1.hero-title { font-size: 38px; } }
+
+    .hero-sub {
+      font-size: 17px; color: var(--muted); line-height: 1.7;
+      font-weight: 300; max-width: 540px; margin-bottom: 40px;
+    }
+    .hero-ctas { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+    @media (min-width: 540px) { .hero-ctas { flex-direction: row; align-items: center; } }
+    .hero-legal {
+      font-size: 10px; color: var(--muted-dim); text-transform: uppercase;
+      letter-spacing: 0.05em; line-height: 1.9;
+    }
+
+    /* ─── ARCHITECTURE DIAGRAM (Hero right col) ─── */
+    .arch-wrap {
+      display: flex; flex-direction: column; align-items: center;
+      max-width: 420px; margin: 0 auto; width: 100%;
+    }
+    .arch-node {
+      width: 100%; border-radius: var(--radius-lg); padding: 20px 24px;
+    }
+    .arch-node--src {
+      background: var(--surface-b); border: 1px solid var(--border);
+    }
+    .arch-node--core {
+      background: rgba(10,132,255,0.07); border: 1px solid rgba(10,132,255,0.35);
+      box-shadow: 0 0 40px rgba(10,132,255,0.08), inset 0 1px 0 rgba(10,132,255,0.10);
+    }
+    .arch-node--dst {
+      background: var(--surface-b); border: 1px solid var(--border);
+    }
+    .arch-node-label {
+      font-family: var(--font-display); font-size: 10px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.09em; color: var(--muted); margin-bottom: 12px;
+    }
+    .arch-node--core .arch-node-label { color: var(--primary); }
+    .arch-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .arch-tag {
+      font-size: 11px; padding: 3px 9px; border-radius: 5px;
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07);
+      color: rgba(255,255,255,0.45);
+    }
+    .arch-core-body {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .arch-core-text {
+      font-family: var(--font-display); font-size: 14px; font-weight: 700;
+      letter-spacing: -0.01em; color: var(--primary);
+    }
+    .arch-core-sub {
+      font-size: 11px; color: rgba(10,132,255,0.6); margin-top: 4px; letter-spacing: 0.02em;
+    }
+    .arch-dst-title {
+      font-family: var(--font-display); font-size: 15px; font-weight: 700;
+      letter-spacing: -0.02em; color: rgba(255,255,255,0.85);
+    }
+    .arch-dst-sub {
+      font-size: 11px; color: var(--muted); margin-top: 5px; line-height: 1.5;
+    }
+    .arch-connector {
+      display: flex; align-items: center; justify-content: center;
+      height: 40px; flex-shrink: 0;
+    }
+
+    /* ─── TRUST STRIP ─── */
+    .trust-strip {
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      padding: 18px 0; background: rgba(10,10,10,0.9);
+    }
+    .trust-items {
+      display: flex; align-items: center; justify-content: center;
+      gap: 32px; flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; color: rgba(142,142,147,0.7); font-weight: 500;
+    }
+    .trust-item svg { color: var(--primary); flex-shrink: 0; }
+    .trust-div { width: 1px; height: 18px; background: var(--border); flex-shrink: 0; }
+    @media (max-width: 767px) { .trust-div { display: none; } .trust-items { gap: 20px; } }
+
+    /* ─── SECTION 2: KNOWLEDGE EXISTS ─── */
+    .know-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;
+      max-width: 880px; margin: 52px auto 0;
+    }
+    @media (min-width: 540px)  { .know-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 1024px) { .know-grid { grid-template-columns: repeat(4, 1fr); } }
+    .know-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 15px 18px; border-radius: var(--radius-lg);
+      background: var(--card); border: 1px solid var(--border);
+      transition: border-color 0.25s ease;
+    }
+    .know-item:hover { border-color: rgba(10,132,255,0.22); }
+    .know-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(10,132,255,0.45); flex-shrink: 0; }
+    .know-text { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.72); }
+    .know-callout {
+      max-width: 680px; margin: 40px auto 0; text-align: center;
+      padding: 28px 32px; border-radius: var(--radius-xl);
+      border: 1px solid rgba(10,132,255,0.14); background: rgba(10,132,255,0.04);
+    }
+    .know-callout p { font-size: 16px; color: rgba(255,255,255,0.72); line-height: 1.75; font-weight: 300; }
+    .know-callout strong { color: #fff; font-weight: 600; }
+
+    /* ─── SECTION 3: INTELLIGENCE LAYER ─── */
+    .layer-flow-wrap { max-width: 960px; margin: 56px auto 0; }
+    .layer-nodes {
+      display: flex; flex-direction: column; align-items: stretch; gap: 0;
+    }
+    @media (min-width: 768px) {
+      .layer-nodes { flex-direction: row; align-items: stretch; }
+    }
+    .layer-node {
+      flex: 1; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center;
+      padding: 24px 16px; border-radius: var(--radius-lg);
+      background: var(--card); border: 1px solid var(--border);
+    }
+    .layer-node--core {
+      background: rgba(10,132,255,0.07); border-color: rgba(10,132,255,0.35);
+      box-shadow: 0 0 40px rgba(10,132,255,0.09);
+    }
+    .layer-node-step {
+      font-family: var(--font-display); font-size: 10px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.09em; color: var(--muted); margin-bottom: 8px;
+    }
+    .layer-node--core .layer-node-step { color: var(--primary); }
+    .layer-node-title {
+      font-family: var(--font-display); font-size: 13px; font-weight: 700;
+      letter-spacing: -0.01em; color: rgba(255,255,255,0.85); line-height: 1.3;
+    }
+    .layer-node--core .layer-node-title { color: var(--primary); font-size: 14px; }
+    .layer-node-sub { font-size: 11px; color: var(--muted); margin-top: 5px; line-height: 1.5; }
+    .layer-arrow {
+      display: flex; align-items: center; justify-content: center;
+      padding: 10px 0; flex-shrink: 0; align-self: center;
+    }
+    @media (min-width: 768px) { .layer-arrow { padding: 0 4px; } }
+    .layer-caps {
+      display: grid; grid-template-columns: 1fr; gap: 12px;
+      max-width: 860px; margin: 40px auto 0;
+    }
+    @media (min-width: 640px) { .layer-caps { grid-template-columns: 1fr 1fr; } }
+    .layer-cap {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 20px 22px; border-radius: var(--radius-md);
+      background: var(--surface-b); border: 1px solid var(--border);
+      transition: border-color 0.25s ease;
+    }
+    .layer-cap:hover { border-color: rgba(10,132,255,0.22); }
+    .layer-cap-dot {
+      width: 6px; height: 6px; border-radius: 50%; background: var(--primary);
+      box-shadow: 0 0 6px rgba(10,132,255,0.4); flex-shrink: 0; margin-top: 7px;
+    }
+    .layer-cap h4 {
+      font-size: 14px; font-weight: 600; color: #fff;
+      margin-bottom: 4px; letter-spacing: -0.01em;
+    }
+    .layer-cap p { font-size: 13px; color: var(--muted); line-height: 1.65; font-weight: 300; }
+
+    /* ─── SECTION 4: SHARED / PRIVATE ─── */
+    .split-head { text-align: center; max-width: 860px; margin: 0 auto 56px; }
+    h2.split-title {
+      font-family: var(--font-display); font-weight: 800; letter-spacing: -0.03em;
+      line-height: 1.05; color: #fff; margin-bottom: 20px; text-wrap: balance;
+      font-size: 44px;
+    }
+    @media (min-width: 768px)  { h2.split-title { font-size: 68px; } }
+    @media (max-width: 479px)  { h2.split-title { font-size: 34px; } }
+    .split-title-line2 {
+      display: block;
+      background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .split-sub {
+      font-size: 17px; color: var(--muted); line-height: 1.7;
+      font-weight: 300; max-width: 580px; margin: 0 auto;
+    }
+    .split-panels {
+      display: grid; grid-template-columns: 1fr; gap: 2px;
+      max-width: 1100px; margin: 0 auto;
+      border: 1px solid var(--border); border-radius: var(--radius-xl); overflow: hidden;
+    }
+    @media (min-width: 768px) { .split-panels { grid-template-columns: 1fr 1fr; } }
+    .split-panel { padding: 48px 40px; }
+    @media (max-width: 767px) { .split-panel { padding: 36px 24px; } }
+    .split-panel--hosp {
+      background: rgba(10,132,255,0.05);
+      border-right: 1px solid var(--border);
+    }
+    .split-panel--surg { background: var(--surface-b); }
+    @media (max-width: 767px) {
+      .split-panel--hosp { border-right: none; border-bottom: 1px solid var(--border); }
+    }
+    .split-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--font-display); font-size: 10px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.10em; margin-bottom: 20px;
+    }
+    .split-panel--hosp .split-badge { color: var(--primary); }
+    .split-panel--surg .split-badge { color: var(--accent); }
+    .split-badge-dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+    .split-panel h3 {
+      font-size: 22px; font-weight: 700; letter-spacing: -0.025em;
+      color: #fff; margin-bottom: 8px; line-height: 1.2;
+    }
+    .split-panel-desc {
+      font-size: 14px; color: var(--muted); line-height: 1.65;
+      font-weight: 300; margin-bottom: 28px;
+    }
+    .split-items { display: flex; flex-direction: column; gap: 8px; }
+    .split-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 11px 15px; border-radius: var(--radius-md);
+    }
+    .split-panel--hosp .split-item {
+      background: rgba(10,132,255,0.06); border: 1px solid rgba(10,132,255,0.12);
+    }
+    .split-panel--surg .split-item {
+      background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
+    }
+    .split-icon {
+      width: 30px; height: 30px; border-radius: 8px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .split-panel--hosp .split-icon { background: rgba(10,132,255,0.14); }
+    .split-panel--surg .split-icon { background: rgba(90,200,250,0.08); }
+    .split-panel--hosp .split-icon svg { color: var(--primary); }
+    .split-panel--surg .split-icon svg { color: var(--accent); }
+    .split-item-text { font-size: 13px; color: rgba(255,255,255,0.8); font-weight: 500; }
+    .split-sep {
+      text-align: center; font-size: 10px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.10em; color: rgba(255,255,255,0.18);
+      padding: 14px 0; background: rgba(255,255,255,0.02);
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    }
+    @media (min-width: 768px) { .split-sep { display: none; } }
+
+    /* ─── SECTION 5: HOSPITAL INTELLIGENCE ─── */
+    .cap-grid {
+      display: grid; grid-template-columns: 1fr; gap: 16px;
+      max-width: 1100px; margin: 56px auto 0;
+    }
+    @media (min-width: 640px)  { .cap-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1024px) { .cap-grid { grid-template-columns: repeat(4, 1fr); } }
+    .cap-card {
+      padding: 32px 28px; border-radius: var(--radius-xl);
+      background: var(--surface-b); border: 1px solid var(--border);
+      transition: border-color 0.25s ease;
+    }
+    .cap-card:hover { border-color: rgba(10,132,255,0.28); }
+    .cap-card-num {
+      font-family: var(--font-display); font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em; color: var(--primary);
+      margin-bottom: 16px;
+    }
+    .cap-card h3 {
+      font-size: 18px; font-weight: 700; letter-spacing: -0.02em;
+      color: #fff; margin-bottom: 10px; line-height: 1.2;
+    }
+    .cap-card p { font-size: 14px; color: var(--muted); line-height: 1.65; font-weight: 300; }
+
+    /* ─── SECTION 6: PRIVATE SURGEON ─── */
+    .priv-concept {
+      display: grid; grid-template-columns: 1fr; gap: 16px;
+      max-width: 880px; margin: 56px auto 0; align-items: center;
+    }
+    @media (min-width: 768px) { .priv-concept { grid-template-columns: 1fr auto 1fr; gap: 24px; } }
+    .priv-card {
+      padding: 36px 32px; border-radius: var(--radius-xl);
+    }
+    .priv-card--hosp {
+      background: rgba(10,132,255,0.05); border: 1px solid rgba(10,132,255,0.18);
+    }
+    .priv-card--surg {
+      background: var(--surface-b); border: 1px solid var(--border);
+    }
+    .priv-card-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--font-display); font-size: 10px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.10em; margin-bottom: 14px;
+    }
+    .priv-card--hosp .priv-card-badge { color: var(--primary); }
+    .priv-card--surg .priv-card-badge { color: rgba(255,255,255,0.35); }
+    .priv-card-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+    .priv-card-title {
+      font-family: var(--font-display); font-size: 17px; font-weight: 700;
+      letter-spacing: -0.02em; color: #fff; margin-bottom: 8px;
+    }
+    .priv-card-body { font-size: 13px; color: var(--muted); line-height: 1.65; font-weight: 300; }
+    .priv-plus {
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-size: 28px; font-weight: 300;
+      color: rgba(255,255,255,0.18);
+    }
+    @media (max-width: 767px) { .priv-plus { padding: 4px 0; } }
+    .priv-note {
+      max-width: 680px; margin: 36px auto 0; text-align: center;
+      font-size: 14px; color: var(--muted); line-height: 1.75; font-weight: 300;
+    }
+    .priv-note strong { color: rgba(255,255,255,0.75); font-weight: 600; }
+
+    /* ─── SECTION 7: HOW ACCESS WORKS ─── */
+    .access-steps { max-width: 720px; margin: 56px auto 0; }
+    .access-step {
+      display: grid; grid-template-columns: 52px 1fr; gap: 24px;
+      padding: 32px 0; border-bottom: 1px solid var(--border); align-items: flex-start;
+    }
+    .access-step:last-child { border-bottom: none; }
+    .access-num {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: rgba(10,132,255,0.08); border: 1px solid rgba(10,132,255,0.22);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-size: 15px; font-weight: 700;
+      color: var(--primary); flex-shrink: 0; margin-top: 2px;
+    }
+    .access-label {
+      font-family: var(--font-display); font-size: 10px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.09em; color: var(--primary); margin-bottom: 6px;
+    }
+    .access-step h3 {
+      font-size: 21px; font-weight: 600; letter-spacing: -0.02em;
+      color: #fff; margin-bottom: 8px;
+    }
+    .access-step p { font-size: 15px; color: var(--muted); line-height: 1.7; font-weight: 300; max-width: 500px; }
+    @media (max-width: 767px) { .access-step { grid-template-columns: 44px 1fr; gap: 16px; } }
+
+    /* ─── FOOTER ─── */
+    footer { background: #000; border-top: 1px solid var(--border-soft); padding: 64px 0 32px; }
+    .footer-upper {
+      display: flex; flex-direction: column; gap: 40px;
+      margin-bottom: 56px; align-items: center; text-align: center;
+    }
+    .footer-brand-col { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .footer-brand { display: flex; align-items: center; gap: 10px; }
+    .footer-wordmark { font-family: var(--font-display); font-weight: 700; font-size: 15px; }
+    .footer-tagline { font-size: 13px; color: var(--muted); }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; }
+    .footer-links a { font-size: 13px; color: var(--muted); transition: color 0.2s; }
+    .footer-links a:hover { color: #fff; }
+    .footer-email { font-size: 13px; color: var(--muted); transition: color 0.2s; }
+    .footer-email:hover { color: #fff; }
+    .footer-lower { border-top: 1px solid var(--border-soft); padding-top: 28px; text-align: center; }
+    .footer-disclaimer {
+      font-size: 10px; color: var(--muted-dim); text-transform: uppercase;
+      letter-spacing: 0.04em; max-width: 840px; margin: 0 auto 12px; line-height: 1.9;
+    }
+    .footer-copy { font-size: 12px; color: var(--muted); }
+    @media (min-width: 768px) {
+      .footer-upper { flex-direction: row; justify-content: space-between; text-align: left; }
+      .footer-brand-col { align-items: flex-start; }
+    }
+
+    /* ─── SECTION 8: INTELLIGENCE PROGRESSION ─── */
+    .intel-prog {
+      max-width: 520px; margin: 56px auto 0;
+      display: flex; flex-direction: column; align-items: stretch; gap: 0;
+    }
+    .intel-stage {
+      padding: 20px 24px; border-radius: var(--radius-lg);
+      background: var(--card); border: 1px solid var(--border);
+      display: flex; align-items: flex-start; gap: 16px;
+    }
+    .intel-stage--active { background: rgba(10,132,255,0.07); border-color: rgba(10,132,255,0.35); }
+    .intel-stage--dim { opacity: 0.62; }
+    .intel-stage-num {
+      font-family: var(--font-display); font-size: 11px; font-weight: 700;
+      color: var(--muted); flex-shrink: 0; min-width: 22px; margin-top: 3px;
+    }
+    .intel-stage--active .intel-stage-num { color: var(--primary); }
+    .intel-stage-label {
+      font-family: var(--font-display); font-size: 14px; font-weight: 700;
+      letter-spacing: -0.01em; color: rgba(255,255,255,0.65); margin-bottom: 4px;
+    }
+    .intel-stage--active .intel-stage-label { color: var(--primary); }
+    .intel-stage-sub { font-size: 12px; color: var(--muted); line-height: 1.55; }
+    .intel-conn {
+      display: flex; align-items: center; justify-content: center; height: 24px;
+    }
+
+    /* ─── SECTION 9: SIZES ─── */
+    .size-grid {
+      display: grid; grid-template-columns: 1fr; gap: 12px;
+      max-width: 960px; margin: 52px auto 0;
+    }
+    @media (min-width: 640px)  { .size-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1024px) { .size-grid { grid-template-columns: repeat(3, 1fr); } }
+    .size-card {
+      padding: 28px; border-radius: var(--radius-xl);
+      background: var(--surface-b); border: 1px solid var(--border);
+      transition: border-color 0.25s ease;
+    }
+    .size-card:hover { border-color: rgba(10,132,255,0.25); }
+    .size-card-tag {
+      font-family: var(--font-display); font-size: 10px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.09em; color: var(--primary); margin-bottom: 10px;
+    }
+    .size-card h3 {
+      font-size: 17px; font-weight: 700; letter-spacing: -0.02em;
+      color: #fff; margin-bottom: 8px;
+    }
+    .size-card p { font-size: 13px; color: var(--muted); line-height: 1.65; font-weight: 300; }
+    .size-mini {
+      max-width: 720px; margin: 32px auto 0; text-align: center;
+      padding: 28px 32px; border-radius: var(--radius-xl);
+      border: 1px solid rgba(10,132,255,0.14); background: rgba(10,132,255,0.04);
+    }
+    .size-mini-title {
+      font-family: var(--font-display); font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.09em; color: var(--primary); margin-bottom: 12px;
+    }
+    .size-mini p { font-size: 15px; color: rgba(255,255,255,0.72); line-height: 1.7; font-weight: 300; }
+    .size-mini-list {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 16px;
+    }
+    .size-mini-pill {
+      font-size: 12px; padding: 4px 12px; border-radius: 9999px;
+      border: 1px solid rgba(10,132,255,0.2); background: rgba(10,132,255,0.06);
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* ─── SECTION 10: CAPABILITIES ─── */
+    .caps-grid {
+      display: grid; grid-template-columns: 1fr; gap: 12px;
+      max-width: 1100px; margin: 56px auto 0;
+    }
+    @media (min-width: 540px)  { .caps-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1024px) { .caps-grid { grid-template-columns: repeat(4, 1fr); } }
+    .caps-item {
+      padding: 28px 24px; border-radius: var(--radius-xl);
+      background: var(--card); border: 1px solid var(--border);
+      transition: border-color 0.25s ease;
+    }
+    .caps-item:hover { border-color: rgba(10,132,255,0.22); }
+    .caps-icon {
+      width: 40px; height: 40px; border-radius: var(--radius-sm);
+      background: var(--primary-dim); border: 1px solid rgba(10,132,255,0.15);
+      display: flex; align-items: center; justify-content: center; margin-bottom: 16px;
+    }
+    .caps-icon svg { color: var(--primary); }
+    .caps-item h3 {
+      font-size: 15px; font-weight: 700; letter-spacing: -0.02em;
+      color: #fff; margin-bottom: 7px; line-height: 1.3;
+    }
+    .caps-item p { font-size: 13px; color: var(--muted); line-height: 1.65; font-weight: 300; }
+
+    /* ─── SECTION 11: RESPONSIBLE AI ─── */
+    .resp-grid {
+      display: grid; grid-template-columns: 1fr; gap: 12px;
+      max-width: 960px; margin: 52px auto 0;
+    }
+    @media (min-width: 640px)  { .resp-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1024px) { .resp-grid { grid-template-columns: repeat(4, 1fr); } }
+    .resp-item {
+      padding: 28px 22px; border-radius: var(--radius-xl);
+      background: var(--surface-b); border: 1px solid var(--border); text-align: center;
+    }
+    .resp-item-label {
+      font-family: var(--font-display); font-size: 12px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.09em; color: var(--primary); margin-bottom: 10px;
+    }
+    .resp-item p { font-size: 13px; color: var(--muted); line-height: 1.65; font-weight: 300; }
+    .resp-note {
+      max-width: 680px; margin: 32px auto 0; text-align: center;
+      font-size: 14px; color: var(--muted); line-height: 1.75; font-weight: 300;
+      padding: 22px 28px; border-radius: var(--radius-lg);
+      border: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.02);
+    }
+    .resp-note strong { color: rgba(255,255,255,0.8); font-weight: 600; }
+
+    /* ─── SECTION 12: FORM ─── */
+    .engage-wrap { max-width: 680px; margin: 56px auto 0; }
+    .engage-form {
+      background: var(--surface-b); border: 1px solid var(--border);
+      border-radius: var(--radius-xl); padding: 40px; position: relative; overflow: hidden;
+    }
+    @media (max-width: 767px) { .engage-form { padding: 28px 20px; } }
+    .engage-topline {
+      position: absolute; top: 0; left: 10%; right: 10%; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(10,132,255,0.5), transparent);
+    }
+    .form-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    @media (min-width: 560px) { .form-grid { grid-template-columns: 1fr 1fr; } }
+    .form-field { display: flex; flex-direction: column; gap: 6px; }
+    .form-field--full { grid-column: 1 / -1; }
+    .form-label {
+      font-family: var(--font-display); font-size: 10px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted);
+    }
+    .form-control {
+      font-family: var(--font-body); font-size: 15px; color: #fff;
+      background: var(--surface-a); border: 1px solid var(--border);
+      border-radius: var(--radius-md); outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .form-control:focus {
+      border-color: rgba(10,132,255,0.5);
+      box-shadow: 0 0 0 3px rgba(10,132,255,0.10);
+    }
+    input.form-control  { height: 48px; padding: 0 16px; }
+    select.form-control {
+      height: 48px; padding: 0 16px; cursor: pointer; appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238E8E93' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 16px center;
+    }
+    textarea.form-control { padding: 14px 16px; resize: vertical; min-height: 120px; line-height: 1.65; }
+    .form-control::placeholder { color: rgba(142,142,147,0.45); }
+    .form-control option { background: #1C1C1E; color: #fff; }
+    .form-submit-row { margin-top: 24px; }
+    .form-note {
+      font-size: 11px; color: var(--muted-dim); text-transform: uppercase;
+      letter-spacing: 0.04em; line-height: 1.9; margin-top: 14px;
+    }
+
+    /* ─── SECTION 13: FAQ ─── */
+    .faq-list { max-width: 720px; margin: 52px auto 0; }
+    .faq-entry { border-bottom: 1px solid var(--border); }
+    .faq-entry:first-child { border-top: 1px solid var(--border); }
+    .faq-btn {
+      width: 100%; display: flex; align-items: center; justify-content: space-between;
+      padding: 22px 0; font-family: var(--font-body); font-size: 16px; font-weight: 500;
+      color: rgba(255,255,255,0.85); text-align: left; cursor: pointer; background: none;
+      gap: 24px; letter-spacing: -0.01em; transition: color 0.2s ease;
+    }
+    .faq-btn:hover { color: #fff; }
+    .faq-entry.open .faq-btn { color: #fff; }
+    .faq-icon {
+      width: 20px; height: 20px; flex-shrink: 0; color: var(--muted);
+      transition: transform 0.35s ease, color 0.2s ease;
+    }
+    .faq-entry.open .faq-icon { transform: rotate(45deg); color: var(--primary); }
+    .faq-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.4s ease; }
+    .faq-entry.open .faq-body { grid-template-rows: 1fr; }
+    .faq-inner { overflow: hidden; }
+    .faq-ans { padding: 0 0 22px; font-size: 15px; color: var(--muted); line-height: 1.75; font-weight: 300; }
+
+    /* ─── FINAL CTA ─── */
+    .hosp-cta {
+      padding: 160px 0; text-align: center; position: relative; overflow: hidden;
+    }
+    .hosp-cta-bg {
+      position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(10,132,255,0.09) 0%, transparent 70%);
+    }
+    .hosp-cta-canvas {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.018) 1px, transparent 0);
+      background-size: 28px 28px;
+    }
+    .hosp-cta-inner { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
+    h2.hosp-cta-title {
+      font-family: var(--font-display); font-weight: 800; letter-spacing: -0.035em;
+      line-height: 1.05; margin-bottom: 20px; text-wrap: balance; font-size: 44px;
+      background: linear-gradient(145deg, #fff 0%, var(--accent) 100%);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    @media (min-width: 768px)  { h2.hosp-cta-title { font-size: 60px; } }
+    @media (max-width: 479px)  { h2.hosp-cta-title { font-size: 34px; } }
+    .hosp-cta-body {
+      font-size: 17px; color: var(--muted); line-height: 1.65;
+      max-width: 480px; margin: 0 auto 40px; font-weight: 300;
+    }
+    .hosp-cta-legal {
+      margin-top: 28px; font-size: 11px; color: var(--muted-dim);
+      text-transform: uppercase; letter-spacing: 0.07em;
+    }
+    @media (max-width: 767px) { .hosp-cta { padding: 100px 0; } }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://www.haarksclinic.com/hospitals#webpage",
+        "url": "https://www.haarksclinic.com/hospitals",
+        "name": "Haarks Clinic for Hospitals — Organizational Knowledge Intelligence",
+        "description": "Haarks is building an intelligence layer for hospitals — organizing protocols, SOPs, and institutional knowledge so authorized surgical teams can actually work with it.",
+        "inLanguage": "en",
+        "isPartOf": { "@id": "https://www.haarksclinic.com/#website" },
+        "about": { "@id": "https://www.haarksclinic.com/#organization" },
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.haarksclinic.com/" },
+            { "@type": "ListItem", "position": 2, "name": "For Hospitals", "item": "https://www.haarksclinic.com/hospitals" }
+          ]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.haarksclinic.com/hospitals#faq",
+        "mainEntity": [
+          { "@type": "Question", "name": "What is Haarks for Hospitals?", "acceptedAnswer": { "@type": "Answer", "text": "Haarks is being developed to provide hospitals with an organizational intelligence layer — helping authorized teams work with institutional knowledge, while preserving individual surgeon workspaces that remain entirely private to each surgeon." } },
+          { "@type": "Question", "name": "Can each surgeon have their own private workspace?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The hospital model is designed around individual surgeon accounts with appropriate separation between private surgeon information and hospital-owned knowledge. A surgeon's personal workspace is not accessible to the hospital organization." } },
+          { "@type": "Question", "name": "Can a hospital have shared knowledge?", "acceptedAnswer": { "@type": "Answer", "text": "The hospital model is designed to support an organizational knowledge environment containing resources the hospital chooses to make available to authorized members — protocols, SOPs, shared guidelines, institutional knowledge, and departmental documents." } },
+          { "@type": "Question", "name": "What happens when a surgeon leaves?", "acceptedAnswer": { "@type": "Answer", "text": "Hospital-owned resources remain within the hospital environment, while access can be revoked through membership management. Private surgeon information remains separate according to applicable product and legal policy." } },
+          { "@type": "Question", "name": "Can a small hospital use Haarks?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The model is designed to support hospitals ranging from small surgical teams to larger organizations. Even a hospital with 2–3 surgeons can have individual surgeon workspaces, shared hospital knowledge, and an institutional intelligence environment." } },
+          { "@type": "Question", "name": "Do hospitals use the same pricing as individual surgeons?", "acceptedAnswer": { "@type": "Answer", "text": "No fixed hospital pricing is published. Hospital engagements are discussed directly and structured around the organization's requirements." } },
+          { "@type": "Question", "name": "Can existing hospital knowledge be connected?", "acceptedAnswer": { "@type": "Answer", "text": "The hospital direction is designed to support connecting relevant organizational knowledge. Exact onboarding and data requirements can be discussed as part of the hospital engagement conversation." } },
+          { "@type": "Question", "name": "Is Haarks a diagnostic system?", "acceptedAnswer": { "@type": "Answer", "text": "No. Haarks is an AI-powered knowledge and workflow platform for surgeons and healthcare organizations. It does not replace professional medical judgment and is not a diagnostic tool or clinical decision support system." } }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+<a href="#main-content" class="skip-nav">Skip to main content</a>
+
+<!-- ══════════════ NAV ══════════════ -->
+<nav id="nav">
+  <div class="container">
+    <a href="/" class="brand" aria-label="Haarks Clinic home">
+      <svg viewBox="55 18 275 285" width="28" height="28" aria-hidden="true">
+        <defs>
+          <linearGradient id="lg-nav" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#5CB8FF"/>
+            <stop offset="100%" stop-color="#0A84FF"/>
+          </linearGradient>
+        </defs>
+        <rect x="60" y="30" width="46" height="260" rx="12" fill="url(#lg-nav)"/>
+        <rect x="136" y="104" width="58" height="112" rx="12" fill="url(#lg-nav)"/>
+        <rect x="194" y="155" width="50" height="11" rx="5.5" fill="url(#lg-nav)"/>
+        <circle cx="254" cy="160" r="8" fill="url(#lg-nav)"/>
+        <rect x="280" y="22" width="46" height="276" rx="12" fill="url(#lg-nav)"/>
+      </svg>
+      <span class="wordmark">Haarks Clinic</span>
+    </a>
+    <div class="nav-center">
+      <a href="/" class="nav-link">For Surgeons</a>
+      <a href="#intelligence-layer" class="nav-link">Intelligence Layer</a>
+      <a href="#how-access-works" class="nav-link">How It Works</a>
+      <a href="#hospital-conversation" class="nav-link nav-link--active">For Hospitals</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════ SECTION 1: HERO ══════════════ -->
+<section class="hosp-hero" id="main-content">
+  <div class="hero-canvas"></div>
+  <div class="hero-orb" aria-hidden="true"></div>
+  <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero-inner">
+
+      <!-- Left: Copy -->
+      <div class="fade-up">
+        <div class="hero-eyebrow">
+          <span class="hero-eyebrow-dot"></span>
+          <span>Haarks for Hospitals</span>
+        </div>
+        <h1 class="hero-title">The Knowledge Is Already&nbsp;There. Now Give It&nbsp;Intelligence.</h1>
+        <p class="hero-sub">Your hospital already has years of protocols, SOPs, guidelines, documents and surgical knowledge. Haarks is building the intelligence layer that helps authorized teams access and work with that knowledge — while keeping every surgeon's private workspace entirely separate.</p>
+        <div class="hero-ctas">
+          <a href="#hospital-conversation" class="btn btn-primary btn-lg">Start a Hospital Conversation</a>
+          <a href="#intelligence-layer" class="btn btn-outline btn-lg">Explore the Intelligence Layer ↓</a>
+        </div>
+        <p class="hero-legal">Hospital Enquiries Only&ensp;·&ensp;B2B Engagement&ensp;·&ensp;Not a Clinical Tool&ensp;·&ensp;Currently in Development</p>
+      </div>
+
+      <!-- Right: Architecture Diagram -->
+      <div class="fade-up" style="transition-delay:0.12s" aria-hidden="true">
+        <div class="arch-wrap">
+
+          <!-- Node 1: Hospital Knowledge -->
+          <div class="arch-node arch-node--src">
+            <div class="arch-node-label">Hospital Knowledge</div>
+            <div class="arch-tags">
+              <span class="arch-tag">Protocols</span>
+              <span class="arch-tag">SOPs</span>
+              <span class="arch-tag">Guidelines</span>
+              <span class="arch-tag">Documents</span>
+              <span class="arch-tag">Workflows</span>
+              <span class="arch-tag">Reports</span>
+            </div>
+          </div>
+
+          <!-- Arrow -->
+          <div class="arch-connector">
+            <svg width="24" height="32" viewBox="0 0 24 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="12" y1="0" x2="12" y2="24" stroke="rgba(10,132,255,0.45)" stroke-width="1.5" stroke-dasharray="3 3"/>
+              <polyline points="6,20 12,30 18,20" fill="none" stroke="rgba(10,132,255,0.55)" stroke-width="1.5" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <!-- Node 2: Haarks Intelligence Layer -->
+          <div class="arch-node arch-node--core">
+            <div class="arch-node-label">Haarks Intelligence Layer</div>
+            <div class="arch-core-body">
+              <svg viewBox="55 18 275 285" width="20" height="20" aria-hidden="true">
+                <defs>
+                  <linearGradient id="lg-arch" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#5CB8FF"/>
+                    <stop offset="100%" stop-color="#0A84FF"/>
+                  </linearGradient>
+                </defs>
+                <rect x="60" y="30" width="46" height="260" rx="12" fill="url(#lg-arch)"/>
+                <rect x="136" y="104" width="58" height="112" rx="12" fill="url(#lg-arch)"/>
+                <rect x="194" y="155" width="50" height="11" rx="5.5" fill="url(#lg-arch)"/>
+                <circle cx="254" cy="160" r="8" fill="url(#lg-arch)"/>
+                <rect x="280" y="22" width="46" height="276" rx="12" fill="url(#lg-arch)"/>
+              </svg>
+              <div>
+                <div class="arch-core-text">Organize · Connect · Retrieve</div>
+                <div class="arch-core-sub">Authorization-aware access</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Arrow -->
+          <div class="arch-connector">
+            <svg width="24" height="32" viewBox="0 0 24 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="12" y1="0" x2="12" y2="24" stroke="rgba(10,132,255,0.45)" stroke-width="1.5" stroke-dasharray="3 3"/>
+              <polyline points="6,20 12,30 18,20" fill="none" stroke="rgba(10,132,255,0.55)" stroke-width="1.5" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <!-- Node 3: Authorized Surgical Workflow -->
+          <div class="arch-node arch-node--dst">
+            <div class="arch-node-label">Authorized Access</div>
+            <div class="arch-dst-title">Surgical Workflow</div>
+            <div class="arch-dst-sub">Scoped to what each authorized user can access</div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ TRUST STRIP ══════════════ -->
+<div class="trust-strip">
+  <div class="container">
+    <div class="trust-items">
+      <div class="trust-item">
+        <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Surgeon privacy protected
+      </div>
+      <div class="trust-div"></div>
+      <div class="trust-item">
+        <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        Hospital knowledge separated
+      </div>
+      <div class="trust-div"></div>
+      <div class="trust-item">
+        <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Designed for authorized access
+      </div>
+      <div class="trust-div"></div>
+      <div class="trust-item">
+        <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        Not a clinical decision tool
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ SECTION 2: THE KNOWLEDGE ALREADY EXISTS ══════════════ -->
+<section class="std">
+  <div class="container">
+    <div class="sec-head fade-up">
+      <span class="sec-eyebrow">Institutional Knowledge</span>
+      <h2 class="sec-title">Every Hospital Already Has a Body of Knowledge.</h2>
+      <p class="sec-body">Years of clinical experience, institutional standards, and hard-won operational knowledge already exist across your organization. The question is not whether the knowledge is there — it is whether your teams can reach it when they need it.</p>
+    </div>
+    <div class="know-grid fade-up" style="transition-delay:0.1s">
+      <div class="know-item"><span class="know-dot"></span><span class="know-text">Clinical Protocols</span></div>
+      <div class="know-item"><span class="know-dot"></span><span class="know-text">Standard Operating Procedures</span></div>
+      <div class="know-item"><span class="know-dot"></span><span class="know-text">Clinical Guidelines</span></div>
+      <div class="know-item"><span class="know-dot"></span><span class="know-text">Departmental Documents</span></div>
+      <div class="know-item"><span class="know-dot"></span><span class="know-text">Surgical Standards</span></div>
+      <div class="know-item"><span class="know-dot"></span><span class="know-text">Institutional Reports</span></div>
+      <div class="know-item"><span class="know-dot"></span><span class="know-text">Operational Workflows</span></div>
+      <div class="know-item"><span class="know-dot"></span><span class="know-text">Institutional Memory</span></div>
+    </div>
+    <div class="know-callout fade-up" style="transition-delay:0.15s">
+      <p>The challenge is rarely the <strong>absence</strong> of knowledge. It is <strong>access, organization, retrieval</strong> and context — especially under the time pressures of a surgical environment.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ SECTION 3: THE INTELLIGENCE LAYER ══════════════ -->
+<section class="std alt" id="intelligence-layer">
+  <div class="container">
+    <div class="sec-head fade-up">
+      <span class="sec-eyebrow">The Intelligence Layer</span>
+      <h2 class="sec-title">Turn Knowledge Into Something Your Team Can Use.</h2>
+      <p class="sec-body">Haarks is designed to sit between your hospital's existing knowledge and the teams that need it — organizing, connecting, and making it retrievable with appropriate authorization at every step.</p>
+    </div>
+
+    <!-- Flow Diagram -->
+    <div class="layer-flow-wrap fade-up" style="transition-delay:0.1s" role="img" aria-label="Flow: Knowledge sources enter the Haarks Intelligence Layer, which enables authorized access and surgical workflow">
+      <div class="layer-nodes">
+        <div class="layer-node">
+          <div class="layer-node-step">01</div>
+          <div class="layer-node-title">Knowledge Sources</div>
+          <div class="layer-node-sub">Protocols, SOPs, guidelines, documents</div>
+        </div>
+        <div class="layer-arrow" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(10,132,255,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(90deg)">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </div>
+        <div class="layer-node layer-node--core">
+          <div class="layer-node-step">02</div>
+          <div class="layer-node-title">Haarks Intelligence Layer</div>
+          <div class="layer-node-sub">Organize · Connect · Retrieve</div>
+        </div>
+        <div class="layer-arrow" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(10,132,255,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(90deg)">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </div>
+        <div class="layer-node">
+          <div class="layer-node-step">03</div>
+          <div class="layer-node-title">Authorized Access</div>
+          <div class="layer-node-sub">Scoped retrieval per user</div>
+        </div>
+        <div class="layer-arrow" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(10,132,255,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(90deg)">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </div>
+        <div class="layer-node">
+          <div class="layer-node-step">04</div>
+          <div class="layer-node-title">Surgical Workflow</div>
+          <div class="layer-node-sub">Knowledge where it is needed</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Capability descriptions -->
+    <div class="layer-caps fade-up" style="transition-delay:0.15s">
+      <div class="layer-cap">
+        <span class="layer-cap-dot"></span>
+        <div>
+          <h4>Connect Relevant Knowledge</h4>
+          <p>Hospital knowledge across departments, formats, and systems is designed to be brought into a single organized environment — rather than remaining scattered and inaccessible.</p>
+        </div>
+      </div>
+      <div class="layer-cap">
+        <span class="layer-cap-dot"></span>
+        <div>
+          <h4>Organize Into an Intelligence Layer</h4>
+          <p>Documents, protocols, and guidelines are indexed and connected — not simply stored. The intelligence layer is designed to understand relationships between knowledge, not just retrieve isolated files.</p>
+        </div>
+      </div>
+      <div class="layer-cap">
+        <span class="layer-cap-dot"></span>
+        <div>
+          <h4>Retrieve With Appropriate Authorization</h4>
+          <p>Access to hospital knowledge is designed to be strictly scoped. Authorized users access what they are authorized to access. Nothing more.</p>
+        </div>
+      </div>
+      <div class="layer-cap">
+        <span class="layer-cap-dot"></span>
+        <div>
+          <h4>Keep Private Knowledge Private</h4>
+          <p>Individual surgeon workspaces are separate from the hospital intelligence layer by design. The two environments are intentionally distinct.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════ SECTION 4: SHARED / PRIVATE ══════════════ -->
+<section class="std">
+  <div class="container">
+    <div class="split-head fade-up">
+      <span class="sec-eyebrow">Architecture Principle</span>
+      <h2 class="split-title">
+        Shared where it should be.<br>
+        <span class="split-title-line2">Private where it must be.</span>
+      </h2>
+      <p class="split-sub">Haarks is being built around a fundamental separation. Hospital knowledge and private surgeon intelligence are distinct — and they are never treated the same way.</p>
+    </div>
+
+    <div class="split-panels fade-up" style="transition-delay:0.1s">
+      <!-- Hospital Intelligence -->
+      <div class="split-panel split-panel--hosp">
+        <div class="split-badge">
+          <span class="split-badge-dot"></span>
+          Hospital Intelligence
+        </div>
+        <h3>Hospital Knowledge</h3>
+        <p class="split-panel-desc">Protocols, guidelines, and institutional knowledge accessible to authorized members of the hospital organization.</p>
+        <div class="split-items">
+          <div class="split-item">
+            <div class="split-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <span class="split-item-text">Hospital Protocols</span>
+          </div>
+          <div class="split-item">
+            <div class="split-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </div>
+            <span class="split-item-text">Clinical SOPs</span>
+          </div>
+          <div class="split-item">
+            <div class="split-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <span class="split-item-text">Shared Guidelines</span>
+          </div>
+          <div class="split-item">
+            <div class="split-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <span class="split-item-text">Institutional Knowledge</span>
+          </div>
+          <div class="split-item">
+            <div class="split-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <span class="split-item-text">Authorized Resources</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile separator -->
+      <div class="split-sep" aria-hidden="true">Separated by design</div>
+
+      <!-- Private Surgeon Intelligence -->
+      <div class="split-panel split-panel--surg">
+        <div class="split-badge">
+          <span class="split-badge-dot"></span>
+          Private Surgeon Intelligence
+        </div>
+        <h3>Private Workspace</h3>
+        <p class="split-panel-desc">Personal cases, notes, and knowledge that belong exclusively to the individual surgeon. Not accessible to the hospital organization.</p>
+        <div class="split-items">
+          <div class="split-item">
+            <div class="split-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <span class="split-item-text">Private Cases</span>
+          </div>
+          <div class="split-item">
+            <div class="split-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+            </div>
+            <span class="split-item-text">Personal Notes</span>
+          </div>
+          <div class="split-item">
+            <div class="split-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/><path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/></svg>
+            </div>
+            <span class="split-item-text">Personal Knowledge Vault</span>
+          </div>
+          <div class="split-item">
+            <div class="split-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            </div>
+            <span class="split-item-text">Private Workspace</span>
+          </div>
+          <div class="split-item">
+            <div class="split-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <span class="split-item-text">Surgeon-Specific Intelligence</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ SECTION 5: HOSPITAL INTELLIGENCE ══════════════ -->
+<section class="std alt">
+  <div class="container">
+    <div class="sec-head fade-up">
+      <span class="sec-eyebrow">Hospital Intelligence</span>
+      <h2 class="sec-title">One Intelligence Layer. Built Around Your Hospital.</h2>
+      <p class="sec-body">Haarks is being designed to give hospitals an organizational intelligence environment — where institutional knowledge is organized, connected, and accessible to the right people.</p>
+    </div>
+    <div class="cap-grid fade-up" style="transition-delay:0.1s">
+      <div class="cap-card">
+        <div class="cap-card-num">01</div>
+        <h3>Protocols and Guidelines</h3>
+        <p>Hospital protocols, SOPs, and clinical guidelines organized into a single authorized environment — no longer scattered across drives and siloed systems.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-card-num">02</div>
+        <h3>Intelligent Retrieval</h3>
+        <p>Designed to help authorized users surface relevant information from the hospital knowledge environment — not keyword search, but contextual retrieval.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-card-num">03</div>
+        <h3>Surgical Context</h3>
+        <p>Built around how surgical teams actually work — bringing institutional knowledge closer to the workflows and moments where it is most useful.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-card-num">04</div>
+        <h3>Institutional Memory</h3>
+        <p>An organizational intelligence layer that can grow with the hospital — and that remains with the institution as teams and individuals change over time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ SECTION 6: PRIVATE SURGEON INTELLIGENCE ══════════════ -->
+<section class="std">
+  <div class="container">
+    <div class="sec-head fade-up">
+      <span class="sec-eyebrow">Private Surgeon Intelligence</span>
+      <h2 class="sec-title">Your Hospital. Your Surgeons. Their Private Intelligence.</h2>
+      <p class="sec-body">Hospital adoption does not mean every surgeon's personal Haarks workspace becomes hospital property. The architecture is intentionally separated — and that separation is the foundation of the model.</p>
+    </div>
+    <div class="priv-concept fade-up" style="transition-delay:0.1s">
+      <div class="priv-card priv-card--hosp">
+        <div class="priv-card-badge">
+          <span class="priv-card-badge-dot"></span>
+          Shared Hospital Knowledge
+        </div>
+        <div class="priv-card-title">Organizational Intelligence</div>
+        <p class="priv-card-body">Hospital knowledge — protocols, SOPs, shared guidelines, institutional resources — is organized at the organizational level. Accessible to authorized members. Owned by the institution.</p>
+      </div>
+      <div class="priv-plus" aria-hidden="true">+</div>
+      <div class="priv-card priv-card--surg">
+        <div class="priv-card-badge">
+          <span class="priv-card-badge-dot"></span>
+          Private Surgeon Intelligence
+        </div>
+        <div class="priv-card-title">Personal Intelligence</div>
+        <p class="priv-card-body">A surgeon's personal cases, vault, notes, and knowledge remain private to that individual. The hospital organization does not have access to a surgeon's private workspace.</p>
+      </div>
+    </div>
+    <p class="priv-note fade-up" style="transition-delay:0.15s">
+      The two environments coexist within Haarks — but they are <strong>never merged</strong>. Hospital knowledge stays organizational. Surgeon knowledge stays personal. That is not a configuration option — it is how the product is designed to work.
+    </p>
+  </div>
+</section>
+
+<!-- ══════════════ SECTION 7: HOW ACCESS WORKS ══════════════ -->
+<section class="std alt" id="how-access-works">
+  <div class="container">
+    <div class="sec-head fade-up">
+      <span class="sec-eyebrow">How It Works</span>
+      <h2 class="sec-title">Designed Around People. Not Shared Logins.</h2>
+      <p class="sec-body">The hospital engagement model is built around individual membership and organizational separation — not a single shared account that everyone uses.</p>
+    </div>
+    <div class="access-steps fade-up" style="transition-delay:0.1s">
+
+      <div class="access-step">
+        <div class="access-num">01</div>
+        <div>
+          <div class="access-label">Hospital</div>
+          <h3>A hospital environment is established.</h3>
+          <p>The hospital has its own dedicated organizational environment within Haarks — separate from any individual surgeon's workspace and scoped to the institution.</p>
+        </div>
+      </div>
+
+      <div class="access-step">
+        <div class="access-num">02</div>
+        <div>
+          <div class="access-label">Knowledge</div>
+          <h3>Relevant hospital knowledge is connected and organized.</h3>
+          <p>Protocols, SOPs, clinical guidelines, and institutional documents are connected to the hospital's environment — organized into an intelligence layer that authorized users can work with.</p>
+        </div>
+      </div>
+
+      <div class="access-step">
+        <div class="access-num">03</div>
+        <div>
+          <div class="access-label">Surgeons</div>
+          <h3>Authorized surgeons join individually.</h3>
+          <p>Each surgeon joins the hospital's Haarks environment through their own individual membership. Their personal workspace remains their own — distinct from the hospital organization.</p>
+        </div>
+      </div>
+
+      <div class="access-step">
+        <div class="access-num">04</div>
+        <div>
+          <div class="access-label">Intelligence</div>
+          <h3>Authorized users access the hospital knowledge layer alongside their private workspace.</h3>
+          <p>Within appropriate authorization, surgeons can interact with both the hospital's organizational intelligence and their own private knowledge — without either crossing into the other.</p>
+        </div>
+      </div>
+
+      <div class="access-step">
+        <div class="access-num">05</div>
+        <div>
+          <div class="access-label">Continuity</div>
+          <h3>Hospital-owned knowledge remains with the hospital as membership changes.</h3>
+          <p>When a surgeon's membership ends, the hospital's knowledge stays with the hospital. What was the surgeon's stays with the surgeon. The architecture is designed so that neither party loses what is theirs.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ SECTION 8: FROM GENERAL TO SURGICAL INTELLIGENCE ══════════════ -->
+<section class="std" id="intelligence-direction">
+  <div class="container">
+    <div class="sec-head fade-up">
+      <span class="sec-eyebrow">Intelligence Direction</span>
+      <h2 class="sec-title">From General Intelligence to Surgical Intelligence.</h2>
+      <p class="sec-body">General AI can answer questions. Haarks is being built around a more specific idea: AI organized around the knowledge environments that surround surgery — private, contextual, and continuously built by the people doing the work.</p>
+    </div>
+    <div class="intel-prog fade-up" style="transition-delay:0.1s" role="img" aria-label="Intelligence progression: General, then Personal, then Surgical, then Organizational">
+
+      <div class="intel-stage intel-stage--dim">
+        <div class="intel-stage-num">01</div>
+        <div>
+          <div class="intel-stage-label">General Intelligence</div>
+          <div class="intel-stage-sub">Public medical knowledge. No context about who you are, how you practice, or where you work. Broad and useful — but not specific to surgery or to any individual surgeon.</div>
+        </div>
+      </div>
+      <div class="intel-conn" aria-hidden="true">
+        <svg width="12" height="24" viewBox="0 0 12 24" fill="none">
+          <line x1="6" y1="0" x2="6" y2="18" stroke="rgba(10,132,255,0.35)" stroke-width="1.5" stroke-dasharray="3 2.5"/>
+          <polyline points="2,15 6,23 10,15" fill="none" stroke="rgba(10,132,255,0.45)" stroke-width="1.5" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="intel-stage intel-stage--active">
+        <div class="intel-stage-num">02</div>
+        <div>
+          <div class="intel-stage-label">Personal Intelligence</div>
+          <div class="intel-stage-sub">This is where Haarks began. Your cases, your protocols, your notes. A private AI built around the individual surgeon — growing with your career, not shared with anyone.</div>
+        </div>
+      </div>
+      <div class="intel-conn" aria-hidden="true">
+        <svg width="12" height="24" viewBox="0 0 12 24" fill="none">
+          <line x1="6" y1="0" x2="6" y2="18" stroke="rgba(10,132,255,0.35)" stroke-width="1.5" stroke-dasharray="3 2.5"/>
+          <polyline points="2,15 6,23 10,15" fill="none" stroke="rgba(10,132,255,0.45)" stroke-width="1.5" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="intel-stage intel-stage--active">
+        <div class="intel-stage-num">03</div>
+        <div>
+          <div class="intel-stage-label">Surgical Intelligence</div>
+          <div class="intel-stage-sub">AI designed for the knowledge environment surrounding surgery. Not general purpose. Built for how surgical teams document, retrieve, and work with clinical knowledge.</div>
+        </div>
+      </div>
+      <div class="intel-conn" aria-hidden="true">
+        <svg width="12" height="24" viewBox="0 0 12 24" fill="none">
+          <line x1="6" y1="0" x2="6" y2="18" stroke="rgba(10,132,255,0.35)" stroke-width="1.5" stroke-dasharray="3 2.5"/>
+          <polyline points="2,15 6,23 10,15" fill="none" stroke="rgba(10,132,255,0.45)" stroke-width="1.5" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="intel-stage intel-stage--active">
+        <div class="intel-stage-num">04</div>
+        <div>
+          <div class="intel-stage-label">Organizational Intelligence</div>
+          <div class="intel-stage-sub">The hospital direction. An intelligence layer built around what the institution already knows — accessible to authorized teams while keeping individual surgeon workspaces private.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ SECTION 9: HOSPITALS OF EVERY SIZE ══════════════ -->
+<section class="std alt">
+  <div class="container">
+    <div class="sec-head fade-up">
+      <span class="sec-eyebrow">Designed for Scale</span>
+      <h2 class="sec-title">From 2–3 Surgeons to an Entire Surgical Network.</h2>
+      <p class="sec-body">The model is not designed exclusively for large tertiary centres. The intelligence layer scales with the institution's knowledge — not with its bed count.</p>
+    </div>
+    <div class="size-grid fade-up" style="transition-delay:0.1s">
+      <div class="size-card">
+        <div class="size-card-tag">Small Hospital</div>
+        <h3>Focused Teams</h3>
+        <p>A hospital with 2–3 surgeons can have individual workspaces, shared protocols, and institutional knowledge — all within a single organized environment, without complexity or cost designed for large organizations.</p>
+      </div>
+      <div class="size-card">
+        <div class="size-card-tag">Multispecialty</div>
+        <h3>Across Departments</h3>
+        <p>Different specialties, different protocols. The intelligence layer is designed to organize knowledge by department while maintaining a unified hospital environment accessible to authorized members across the organization.</p>
+      </div>
+      <div class="size-card">
+        <div class="size-card-tag">Hospital Groups</div>
+        <h3>Network Scale</h3>
+        <p>Hospital groups and surgical networks bring the breadth of organizational knowledge together with the depth of individual surgical intelligence — each surgeon's workspace remaining their own.</p>
+      </div>
+    </div>
+    <div class="size-mini fade-up" style="transition-delay:0.15s">
+      <div class="size-mini-title">Even a small hospital team can have</div>
+      <p>The structure of individual surgeon workspaces, shared hospital knowledge, and institutional intelligence — regardless of size.</p>
+      <div class="size-mini-list">
+        <span class="size-mini-pill">Individual Surgeon Workspaces</span>
+        <span class="size-mini-pill">Shared Hospital Knowledge</span>
+        <span class="size-mini-pill">Institutional Intelligence</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ SECTION 10: CAPABILITIES ══════════════ -->
+<section class="std">
+  <div class="container">
+    <div class="sec-head fade-up">
+      <span class="sec-eyebrow">Platform Capabilities</span>
+      <h2 class="sec-title">Built Around the Way Surgeons Work.</h2>
+      <p class="sec-body">Haarks is designed for the environments and workflows of surgical practice — not adapted from a general enterprise tool.</p>
+    </div>
+    <div class="caps-grid fade-up" style="transition-delay:0.1s">
+      <div class="caps-item">
+        <div class="caps-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+        </div>
+        <h3>Private Surgeon Workspaces</h3>
+        <p>Each surgeon has an individual workspace that belongs to them. Private cases, private vault, private intelligence — not accessible to the hospital organization.</p>
+      </div>
+      <div class="caps-item">
+        <div class="caps-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3>Institutional Knowledge</h3>
+        <p>Authorized hospital protocols, SOPs, guidelines and documents organized in a hospital intelligence layer accessible to authorized members of the organization.</p>
+      </div>
+      <div class="caps-item">
+        <div class="caps-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <h3>Case Documentation</h3>
+        <p>AI-assisted case documentation and summaries — built to reduce time spent on administrative work and capture case knowledge in a structured, queryable form.</p>
+      </div>
+      <div class="caps-item">
+        <div class="caps-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+        </div>
+        <h3>Voice Capture</h3>
+        <p>Capture case information naturally by voice — reducing friction at the point of documentation and allowing surgeons to log cases without unnecessary administrative steps.</p>
+      </div>
+      <div class="caps-item">
+        <div class="caps-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        </div>
+        <h3>Images and Reports</h3>
+        <p>Work with relevant surgical images, scans, and reports where supported by the platform — bringing visual clinical information into the knowledge environment.</p>
+      </div>
+      <div class="caps-item">
+        <div class="caps-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </div>
+        <h3>Knowledge Retrieval</h3>
+        <p>Surface relevant information from authorized knowledge sources — personal vault, hospital protocols, or organizational guidelines — with appropriate authorization at every step.</p>
+      </div>
+      <div class="caps-item">
+        <div class="caps-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+        </div>
+        <h3>Offline-First Workflow</h3>
+        <p>Haarks is designed to work in environments where connectivity is not always reliable — a practical requirement for surgical settings where continuous internet access cannot be assumed.</p>
+      </div>
+      <div class="caps-item">
+        <div class="caps-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <h3>Secure Access</h3>
+        <p>Access designed around authorization and appropriate workspace boundaries — individual, organizational, and institutional access are each scoped to the relevant environment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ SECTION 11: RESPONSIBLE AI ══════════════ -->
+<section class="std alt">
+  <div class="container">
+    <div class="sec-head fade-up">
+      <span class="sec-eyebrow">Responsible AI</span>
+      <h2 class="sec-title">AI Should Support Surgeons. Not Replace Their Judgment.</h2>
+      <p class="sec-body">Haarks is designed as an intelligence and workflow layer. Medical professionals remain responsible for clinical judgment. That principle is built into the product — not added as an afterthought.</p>
+    </div>
+    <div class="resp-grid fade-up" style="transition-delay:0.1s">
+      <div class="resp-item">
+        <div class="resp-item-label">Private</div>
+        <p>Surgeon data is kept in isolated private workspaces. Hospital knowledge is kept in organizational scope. The two environments are never merged.</p>
+      </div>
+      <div class="resp-item">
+        <div class="resp-item-label">Secure</div>
+        <p>Data is encrypted at rest and in transit. Access to each environment is authorized and scoped. Nothing crosses workspace boundaries without appropriate authorization.</p>
+      </div>
+      <div class="resp-item">
+        <div class="resp-item-label">Controlled Access</div>
+        <p>Access to hospital knowledge is organized around membership and authorization. Hospital-owned resources remain with the hospital. Surgeon-private resources remain with the surgeon.</p>
+      </div>
+      <div class="resp-item">
+        <div class="resp-item-label">Human Oversight</div>
+        <p>AI output should be reviewed by the appropriate medical professional. Haarks is a knowledge and workflow tool — clinical decisions remain the sole responsibility of the treating surgeon.</p>
+      </div>
+    </div>
+    <div class="resp-note fade-up" style="transition-delay:0.15s">
+      Haarks is not a diagnostic tool. It is not clinical decision support. It does not replace the independent clinical judgment of the treating surgeon. <strong>All clinical decisions remain entirely the surgeon's responsibility.</strong>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ SECTION 12: HOSPITAL ENGAGEMENT ══════════════ -->
+<section class="std" id="hospital-conversation">
+  <div class="container">
+    <div class="sec-head fade-up">
+      <span class="sec-eyebrow">Start a Conversation</span>
+      <h2 class="sec-title">Ready to Explore Haarks for Your Hospital?</h2>
+      <p class="sec-body">Every hospital has a different structure, knowledge environment, and workflow. Haarks hospital engagements are designed around the organization's needs — from a small surgical team to a larger hospital environment.</p>
+    </div>
+    <div class="engage-wrap fade-up" style="transition-delay:0.1s">
+      <form class="engage-form" id="hospital-form" novalidate>
+        <div class="engage-topline" aria-hidden="true"></div>
+        <div class="form-grid">
+          <div class="form-field">
+            <label class="form-label" for="hf-name">Name</label>
+            <input class="form-control" type="text" id="hf-name" name="name" placeholder="Your full name" required autocomplete="name" />
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="hf-email">Work Email</label>
+            <input class="form-control" type="email" id="hf-email" name="email" placeholder="you@hospital.com" required autocomplete="email" />
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="hf-hospital">Hospital / Organization</label>
+            <input class="form-control" type="text" id="hf-hospital" name="hospital" placeholder="Hospital or organization name" required autocomplete="organization" />
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="hf-role">Role</label>
+            <select class="form-control" id="hf-role" name="role" required>
+              <option value="" disabled selected>Select your role</option>
+              <option>Surgeon</option>
+              <option>Medical Director</option>
+              <option>Hospital Administrator</option>
+              <option>CIO / CTO</option>
+              <option>Procurement</option>
+              <option>Hospital CEO / Management</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="hf-surgeons">Number of Surgeons</label>
+            <select class="form-control" id="hf-surgeons" name="surgeons" required>
+              <option value="" disabled selected>Approximate number</option>
+              <option>2–5 surgeons</option>
+              <option>6–15 surgeons</option>
+              <option>16–50 surgeons</option>
+              <option>More than 50 surgeons</option>
+              <option>Not yet confirmed</option>
+            </select>
+          </div>
+          <div class="form-field form-field--full">
+            <label class="form-label" for="hf-message">Message</label>
+            <textarea class="form-control" id="hf-message" name="message" placeholder="Tell us about your hospital, what you're looking to achieve, and any specific questions." rows="5"></textarea>
+          </div>
+        </div>
+        <div class="form-submit-row">
+          <button type="submit" class="btn btn-primary btn-lg">Start a Hospital Conversation →</button>
+          <p class="form-note">No fixed hospital pricing is published&ensp;·&ensp;Commercial terms discussed directly&ensp;·&ensp;Hospital enquiries only</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ SECTION 13: FAQ ══════════════ -->
+<section class="std alt" id="faq">
+  <div class="container">
+    <div class="sec-head fade-up">
+      <span class="sec-eyebrow">Questions</span>
+      <h2 class="sec-title">Common Questions.</h2>
+      <p class="sec-body">Answers to what hospital teams commonly ask about the Haarks direction for hospitals.</p>
+    </div>
+    <div class="faq-list fade-up" style="transition-delay:0.1s">
+
+      <div class="faq-entry">
+        <button class="faq-btn" onclick="toggleHFaq(this)">What is Haarks for Hospitals?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-body"><div class="faq-inner"><p class="faq-ans">Haarks is being developed to provide hospitals with an organizational intelligence layer — helping authorized teams work with institutional knowledge, while preserving individual surgeon workspaces that remain entirely private to each surgeon.</p></div></div>
+      </div>
+
+      <div class="faq-entry">
+        <button class="faq-btn" onclick="toggleHFaq(this)">Can each surgeon have their own private workspace?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-body"><div class="faq-inner"><p class="faq-ans">Yes. The hospital model is designed around individual surgeon accounts with appropriate separation between private surgeon information and hospital-owned knowledge. A surgeon's personal workspace is not accessible to the hospital organization.</p></div></div>
+      </div>
+
+      <div class="faq-entry">
+        <button class="faq-btn" onclick="toggleHFaq(this)">Can a hospital have shared knowledge?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-body"><div class="faq-inner"><p class="faq-ans">The hospital model is designed to support an organizational knowledge environment containing resources the hospital chooses to make available to authorized members — protocols, SOPs, shared guidelines, institutional knowledge, and departmental documents.</p></div></div>
+      </div>
+
+      <div class="faq-entry">
+        <button class="faq-btn" onclick="toggleHFaq(this)">What happens when a surgeon leaves?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-body"><div class="faq-inner"><p class="faq-ans">Hospital-owned resources remain within the hospital environment, while access can be revoked through membership management. Private surgeon information remains separate according to applicable product and legal policy — what belongs to the surgeon stays with the surgeon.</p></div></div>
+      </div>
+
+      <div class="faq-entry">
+        <button class="faq-btn" onclick="toggleHFaq(this)">Can a small hospital use Haarks?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-body"><div class="faq-inner"><p class="faq-ans">Yes. The model is designed to support hospitals ranging from small surgical teams to larger organizations. Even a hospital with 2–3 surgeons can have individual surgeon workspaces, shared hospital knowledge, and an institutional intelligence environment.</p></div></div>
+      </div>
+
+      <div class="faq-entry">
+        <button class="faq-btn" onclick="toggleHFaq(this)">Do hospitals use the same pricing as individual surgeons?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-body"><div class="faq-inner"><p class="faq-ans">No fixed hospital pricing is published. Hospital engagements are discussed directly and structured around the organization's requirements. Individual surgeon subscriptions and hospital organization access are distinct and handled separately.</p></div></div>
+      </div>
+
+      <div class="faq-entry">
+        <button class="faq-btn" onclick="toggleHFaq(this)">Can existing hospital knowledge be connected?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-body"><div class="faq-inner"><p class="faq-ans">The hospital direction is designed to support connecting relevant organizational knowledge — protocols, SOPs, guidelines, and institutional documents. Exact onboarding and data requirements can be discussed as part of the hospital engagement conversation.</p></div></div>
+      </div>
+
+      <div class="faq-entry">
+        <button class="faq-btn" onclick="toggleHFaq(this)">Is Haarks a diagnostic system?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-body"><div class="faq-inner"><p class="faq-ans">No. Haarks is an AI-powered knowledge and workflow platform for surgeons and healthcare organizations. It does not replace professional medical judgment, and it is not a diagnostic tool or clinical decision support system. All clinical decisions remain entirely the responsibility of the treating surgeon.</p></div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ FINAL CTA ══════════════ -->
+<section class="hosp-cta">
+  <div class="hosp-cta-bg" aria-hidden="true"></div>
+  <div class="hosp-cta-canvas" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hosp-cta-inner fade-up">
+      <h2 class="hosp-cta-title">The Next Generation of Hospital Knowledge Should Be Intelligent.</h2>
+      <p class="hosp-cta-body">Build an intelligence layer around the knowledge your hospital already has.</p>
+      <a href="#hospital-conversation" class="btn btn-primary btn-lg">Bring Haarks to Your Hospital →</a>
+      <p class="hosp-cta-legal">Private&ensp;·&ensp;Secure&ensp;·&ensp;Built for Surgery</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-upper">
+      <div class="footer-brand-col">
+        <div class="footer-brand">
+          <svg viewBox="55 18 275 285" width="24" height="24" aria-hidden="true">
+            <defs>
+              <linearGradient id="lg-footer" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#5CB8FF"/>
+                <stop offset="100%" stop-color="#0A84FF"/>
+              </linearGradient>
+            </defs>
+            <rect x="60" y="30" width="46" height="260" rx="12" fill="url(#lg-footer)"/>
+            <rect x="136" y="104" width="58" height="112" rx="12" fill="url(#lg-footer)"/>
+            <rect x="194" y="155" width="50" height="11" rx="5.5" fill="url(#lg-footer)"/>
+            <circle cx="254" cy="160" r="8" fill="url(#lg-footer)"/>
+            <rect x="280" y="22" width="46" height="276" rx="12" fill="url(#lg-footer)"/>
+          </svg>
+          <span class="footer-wordmark">Haarks Clinic</span>
+        </div>
+        <span class="footer-tagline">The Future OS for Surgeons.</span>
+      </div>
+      <nav class="footer-links" aria-label="Footer links">
+        <a href="/">For Surgeons</a>
+        <a href="/hospitals" aria-current="page">For Hospitals</a>
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Service</a>
+        <a href="/disclaimer.html">Medical Disclaimer</a>
+        <a href="/account-deletion.html">Delete Account</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:center;">
+        <a href="mailto:support@haarksclinic.com" class="footer-email">support@haarksclinic.com</a>
+        <a href="https://www.linkedin.com/company/haarks-clinic/" rel="noopener noreferrer" target="_blank" class="footer-email" aria-label="Haarks Clinic on LinkedIn">LinkedIn</a>
+        <a href="https://www.instagram.com/haarksclinic/" rel="noopener noreferrer" target="_blank" class="footer-email" aria-label="Haarks Clinic on Instagram">Instagram</a>
+        <a href="https://x.com/haarksclinic?s=11" rel="noopener noreferrer" target="_blank" class="footer-email" aria-label="Haarks Clinic on X">X</a>
+        <a href="https://www.threads.com/@haarksclinic?igshid=NTc4MTIwNjQ2YQ==" rel="noopener noreferrer" target="_blank" class="footer-email" aria-label="Haarks Clinic on Threads">Threads</a>
+      </div>
+    </div>
+    <div class="footer-lower">
+      <p class="footer-disclaimer">Haarks Clinic is a personal knowledge management platform for medical professionals. It is not a diagnostic tool, clinical decision support system, or regulated medical device. The hospital intelligence capabilities described on this page are currently in development and do not represent a commercially deployed product. All clinical decisions remain the sole responsibility of the treating surgeon. Haarks International Pvt Ltd, Bengaluru, India.</p>
+      <p class="footer-copy">© 2026 Haarks International Pvt Ltd. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ─── NAV SCROLL ─── */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+
+  /* ─── FADE-UP OBSERVER ─── */
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, { rootMargin: '-60px' });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+  /* Hero fires immediately */
+  setTimeout(() => {
+    document.querySelectorAll('.hosp-hero .fade-up').forEach(el => el.classList.add('visible'));
+  }, 80);
+
+  /* ─── LAYER FLOW: rotate arrows on desktop ─── */
+  function orientArrows() {
+    const horiz = window.innerWidth >= 768;
+    document.querySelectorAll('.layer-arrow svg').forEach(svg => {
+      svg.style.transform = horiz ? 'rotate(0deg)' : 'rotate(90deg)';
+    });
+  }
+  orientArrows();
+  window.addEventListener('resize', orientArrows, { passive: true });
+
+  /* ─── HOSPITAL FAQ ─── */
+  function toggleHFaq(btn) {
+    const entry = btn.closest('.faq-entry');
+    const isOpen = entry.classList.contains('open');
+    document.querySelectorAll('.faq-list .faq-entry.open').forEach(e => e.classList.remove('open'));
+    if (!isOpen) entry.classList.add('open');
+  }
+
+  /* ─── HOSPITAL FORM → mailto ─── */
+  document.getElementById('hospital-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const f = e.target;
+    const get = n => f.querySelector('[name="' + n + '"]').value.trim();
+    const name     = get('name');
+    const email    = get('email');
+    const hospital = get('hospital');
+    const role     = get('role');
+    const surgeons = get('surgeons');
+    const message  = get('message');
+    const missing  = f.querySelectorAll('[required]');
+    let valid = true;
+    missing.forEach(el => { if (!el.value.trim()) { el.focus(); valid = false; } });
+    if (!valid) return;
+    const body = [
+      'Name: ' + name,
+      'Work Email: ' + email,
+      'Hospital / Organization: ' + hospital,
+      'Role: ' + role,
+      'Number of Surgeons: ' + surgeons,
+      '',
+      'Message:',
+      message || '(No message provided)'
+    ].join('\n');
+    window.location.href =
+      'mailto:support@haarksclinic.com'
+      + '?subject=' + encodeURIComponent('Hospital Enquiry — ' + hospital)
+      + '&body='    + encodeURIComponent(body);
+  });
+</script>
+</body>
+</html>
