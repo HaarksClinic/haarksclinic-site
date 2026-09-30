@@ -126,7 +126,7 @@
     .sec-head { text-align: center; max-width: 768px; margin: 0 auto; }
     h2.sec-title {
       font-weight: 700; font-size: 34px; letter-spacing: -0.025em;
-      color: #fff; margin-bottom: 24px; line-height: 1.15; text-wrap: balance;
+      color: #fff; margin-bottom: 24px; line-height: 1.1; text-wrap: balance;
     }
     .sec-body {
       font-weight: 300; font-size: 17px; color: var(--muted);
@@ -212,7 +212,7 @@
     @media (min-width: 1024px) { h1.hero-title { font-size: clamp(30px, 2.9vw, 39px); } }
 
     .hero-sub {
-      font-size: 17px; color: var(--muted); line-height: 1.7;
+      font-size: 16px; color: var(--muted); line-height: 1.7;
       font-weight: 300; max-width: 540px; margin-bottom: 40px;
     }
     .hero-ctas { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
@@ -776,6 +776,13 @@
       text-transform: uppercase; letter-spacing: 0.07em;
     }
     @media (max-width: 767px) { .hosp-cta { padding: 100px 0; } }
+
+    /* Mobile typography: match the homepage's compact sub-heading scale */
+    @media (max-width: 767px) {
+      .split-panel h3 { font-size: 20px; }
+      .cap-card h3    { font-size: 17px; }
+      .access-step h3 { font-size: 18px; }
+    }
   </style>
   <script type="application/ld+json">
   {
