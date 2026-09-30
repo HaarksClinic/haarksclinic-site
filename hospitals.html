@@ -125,7 +125,7 @@
     section.std.alt { background: var(--surface-a); }
     .sec-head { text-align: center; max-width: 768px; margin: 0 auto; }
     h2.sec-title {
-      font-weight: 700; font-size: 36px; letter-spacing: -0.025em;
+      font-weight: 700; font-size: 34px; letter-spacing: -0.025em;
       color: #fff; margin-bottom: 24px; line-height: 1.15; text-wrap: balance;
     }
     .sec-body {
@@ -186,7 +186,7 @@
       position: relative; z-index: 2;
       display: grid; grid-template-columns: 1fr; gap: 64px; align-items: center;
     }
-    @media (min-width: 1024px) { .hero-inner { grid-template-columns: 1fr 1fr; gap: 56px; } }
+    @media (min-width: 1024px) { .hero-inner { grid-template-columns: 1fr 1fr; gap: 56px; } .hero-inner > * { min-width: 0; } }
 
     .hero-eyebrow {
       display: inline-flex; align-items: center; gap: 8px;
@@ -202,15 +202,14 @@
     @keyframes eyebrow-pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
 
     h1.hero-title {
-      font-weight: 800; line-height: 1.0; letter-spacing: -0.035em;
+      font-weight: 800; line-height: 1.04; letter-spacing: -0.035em;
       margin-bottom: 24px; text-wrap: balance;
-      font-size: 48px;
+      font-size: clamp(24px, 6.4vw, 48px);
       background: linear-gradient(145deg, #fff 0%, #fff 55%, var(--accent) 100%);
       -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
     }
-    @media (min-width: 768px)  { h1.hero-title { font-size: 60px; } }
-    @media (min-width: 1024px) { h1.hero-title { font-size: 72px; } }
-    @media (max-width: 479px)  { h1.hero-title { font-size: 38px; } }
+    @media (min-width: 768px)  { h1.hero-title { font-size: clamp(44px, 6.2vw, 56px); } }
+    @media (min-width: 1024px) { h1.hero-title { font-size: clamp(30px, 2.9vw, 39px); } }
 
     .hero-sub {
       font-size: 17px; color: var(--muted); line-height: 1.7;
@@ -763,12 +762,11 @@
     .hosp-cta-inner { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
     h2.hosp-cta-title {
       font-family: var(--font-display); font-weight: 800; letter-spacing: -0.035em;
-      line-height: 1.05; margin-bottom: 20px; text-wrap: balance; font-size: 44px;
+      line-height: 1.05; margin-bottom: 20px; text-wrap: balance; font-size: clamp(24px, 6.4vw, 44px);
       background: linear-gradient(145deg, #fff 0%, var(--accent) 100%);
       -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
     }
-    @media (min-width: 768px)  { h2.hosp-cta-title { font-size: 60px; } }
-    @media (max-width: 479px)  { h2.hosp-cta-title { font-size: 34px; } }
+    @media (min-width: 768px)  { h2.hosp-cta-title { font-size: clamp(40px, 5.8vw, 58px); } }
     .hosp-cta-body {
       font-size: 17px; color: var(--muted); line-height: 1.65;
       max-width: 480px; margin: 0 auto 40px; font-weight: 300;
