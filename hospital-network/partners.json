@@ -1,0 +1,30 @@
+{
+  "_comment": "Data layer for the Haarks Hospital Network. No fabricated hospitals: 'partners' is empty until a hospital formally partners with Haarks and is verified. The page renders an intentional empty state while this list is empty, and renders cards only for fields that actually exist. Future profiles live at /hospital-network/<slug>.",
+  "updated": "2026-10-03",
+  "partnerSchema": {
+    "name": "string",
+    "logo": "string (url, optional)",
+    "city": "string (optional)",
+    "country": "string (optional)",
+    "specialties": "string[] (optional)",
+    "description": "string (optional)",
+    "website": "string (official url, optional)",
+    "partnershipStatus": "partner | pilot | exploring",
+    "verified": "boolean",
+    "featured": "boolean",
+    "slug": "string (profile at /hospital-network/<slug>)",
+    "profileImage": "string (url, optional)"
+  },
+  "placementSchema": {
+    "_note": "Future commercial layer. Not implemented: no payments, ads, billing, or checkout. Any sponsored item MUST set sponsored:true so it renders with a clear label, visually distinct from ordinary network content. No paid rankings; never 'best'/'top'/'#1'.",
+    "type": "featured | sponsored | event | education | fellowship | announcement | spotlight",
+    "sponsored": "boolean",
+    "title": "string",
+    "hospitalSlug": "string (optional)",
+    "url": "string (optional)",
+    "startDate": "string (optional)",
+    "endDate": "string (optional)"
+  },
+  "partners": [],
+  "placements": []
+}
