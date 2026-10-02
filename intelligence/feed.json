@@ -1,0 +1,102 @@
+{
+  "_comment": "Isolated data layer for Haarks Intelligence. Every entry is a curated, source-attributed summary written by Haarks; the original reporting belongs to the linked source. This file is the single source of truth; the static cards in /intelligence/index.html mirror it and can later be regenerated from this file by a GitHub Action. No fabricated content: only entries with a verifiable primary source may be added.",
+  "schema": {
+    "entry": ["title", "category", "summary", "whyItMatters", "source", "sourceUrl", "publicationDate", "haarksRelevance", "entity", "specialty", "lastVerified"]
+  },
+  "lastUpdated": "2026-10-02",
+  "categories": [
+    "Medical AI",
+    "Surgical AI",
+    "Surgical Robotics",
+    "Medical Technology",
+    "Surgical Equipment",
+    "Research & Evidence",
+    "Regulatory Developments"
+  ],
+  "trackedEntities": {
+    "note": "Tracked industry entities for intelligence coverage. This is not a ranking and implies no endorsement, partnership, or comparison.",
+    "Medical Technology": ["Medtronic", "Johnson & Johnson MedTech", "Siemens Healthineers", "Stryker", "GE HealthCare", "Philips", "Abbott", "Boston Scientific", "BD", "Medline"],
+    "Medical AI": ["Aidoc", "Tempus", "Viz.ai", "Lunit", "Qure.ai", "PathAI", "Abridge", "RapidAI", "Paige", "OpenEvidence"],
+    "Surgical Technology / Equipment": ["Intuitive", "Stryker", "Medtronic", "Ethicon (J&J MedTech)", "Zimmer Biomet", "B. Braun", "Olympus", "Smith+Nephew", "CONMED", "KARL STORZ"]
+  },
+  "entries": [
+    {
+      "title": "FDA finalises guidance on change control plans for AI-enabled devices",
+      "category": "Regulatory Developments",
+      "summary": "The FDA issued final guidance on marketing-submission recommendations for a Predetermined Change Control Plan (PCCP) for AI-enabled device software functions, describing how planned model modifications can be pre-specified, validated, and implemented.",
+      "whyItMatters": "It affects how AI-enabled medical technologies are evaluated and updated after they reach the market.",
+      "source": "U.S. FDA",
+      "sourceUrl": "https://www.fda.gov/medical-devices/software-medical-device-samd/artificial-intelligence-software-medical-device",
+      "publicationDate": "2024-12-04",
+      "haarksRelevance": "Context for how AI in medical software is regulated; informational only.",
+      "entity": "FDA",
+      "specialty": "Cross-specialty",
+      "lastVerified": "2026-10-02"
+    },
+    {
+      "title": "FDA updates its public list of AI/ML-enabled medical devices",
+      "category": "Medical AI",
+      "summary": "The FDA maintains and periodically updates a public list of AI/ML-enabled medical devices authorised for marketing in the United States, available as a downloadable file.",
+      "whyItMatters": "A practical reference for understanding which categories of AI-enabled devices have reached the US market.",
+      "source": "U.S. FDA",
+      "sourceUrl": "https://www.fda.gov/medical-devices/software-medical-device-samd/artificial-intelligence-enabled-medical-devices",
+      "publicationDate": "2024-12-20",
+      "haarksRelevance": "Reference resource for tracking the medical-AI device landscape.",
+      "entity": "FDA",
+      "specialty": "Cross-specialty",
+      "lastVerified": "2026-10-02"
+    },
+    {
+      "title": "WHO publishes ethics and governance guidance for large multi-modal AI models in health",
+      "category": "Medical AI",
+      "summary": "The World Health Organization released guidance on the ethics and governance of large multi-modal models (LMMs) in health, with recommendations for governments, developers, and health-care providers across the AI lifecycle.",
+      "whyItMatters": "It outlines widely-referenced principles for responsible use of generative AI in health settings.",
+      "source": "World Health Organization",
+      "sourceUrl": "https://www.who.int/news/item/18-01-2024-who-releases-ai-ethics-and-governance-guidance-for-large-multi-modal-models",
+      "publicationDate": "2024-01-18",
+      "haarksRelevance": "Aligns with Haarks' source-grounded, human-in-the-loop approach.",
+      "entity": "WHO",
+      "specialty": "Cross-specialty",
+      "lastVerified": "2026-10-02"
+    },
+    {
+      "title": "Intuitive receives FDA clearance for the da Vinci 5 robotic system",
+      "category": "Surgical Robotics",
+      "summary": "Intuitive announced FDA 510(k) clearance for da Vinci 5, its next-generation multiport robotic system, which the company later reported was cleared for certain cardiac procedures.",
+      "whyItMatters": "Signals continued iteration in multiport surgical robotics platforms available to surgical teams.",
+      "source": "Intuitive",
+      "sourceUrl": "https://isrg.intuitive.com/news-releases/news-release-details/intuitive-announces-fda-clearance-fifth-generation-robotic",
+      "publicationDate": "2024-03-14",
+      "haarksRelevance": "Part of the surgical-robotics landscape Haarks tracks; informational only.",
+      "entity": "Intuitive",
+      "specialty": "Multi-specialty surgery",
+      "lastVerified": "2026-10-02"
+    },
+    {
+      "title": "Medtronic's Hugo robotic-assisted surgery system cleared for urologic procedures",
+      "category": "Surgical Robotics",
+      "summary": "Medtronic announced FDA clearance of its Hugo robotic-assisted surgery (RAS) system for urologic procedures, following its Expand URO clinical study; the company later reported the first US surgery with the system.",
+      "whyItMatters": "Adds another robotic-assisted surgery option in the soft-tissue robotics market.",
+      "source": "Medtronic",
+      "sourceUrl": "https://news.medtronic.com/2025-12-03-Medtronic-announces-FDA-clearance-of-Hugo-TM-robotic-assisted-surgery-system-for-urologic-surgical-procedures",
+      "publicationDate": "2025-12-03",
+      "haarksRelevance": "Part of the surgical-robotics landscape Haarks tracks; informational only.",
+      "entity": "Medtronic",
+      "specialty": "Urology",
+      "lastVerified": "2026-10-02"
+    },
+    {
+      "title": "Stryker expands its Mako robotics portfolio with handheld robotics",
+      "category": "Surgical Technology",
+      "summary": "Stryker announced an expansion of its Mako robotics portfolio, introducing a handheld robotics system (Mako RPS) for total knee replacement alongside its robotic-arm platform.",
+      "whyItMatters": "Reflects diversification of orthopaedic robotic-assistance formats available to surgeons.",
+      "source": "Stryker",
+      "sourceUrl": "https://www.stryker.com/us/en/about/news/2026/stryker-expands-mako-robotics-portfolio.html",
+      "publicationDate": "2026-01-01",
+      "haarksRelevance": "Relevant to orthopaedic workflows Haarks supports; informational only.",
+      "entity": "Stryker",
+      "specialty": "Orthopaedics",
+      "lastVerified": "2026-10-02"
+    }
+  ]
+}
