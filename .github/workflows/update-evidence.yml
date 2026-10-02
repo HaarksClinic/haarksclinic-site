@@ -1,0 +1,41 @@
+name: Update surgical evidence (PubMed)
+
+# Refreshes intelligence/evidence.json with recent PubMed records for the
+# Haarks Intelligence "Live Surgical Evidence" feed. Website content only:
+# it does not call or modify any backend and uses no API keys or secrets.
+# The public NCBI E-utilities service requires no key. A commit here triggers
+# the existing Pages deploy workflow.
+
+on:
+  schedule:
+    - cron: '0 6 * * *'   # daily at 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-evidence
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Fetch latest PubMed records
+        run: python3 scripts/fetch_pubmed.py
+
+      - name: Commit if changed
+        run: |
+          if [ -n "$(git status --porcelain intelligence/evidence.json)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add intelligence/evidence.json
+            git commit -m "data: refresh surgical evidence from PubMed"
+            git push
+          else
+            echo "No changes to evidence.json."
+          fi

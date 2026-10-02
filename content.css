@@ -126,6 +126,9 @@ a.card:hover{border-color:rgba(10,132,255,0.4);transform:translateY(-2px)}
 .ask-field{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px solid var(--border-dark);border-radius:var(--radius-md);background:rgba(0,0,0,0.3);padding:13px 15px;margin:14px 0;color:var(--muted-dim);font-size:14px}
 .ask-examples{list-style:none;display:flex;flex-direction:column;gap:9px;margin-top:4px}
 .ask-examples li{font-size:13.5px;color:var(--muted);font-style:italic}
+.ev-updated{font-size:12px;color:var(--muted-dim);margin-bottom:18px}
+.ev-meta{font-size:12px;color:var(--accent);font-weight:500;margin:2px 0 10px}
+.ifeed-card .ev-summary{font-size:13.5px;color:var(--muted);font-weight:300;margin-bottom:14px}
 
 /* Footer */
 .footer{border-top:1px solid var(--border-soft);padding:48px 0 60px;background:var(--alt-bg)}
