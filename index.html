@@ -809,6 +809,28 @@
     .ai-src-badge { display:inline-flex; align-items:center; gap:5px; padding:3px 9px; border-radius:6px; background:rgba(10,132,255,0.08); border:1px solid rgba(10,132,255,0.18); font-size:11px; color:var(--primary); font-weight:600; }
     .ai-feedback-row { display:flex; align-items:center; gap:6px; margin-top:12px; }
     .ai-fb-btn { display:flex; align-items:center; gap:5px; padding:5px 12px; border-radius:8px; background:rgba(255,255,255,0.04); border:1px solid rgba(36,36,39,0.8); font-size:12px; color:rgba(142,142,147,0.6); cursor:default; }
+    .ask-chips-label { font-size:11px; text-transform:uppercase; letter-spacing:0.06em; color:rgba(142,142,147,0.6); margin-bottom:10px; font-weight:600; }
+    .ask-chips { display:flex; flex-wrap:wrap; gap:8px; }
+    .ask-chip { font-size:13px; color:rgba(255,255,255,0.85); background:rgba(255,255,255,0.04); border:1px solid var(--border-dark); border-radius:9999px; padding:8px 14px; cursor:pointer; transition:border-color 0.2s ease, background 0.2s ease; font-family:inherit; line-height:1.3; text-align:left; }
+    .ask-chip:hover { border-color:rgba(10,132,255,0.4); }
+    .ask-chip.active { background:rgba(10,132,255,0.15); border-color:rgba(10,132,255,0.45); color:#fff; }
+
+    /* ─── PERSONAL SURGICAL KNOWLEDGE ─── */
+    .psk-flow { max-width:860px; margin:48px auto 0; display:flex; flex-direction:column; align-items:center; }
+    .psk-tier-label { font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted-dim); font-weight:600; margin-bottom:14px; text-align:center; }
+    .psk-inputs, .psk-caps { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; }
+    .psk-chip { display:inline-flex; align-items:center; gap:8px; font-size:14px; color:#fff; background:var(--card); border:1px solid var(--border); border-radius:12px; padding:12px 16px; }
+    .psk-chip .dot { width:7px; height:7px; border-radius:50%; background:var(--primary); flex-shrink:0; }
+    .psk-chip.soon { color:var(--muted); }
+    .psk-chip.soon .dot { background:var(--muted-dim); }
+    .psk-chip .soon-tag { font-size:10px; text-transform:uppercase; letter-spacing:0.05em; color:var(--accent); border:1px solid rgba(90,200,250,0.25); border-radius:6px; padding:2px 6px; }
+    .psk-arrow { width:1px; height:34px; background:linear-gradient(to bottom, rgba(10,132,255,0.5), rgba(10,132,255,0.1)); margin:16px 0; position:relative; }
+    .psk-arrow::after { content:""; position:absolute; bottom:-1px; left:50%; transform:translateX(-50%); border-left:5px solid transparent; border-right:5px solid transparent; border-top:6px solid rgba(10,132,255,0.5); }
+    .psk-node { text-align:center; padding:16px 34px; border-radius:16px; background:rgba(10,132,255,0.08); border:1px solid rgba(10,132,255,0.25); font-family:var(--font-display); font-weight:700; font-size:20px; color:#fff; letter-spacing:-0.02em; }
+    .psk-cap { font-size:13px; font-weight:600; color:var(--primary); background:rgba(10,132,255,0.06); border:1px solid rgba(10,132,255,0.18); border-radius:9999px; padding:8px 16px; }
+    .psk-output { text-align:center; padding:22px 32px; border-radius:18px; background:linear-gradient(135deg, rgba(10,132,255,0.14), rgba(90,200,250,0.05)); border:1px solid rgba(10,132,255,0.35); }
+    .psk-out-title { font-family:var(--font-display); font-weight:700; font-size:clamp(20px,3.4vw,26px); color:#fff; letter-spacing:-0.02em; }
+    .psk-out-sub { font-size:13px; color:var(--muted); margin-top:6px; }
 
     /* ─── CASES ─── */
     .cases-grid { display:grid; grid-template-columns:1fr; gap:20px; max-width:1024px; margin:56px auto 0; }
@@ -1227,8 +1249,9 @@
 <section class="standard">
   <div class="container">
     <div class="section-head fade-up">
+      <span class="sec-eyebrow">Ask Haarks</span>
       <h2 class="section-title">This Is What Your AI Looks Like.</h2>
-      <p class="section-body">Ask a question. Haarks AI searches your personal vault and cases, then answers with sources, not generic results from the internet.</p>
+      <p class="section-body">Ask about your own work. Haarks AI searches your personal vault and cases, then answers with sources, not generic results from the internet. Try an example below.</p>
     </div>
     <div class="ai-demo-wrap fade-up">
       <div class="ai-demo-card">
@@ -1252,8 +1275,18 @@
             </div>
           </div>
           <div style="height:1px;background:rgba(255,255,255,0.07);margin:0 -28px"></div>
+          <div>
+            <div class="ask-chips-label">Ask Haarks — try an example</div>
+            <div class="ask-chips" id="askChips">
+              <button class="ask-chip active" type="button" onclick="askHaarks(0)">What did I document in my previous valgus TKR cases?</button>
+              <button class="ask-chip" type="button" onclick="askHaarks(1)">Show me my protocol for this procedure.</button>
+              <button class="ask-chip" type="button" onclick="askHaarks(2)">Which of my documented cases used a cemented implant?</button>
+              <button class="ask-chip" type="button" onclick="askHaarks(3)">What complications have I documented in similar cases?</button>
+              <button class="ask-chip" type="button" onclick="askHaarks(4)">Show me the sources behind this answer.</button>
+            </div>
+          </div>
           <div class="ai-user-msg">
-            <div class="ai-user-bubble">What did I do in my last 4 valgus TKRs?</div>
+            <div class="ai-user-bubble" id="demoQ">What did I document in my previous valgus TKR cases?</div>
           </div>
           <div class="ai-status-row">
             <div class="ai-thinking-dots">
@@ -1263,15 +1296,17 @@
             </div>
             Searching your personal knowledge...
           </div>
-          <div class="ai-found-row">
+          <div class="ai-found-row" id="demoFound">
             <div class="ai-found-badge"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>4 matching cases found</div>
             <div class="ai-found-badge"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>1 protocol in your vault</div>
           </div>
           <div>
             <div class="ai-response-bubble">
+              <div id="demoAnswer">
               <p>Based on your 4 documented valgus TKR cases, your approach consistently uses a medial parapatellar approach with lateral retinacular release when required. Your vault protocol specifies pie-crusting of the posterolateral capsule as your preferred technique for soft tissue balancing.</p>
               <p>In 3 of your 4 logged cases, you noted good ligament balance without constrained implants. Your most recent case documented an LCL release for a 16° valgus deformity.</p>
-              <div class="ai-response-footer">
+              </div>
+              <div class="ai-response-footer" id="demoSources">
                 <div class="ai-src-badge"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>Your Cases</div>
                 <div class="ai-src-badge"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Your Vault</div>
               </div>
@@ -1285,6 +1320,44 @@
       </div>
       <p style="text-align:center;margin-top:16px;font-size:11px;color:rgba(142,142,147,0.4);letter-spacing:0.04em;text-transform:uppercase;">Product illustration · Not a real patient case · Not clinical advice</p>
     </div>
+  </div>
+</section>
+
+<!-- ══════════════ PERSONAL SURGICAL KNOWLEDGE ══════════════ -->
+<section class="sec-pad sec-alt">
+  <div class="container">
+    <div class="sec-head fade-up">
+      <span class="sec-eyebrow">Personal Surgical Knowledge</span>
+      <h2 class="sec-title">Your knowledge, connected into one private intelligence.</h2>
+      <p class="sec-body">Everything you document feeds a private layer that only you can query. Haarks searches it, recalls it, and connects it, and always shows the sources behind an answer.</p>
+    </div>
+    <div class="psk-flow fade-up">
+      <div class="psk-tier-label">What you put in</div>
+      <div class="psk-inputs">
+        <span class="psk-chip"><span class="dot"></span>My Cases</span>
+        <span class="psk-chip"><span class="dot"></span>My Documents</span>
+        <span class="psk-chip"><span class="dot"></span>My Protocols</span>
+        <span class="psk-chip"><span class="dot"></span>My Implants</span>
+        <span class="psk-chip"><span class="dot"></span>My Sources</span>
+        <span class="psk-chip soon"><span class="dot"></span>Images &amp; Videos <span class="soon-tag">Coming</span></span>
+      </div>
+      <div class="psk-arrow" aria-hidden="true"></div>
+      <div class="psk-node">Haarks</div>
+      <div class="psk-arrow" aria-hidden="true"></div>
+      <div class="psk-tier-label">What it does</div>
+      <div class="psk-caps">
+        <span class="psk-cap">Search</span>
+        <span class="psk-cap">Recall</span>
+        <span class="psk-cap">Connections</span>
+        <span class="psk-cap">Sources</span>
+      </div>
+      <div class="psk-arrow" aria-hidden="true"></div>
+      <div class="psk-output">
+        <div class="psk-out-title">My Personal Surgical Intelligence</div>
+        <div class="psk-out-sub">Private to you · grounded in your own records · shown with sources</div>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:24px;font-size:12px;color:var(--muted-dim);max-width:640px;margin-left:auto;margin-right:auto;line-height:1.7;">Haarks surfaces your own documented knowledge. It is not a diagnostic tool and not clinical decision support; all clinical decisions remain the surgeon's responsibility.</p>
   </div>
 </section>
 
@@ -1965,6 +2038,51 @@
   document.getElementById('pdetail-overlay').addEventListener('click', function(e) {
     if (e.target.id === 'pdetail-overlay') closePlanDetail();
   });
+
+  /* Ask Haarks demo: swap illustrative recall examples. All responses are
+     illustrative (not real patient data) and show which of your own records
+     they draw on. Haarks answers from your documented information only. */
+  (function(){
+    var casesBadge = '<div class="ai-src-badge"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>Your Cases</div>';
+    var vaultBadge = '<div class="ai-src-badge"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Your Vault</div>';
+    function fb(t){ return '<div class="ai-found-badge"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>'+t+'</div>'; }
+    var DEMO = [
+      { q:"What did I document in my previous valgus TKR cases?",
+        found:["4 matching cases found","1 protocol in your vault"],
+        a:["Based on your 4 documented valgus TKR cases, your notes consistently describe a medial parapatellar approach with a lateral retinacular release when required. Your vault protocol records pie-crusting of the posterolateral capsule as your documented technique for soft-tissue balancing.",
+           "In 3 of your 4 logged cases you noted good ligament balance without constrained implants. Your most recent case documented an LCL release for a 16° valgus deformity."],
+        src:[casesBadge,vaultBadge] },
+      { q:"Show me my protocol for this procedure.",
+        found:["1 protocol in your vault","Added by you"],
+        a:["Your saved valgus TKR protocol records a medial parapatellar approach, pie-crusting of the posterolateral capsule for soft-tissue balancing, and a lateral retinacular release when required.",
+           "This is the document you connected to your vault. Open it to read the full version exactly as you wrote it."],
+        src:[vaultBadge] },
+      { q:"Which of my documented cases used a cemented implant?",
+        found:["3 matching cases found"],
+        a:["Three of your logged cases record a cemented implant. Each entry shows the implant you noted, the date, and your own operative notes.",
+           "Open any case to see the implant details exactly as you recorded them."],
+        src:[casesBadge] },
+      { q:"What complications have I documented in similar cases?",
+        found:["2 cases with documented notes"],
+        a:["Across your documented valgus TKR cases, two entries record complications you noted during follow-up, together with the management you documented at the time.",
+           "This reflects only what you recorded. Open each case for your full notes."],
+        src:[casesBadge] },
+      { q:"Show me the sources behind this answer.",
+        found:["4 cases","1 protocol"],
+        a:["Every answer lists what it drew on. This response was built from four of your logged cases and one protocol in your vault.",
+           "Tap any source to open the original case or document."],
+        src:[casesBadge,vaultBadge] }
+    ];
+    window.askHaarks = function(i){
+      var d = DEMO[i]; if(!d) return;
+      var q=document.getElementById('demoQ'); if(q) q.textContent=d.q;
+      var f=document.getElementById('demoFound'); if(f) f.innerHTML=d.found.map(fb).join('');
+      var a=document.getElementById('demoAnswer'); if(a) a.innerHTML=d.a.map(function(p){return '<p>'+p+'</p>';}).join('');
+      var s=document.getElementById('demoSources'); if(s) s.innerHTML=d.src.join('');
+      var chips=document.querySelectorAll('#askChips .ask-chip');
+      chips.forEach(function(c,n){ c.classList.toggle('active', n===i); });
+    };
+  })();
 
   /* Mobile menu: close on nav link tap */
   (function(){var t=document.getElementById('navtoggle');if(t){document.querySelectorAll('.nav-center .nav-link').forEach(function(a){a.addEventListener('click',function(){t.checked=false;});});}})();
