@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="application-name" content="Haarks Clinic" />
   <meta name="theme-color" content="#0A84FF" />
-  <title>Haarks Clinic | Haarks AI, Superintelligence for Surgeons</title>
+  <title>Haarks Clinic | Haarks AI, Private AI for Surgeons</title>
   <meta name="description" content="Haarks AI is a private AI for surgeons, built around your own cases, protocols, and clinical experience. Log cases, build your private vault, and ask your own knowledge, with sources." />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <link rel="canonical" href="https://www.haarksclinic.com/" />
@@ -14,23 +14,24 @@
   <meta property="og:site_name" content="Haarks Clinic" />
   <meta property="og:locale" content="en_IN" />
   <meta property="og:url" content="https://www.haarksclinic.com/" />
-  <meta property="og:title" content="Haarks Clinic | Haarks AI, Superintelligence for Surgeons" />
+  <meta property="og:title" content="Haarks Clinic | Haarks AI, Private AI for Surgeons" />
   <meta property="og:description" content="Haarks AI is a private AI for surgeons, built around your own cases, protocols, and clinical experience. Log cases, build your private vault, and ask your own knowledge, with sources." />
   <meta property="og:image" content="https://www.haarksclinic.com/og.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:type" content="image/png" />
-  <meta property="og:image:alt" content="Haarks Clinic, Private AI and Superintelligence for Surgeons" />
+  <meta property="og:image:alt" content="Haarks Clinic, Private AI for Surgeons" />
   <!-- Twitter / X Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Haarks Clinic | Haarks AI, Superintelligence for Surgeons" />
+  <meta name="twitter:title" content="Haarks Clinic | Haarks AI, Private AI for Surgeons" />
   <meta name="twitter:description" content="Haarks AI is a private AI for surgeons, built around your own cases, protocols, and clinical experience. Log cases, build your private vault, and ask your own knowledge, with sources." />
   <meta name="twitter:image" content="https://www.haarksclinic.com/og.png" />
-  <meta name="twitter:image:alt" content="Haarks Clinic, Private AI and Superintelligence for Surgeons" />
+  <meta name="twitter:image:alt" content="Haarks Clinic, Private AI for Surgeons" />
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="preload" as="image" href="app-screenshots/haarks-product-preview.webp" type="image/webp" fetchpriority="high" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
@@ -85,6 +86,7 @@
     a { color: inherit; text-decoration: none; }
     button { font-family: var(--font-body); cursor: pointer; border: none; background: none; }
     img { max-width: 100%; }
+    picture { display: contents; }
 
     .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
 
@@ -457,6 +459,14 @@
       transition: border-color 0.2s ease, background 0.2s ease; cursor: default;
     }
     .spec-pill:hover { border-color: rgba(10,132,255,0.45); background: rgba(10,132,255,0.10); }
+    .spec-q-grid { display:grid; grid-template-columns:1fr; gap:14px; max-width:1000px; margin:48px auto 0; }
+    .spec-q-card { text-align:left; padding:18px 20px; border-radius:14px; border:1px solid var(--border-dark); background:rgba(255,255,255,0.02); transition:border-color 0.2s ease; }
+    .spec-q-card:hover { border-color:rgba(10,132,255,0.35); }
+    .spec-q-name { font-size:14px; font-weight:600; color:#fff; letter-spacing:-0.01em; margin-bottom:6px; }
+    .spec-q-query { font-size:13px; color:var(--muted); font-style:italic; line-height:1.5; }
+    .spec-q-note { text-align:center; font-size:12px; color:var(--muted-dim); margin:26px auto 0; max-width:760px; line-height:1.7; }
+    @media(min-width:680px){ .spec-q-grid{ grid-template-columns:1fr 1fr; } }
+    @media(min-width:1000px){ .spec-q-grid{ grid-template-columns:1fr 1fr 1fr; } }
 
     /* ─── FOUNDING SURGEON ─── */
     .founding-wrap {
@@ -785,7 +795,6 @@
     .ai-response-bubble p:last-of-type { margin-bottom:0; }
     .ai-response-footer { display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-top:16px; padding-top:14px; border-top:1px solid rgba(36,36,39,0.6); }
     .ai-src-badge { display:inline-flex; align-items:center; gap:5px; padding:3px 9px; border-radius:6px; background:rgba(10,132,255,0.08); border:1px solid rgba(10,132,255,0.18); font-size:11px; color:var(--primary); font-weight:600; }
-    .ai-confidence-badge { font-size:11px; color:rgba(74,222,128,0.8); margin-left:auto; background:rgba(74,222,128,0.08); border:1px solid rgba(74,222,128,0.15); padding:3px 9px; border-radius:6px; }
     .ai-feedback-row { display:flex; align-items:center; gap:6px; margin-top:12px; }
     .ai-fb-btn { display:flex; align-items:center; gap:5px; padding:5px 12px; border-radius:8px; background:rgba(255,255,255,0.04); border:1px solid rgba(36,36,39,0.8); font-size:12px; color:rgba(142,142,147,0.6); cursor:default; }
 
@@ -923,7 +932,7 @@
         "@id": "https://www.haarksclinic.com/#website",
         "url": "https://www.haarksclinic.com/",
         "name": "Haarks Clinic",
-        "description": "Private AI knowledge platform for surgeons, built around your own knowledge and context, building toward superintelligence for surgery.",
+        "description": "Private AI knowledge platform for surgeons, built around your own cases, protocols, and clinical context, with answers grounded in your own surgical knowledge.",
         "inLanguage": "en",
         "publisher": { "@id": "https://www.haarksclinic.com/#organization" }
       },
@@ -1014,8 +1023,9 @@
     </a>
     <div class="nav-center">
       <a href="#how-it-works" class="nav-link">How It Works</a>
+      <a href="/specialties/" class="nav-link">Specialties</a>
+      <a href="/use-cases/" class="nav-link">Use Cases</a>
       <a href="#pricing" class="nav-link">Pricing</a>
-      <a href="#founding" class="nav-link">Founding Surgeon</a>
       <a href="/hospitals" class="nav-link">For Hospitals</a>
     </div>
   </div>
@@ -1031,11 +1041,11 @@
       <div class="hero-left fade-up">
         <div class="hero-eyebrow">
           <span class="hero-eyebrow-dot"></span>
-          <span>India's First Private AI for Surgeons</span>
+          <span>A New Category of Private AI for Surgeons</span>
         </div>
-        <h1 class="hero-title">Your Private Superintelligence for Surgery.</h1>
-        <p class="hero-sub">Your own AI, built around your surgical knowledge, your cases, protocols, and clinical experience.</p>
-        <p class="hero-body">A private AI for surgeons that answers from your own knowledge and context, with sources, not generic information from the internet. Artificial intelligence is the foundation; superintelligence for surgery is the direction we're building toward.</p>
+        <h1 class="hero-title">Your private AI for surgery.</h1>
+        <p class="hero-sub">It answers from your own cases and protocols, with sources.</p>
+        <p class="hero-body">A private AI for surgeons, built around your surgical knowledge, your cases, protocols, and clinical experience, that answers from your own context with sources, not generic information from the internet.</p>
         <div class="hero-ctas">
           <a href="/download" class="btn btn-primary btn-lg">Get Haarks Clinic</a>
           <a href="#pricing" class="btn btn-outline btn-lg">See Pricing</a>
@@ -1044,13 +1054,18 @@
       </div>
 
       <div class="hero-right fade-up" style="animation-delay:0.1s">
-        <img
-          class="hero-product-img"
-          src="app-screenshots/haarks-product-preview.png"
-          alt="Haarks Clinic app, private AI for surgeons, showing a case query answered from the surgeon's own knowledge with sources"
-          width="941"
-          height="1672"
-        >
+        <picture>
+          <source srcset="app-screenshots/haarks-product-preview.webp" type="image/webp">
+          <img
+            class="hero-product-img"
+            src="app-screenshots/haarks-product-preview.png"
+            alt="Haarks Clinic app, private AI for surgeons, showing a case query answered from the surgeon's own knowledge with sources"
+            width="941"
+            height="1672"
+            fetchpriority="high"
+            decoding="async"
+          >
+        </picture>
       </div>
     </div>
   </div>
@@ -1076,7 +1091,7 @@
   <div class="container">
     <div class="section-head fade-up">
       <h2 class="section-title">Your Knowledge Exists.<br>You Just Can't Reach It.</h2>
-      <p class="section-body">Years of expertise live in drives, folders, memory, and notes. When you need it, you search. When you search, you don't find. And generic AI can't help, it doesn't know anything about you.</p>
+      <p class="section-body">Years of expertise live in drives, folders, memory, and notes. When you need it, you search. When you search, you don't find. And generic AI can't help — it knows nothing about you.</p>
     </div>
     <div class="problem-items-grid">
       <div class="problem-item fade-up">
@@ -1125,7 +1140,7 @@
 <section class="sec-pad sec-alt">
   <div class="container">
     <div class="sec-head fade-up">
-      <span class="sec-eyebrow">Career Intelligence</span>
+      <span class="sec-eyebrow">How Your AI Grows</span>
       <h2 class="sec-title">Build an AI That Grows With Your Career.</h2>
       <p class="sec-body">Your knowledge layer starts empty on day one. Every case, conversation, note, voice learning, and discovery strengthens it, compounding over the arc of your career into intelligence shaped entirely by your own context.</p>
     </div>
@@ -1145,13 +1160,14 @@
         </div>
         <div class="tl-stage">
           <div class="tl-dot inactive"></div>
-          <span class="tl-label inactive">Expert Companion</span>
+          <span class="tl-label inactive">Expert</span>
         </div>
         <div class="tl-stage">
           <div class="tl-dot inactive"></div>
-          <span class="tl-label inactive">Legacy Companion</span>
+          <span class="tl-label inactive">Career-Long</span>
         </div>
       </div>
+      <p style="text-align:center;font-size:12px;color:var(--muted-dim);margin-top:20px;max-width:640px;margin-left:auto;margin-right:auto;line-height:1.7;">These stages describe how much of your own knowledge your AI can draw on as you add more cases and documents over time, not a clinical rating.</p>
     </div>
   </div>
 </section>
@@ -1184,7 +1200,7 @@
         <div class="step-num-circle">3</div>
         <div class="step-content">
           <div class="step-heading">Ask Haarks AI</div>
-          <div class="step-body">Ask anything. Haarks works with your own knowledge and context, your cases, your vault, your documented experience, and shows the sources behind its answers. Confidence shown every time.</div>
+          <div class="step-body">Ask anything. Haarks works with your own knowledge and context, your cases, your vault, your documented experience, and shows the sources behind its answers. Sources shown every time.</div>
           <span class="step-tag">Your Cases · Your Vault · Sources Always Cited</span>
         </div>
       </div>
@@ -1211,13 +1227,6 @@
         </div>
         <div class="ai-demo-body">
           <div>
-            <div class="prog-label">Knowledge Strength</div>
-            <div class="prog-row">
-              <div class="prog-track"><div class="prog-fill"></div></div>
-              <span class="prog-value">28%</span>
-            </div>
-          </div>
-          <div>
             <div class="prog-label">Connected Sources</div>
             <div class="source-row">
               <span class="source-chip">Google Drive</span>
@@ -1229,7 +1238,7 @@
           </div>
           <div style="height:1px;background:rgba(255,255,255,0.07);margin:0 -28px"></div>
           <div class="ai-user-msg">
-            <div class="ai-user-bubble">What's my usual approach for primary total knee replacement in valgus knees?</div>
+            <div class="ai-user-bubble">What did I do in my last 4 valgus TKRs?</div>
           </div>
           <div class="ai-status-row">
             <div class="ai-thinking-dots">
@@ -1250,7 +1259,6 @@
               <div class="ai-response-footer">
                 <div class="ai-src-badge"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>Your Cases</div>
                 <div class="ai-src-badge"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Your Vault</div>
-                <div class="ai-confidence-badge">Confidence: 91%</div>
               </div>
             </div>
             <div class="ai-feedback-row">
@@ -1334,7 +1342,7 @@
     <div class="sec-head fade-up">
       <span class="sec-eyebrow">Privacy Architecture</span>
       <h2 class="sec-title">Your knowledge stays yours. Always.</h2>
-      <p class="sec-body">Haarks Clinic is built on a per-surgeon isolation architecture. No surgeon's knowledge is ever accessible to another. Privacy is not a feature, it is the foundation.</p>
+      <p class="sec-body">Haarks Clinic is built on a per-surgeon isolation architecture. No surgeon's knowledge is ever accessible to another. Privacy is not a feature; it is the foundation.</p>
     </div>
     <div class="privacy-grid mt-content">
       <div class="priv-card fade-up">
@@ -1379,7 +1387,7 @@
         </div>
         <div class="priv-text">
           <h3>Files Stay on Your Storage</h3>
-          <p>Documents are indexed from your Google Drive, they are never copied to Haarks servers. The intelligence is extracted. The file remains exactly where it is.</p>
+          <p>Your source files stay in your connected drive — we don't copy or permanently store them on Haarks servers. To make your knowledge searchable, we extract and index derived data, such as text, metadata, and embeddings, into a private layer isolated to your account.</p>
         </div>
       </div>
       <div class="priv-card fade-up" style="transition-delay:0.25s">
@@ -1400,7 +1408,7 @@
   <div class="container">
     <div class="section-head fade-up">
       <h2 class="section-title">The Difference Is Context.</h2>
-      <p class="section-body">Any AI can answer a generic medical question. Only Haarks AI can answer a question about your cases, your protocols, and your clinical experience.</p>
+      <p class="section-body">Any AI can answer a generic medical question. Only Haarks AI can answer from your own accumulated surgical knowledge — the work you have personally documented over your career.</p>
     </div>
     <div class="context-compare">
       <div class="context-col fade-up">
@@ -1436,10 +1444,24 @@
   <div class="container">
     <div class="sec-head fade-up">
       <span class="sec-eyebrow">Specialties</span>
-      <h2 class="sec-title">One platform. Every surgical specialty.</h2>
-      <p class="sec-body">Not separate products for each specialty. One intelligent platform that adapts to your terminology, your workflow, and your clinical language.</p>
+      <h2 class="sec-title">One platform. Built around your specialty.</h2>
+      <p class="sec-body">Haarks works the same way for every surgeon: it retrieves from your own cases, protocols, and notes. The examples below show the kind of question a surgeon asks their own private AI. Orthopaedics is shown in our product demo above; the same personal-knowledge retrieval applies across specialties as we onboard surgeons in each field.</p>
     </div>
-    <div class="spec-cloud fade-up mt-content" id="specGrid"></div>
+    <div class="spec-q-grid fade-up" id="specGrid">
+      <div class="spec-q-card"><div class="spec-q-name">Orthopaedics</div><div class="spec-q-query">"What did I do in my last four valgus TKRs?"</div></div>
+      <div class="spec-q-card"><div class="spec-q-name">General Surgery</div><div class="spec-q-query">"Show me my previous laparoscopic cholecystectomies where I noted a difficult Calot's triangle."</div></div>
+      <div class="spec-q-card"><div class="spec-q-name">Neurosurgery</div><div class="spec-q-query">"Which approach did I use in my last three craniotomies for meningioma?"</div></div>
+      <div class="spec-q-card"><div class="spec-q-name">Cardiothoracic Surgery</div><div class="spec-q-query">"What complications did I document after my recent off-pump CABGs?"</div></div>
+      <div class="spec-q-card"><div class="spec-q-name">Plastic Surgery</div><div class="spec-q-query">"Which flap did I previously use for lower-limb soft-tissue reconstruction?"</div></div>
+      <div class="spec-q-card"><div class="spec-q-name">ENT / Head &amp; Neck</div><div class="spec-q-query">"Show me my previous thyroidectomies with my recurrent laryngeal nerve notes."</div></div>
+      <div class="spec-q-card"><div class="spec-q-name">Urology</div><div class="spec-q-query">"Which stent did I use in my last ureteroscopy cases?"</div></div>
+      <div class="spec-q-card"><div class="spec-q-name">Vascular Surgery</div><div class="spec-q-query">"What graft did I previously use for femoropopliteal bypass?"</div></div>
+      <div class="spec-q-card"><div class="spec-q-name">Surgical Oncology</div><div class="spec-q-query">"Show me my previous Whipple cases and the margins I documented."</div></div>
+      <div class="spec-q-card"><div class="spec-q-name">Ophthalmology</div><div class="spec-q-query">"What IOL did I implant in my last complex cataract cases?"</div></div>
+      <div class="spec-q-card"><div class="spec-q-name">Obstetrics &amp; Gynaecology</div><div class="spec-q-query">"Which protocol did I follow for my recent placenta praevia caesareans?"</div></div>
+      <div class="spec-q-card"><div class="spec-q-name">Paediatric Surgery</div><div class="spec-q-query">"Show me my previous paediatric hernia repairs and the techniques I used."</div></div>
+    </div>
+    <p class="spec-q-note">Each example retrieves from a surgeon's own documented records. Orthopaedics is demonstrated in the product today; depth in other specialties grows as we onboard surgeons in each field. Haarks surfaces your own knowledge and is not a diagnostic or clinical decision-support tool. <a href="/specialties" style="color:var(--primary);">Explore specialties →</a></p>
   </div>
 </section>
 
@@ -1453,7 +1475,7 @@
         <div class="founding-card-inner">
           <div class="founding-eyebrow-new"><div class="founding-eyebrow-dot"></div>Limited · 50 Spots Total</div>
           <h3 class="founding-card-title">Founding Surgeon<br>Program.</h3>
-          <p class="founding-card-body">Join the surgeons who will define how medical knowledge is built and used in India. This is a founding offer, 50 places only. Your subscription price is fixed at the $99/year founding rate for 3 years.</p>
+          <p class="founding-card-body">Join the surgeons who will define how surgical knowledge is built and used, globally. This is a founding offer, 50 places only. Your subscription price is fixed at the $99/year founding rate for 3 years.</p>
           <div class="founding-card-perks">
             <div class="founding-card-perk"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Price fixed for 3 years</div>
             <div class="founding-card-perk"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Founding badge in-app</div>
@@ -1465,13 +1487,18 @@
             <p class="founding-spots-text"><strong>50 spots</strong> total · Annual subscription only</p>
           </div>
         </div>
-        <img
-          class="founding-product-img"
-          src="app-screenshots/founding-surgeon-badge.png"
-          alt="Founding Surgeon badge in the Haarks Clinic app"
-          width="941"
-          height="1672"
-        >
+        <picture>
+          <source srcset="app-screenshots/founding-surgeon-badge.webp" type="image/webp">
+          <img
+            class="founding-product-img"
+            src="app-screenshots/founding-surgeon-badge.png"
+            alt="Founding Surgeon badge in the Haarks Clinic app"
+            width="941"
+            height="1672"
+            loading="lazy"
+            decoding="async"
+          >
+        </picture>
       </div>
     </div>
   </div>
@@ -1492,9 +1519,74 @@
       </button>
       <span class="billing-lbl" id="lblAnnual">Annually <span style="font-size:10px;font-weight:600;color:var(--primary);letter-spacing:0.04em;">15% OFF</span></span>
     </div>
-    <div class="pricing-grid fade-up" id="pricingGrid"></div>
+    <!-- Pricing is pre-rendered as static HTML below so plan names and prices are present in the
+         server-delivered source for search engines and AI crawlers. The renderPricing() script
+         re-renders this same content for the monthly/annual toggle; keep the two in sync. -->
+    <div class="pricing-grid fade-up" id="pricingGrid">
+      <div class="price-card">
+        <div class="price-eyebrow">First 50</div>
+        <div class="price-name">Founding Surgeon</div>
+        <div class="price-amount-row"><span class="price-amount">$99</span><span class="price-period">/yr</span></div>
+        <div class="price-desc">Annual only · $99/year for 3 years · Non-refundable</div>
+        <ul class="price-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Complete platform: every feature</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Founding Surgeon badge in-app</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Price fixed for 3 years</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Direct founder channel</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Priority support, always</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Access to GEAR: A place to buy all surgical equipment, with special discounts for Haarks subscribers.</span></li>
+        </ul>
+        <button class="btn price-btn-ghost price-btn" onclick="openPlanDetail('founding')">More Information</button>
+      </div>
+      <div class="price-card">
+        <div class="price-eyebrow"></div>
+        <div class="price-name">Basic</div>
+        <div class="price-amount-row"><span class="price-amount">$10</span><span class="price-period">/mo</span></div>
+        <div class="price-desc">Essential features for building your knowledge layer.</div>
+        <ul class="price-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Haarks AI: personal queries</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Voice case logging</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Case management</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Knowledge Vault</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Standard processing priority</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Access to GEAR: A place to buy all surgical equipment, with special discounts for Haarks subscribers.</span></li>
+        </ul>
+        <button class="btn price-btn-ghost price-btn" onclick="openPlanDetail('basic')">More Information</button>
+      </div>
+      <div class="price-card popular">
+        <span class="popular-badge">Most Popular</span>
+        <div class="price-eyebrow">⭐</div>
+        <div class="price-name">Advanced</div>
+        <div class="price-amount-row"><span class="price-amount">$21</span><span class="price-period">/mo</span></div>
+        <div class="price-desc">Deeper retrieval and faster knowledge discovery.</div>
+        <ul class="price-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Everything in Basic</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Faster AI responses</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Deeper knowledge retrieval</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Extended knowledge memory</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Priority processing</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Access to GEAR: A place to buy all surgical equipment, with special discounts for Haarks subscribers.</span></li>
+        </ul>
+        <button class="btn btn-primary price-btn" onclick="openPlanDetail('advanced')">More Information</button>
+      </div>
+      <div class="price-card">
+        <div class="price-eyebrow"></div>
+        <div class="price-name">Pro</div>
+        <div class="price-amount-row"><span class="price-amount">$31</span><span class="price-period">/mo</span></div>
+        <div class="price-desc">Priority-tier processing and full knowledge retrieval.</div>
+        <ul class="price-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Everything in Advanced</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Maximum AI response speed</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Full knowledge retrieval</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Dedicated support line</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Early feature access</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Access to GEAR: A place to buy all surgical equipment, with special discounts for Haarks subscribers.</span></li>
+        </ul>
+        <button class="btn price-btn-ghost price-btn" onclick="openPlanDetail('pro')">More Information</button>
+      </div>
+    </div>
     <p class="pricing-trial-note">14-day free trial</p>
-    <p class="pricing-footer">7-day full refund on first payment only&ensp;·&ensp;7-day grace period after expiry&ensp;·&ensp;Data retained 90 days post-cancellation, then permanently deleted</p>
+    <p class="pricing-footer">All prices in USD&ensp;·&ensp;7-day full refund on first payment only&ensp;·&ensp;7-day grace period after expiry&ensp;·&ensp;Data retained 90 days post-cancellation, then permanently deleted</p>
   </div>
 </section>
 
@@ -1523,7 +1615,7 @@
     <div class="gateway-inner">
       <div class="gateway-copy">
         <span class="gateway-eyebrow">For Hospitals</span>
-        <h2 class="gateway-title">From personal intelligence to hospital superintelligence.</h2>
+        <h2 class="gateway-title">From personal intelligence to hospital-wide intelligence.</h2>
         <p class="gateway-body">Haarks is building toward a hospital model, an intelligence layer built around the knowledge your hospital already has, while keeping every surgeon's private workspace exactly that: private.</p>
       </div>
       <a href="/hospitals" class="btn btn-outline btn-md gateway-cta">Explore Haarks for Hospitals →</a>
@@ -1567,6 +1659,9 @@
         <span class="footer-tagline">The Future OS for Surgeons.</span>
       </div>
       <nav class="footer-links" aria-label="Footer links">
+        <a href="/specialties/">Specialties</a>
+        <a href="/use-cases/">Use Cases</a>
+        <a href="/resources/">Resources</a>
         <a href="/hospitals">For Hospitals</a>
         <a href="/privacy">Privacy Policy</a>
         <a href="/terms">Terms of Service</a>
@@ -1631,8 +1726,7 @@
   }, 2800);
 
   /* ─── SPECIALTIES ─── */
-  const specialties = ['Orthopaedics','Neurosurgery','Cardiac Surgery','Plastic Surgery','General Surgery','ENT','Urology','Gastro Surgery','Gynaecology','Oncology','Vascular Surgery','Paediatric Surgery','Thoracic Surgery','Transplant Surgery','Spine Surgery','Hepatobiliary','Colorectal Surgery','Maxillofacial'];
-  document.getElementById('specGrid').innerHTML = specialties.map(s => '<span class="spec-pill">'+s+'</span>').join('');
+  /* Specialty cards are now static HTML in #specGrid for crawlability; no JS injection needed. */
 
   /* ─── FAQ TOGGLE ─── */
   function toggleFaq(btn) {
