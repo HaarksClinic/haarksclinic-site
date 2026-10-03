@@ -153,6 +153,22 @@
       transition: color 0.2s ease;
     }
     .nav-back:hover { color: #fff; }
+    .nav-center { display: none; }
+    @media (min-width:900px) { .nav-center { display: flex; align-items: center; gap: 32px; } }
+    .nav-link { font-size: 14px; font-weight: 500; color: var(--muted); transition: color 0.2s ease; }
+    .nav-link:hover { color: #fff; }
+    .nav-toggle { position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none; }
+    .nav-burger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 40px; height: 40px; cursor: pointer; }
+    .nav-burger span { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; transition: transform 0.25s ease, opacity 0.2s ease; }
+    @media (max-width:899px) {
+      .nav-burger { display: flex; }
+      .nav-center { position: fixed; top: 64px; left: 0; right: 0; display: none; flex-direction: column; align-items: stretch; gap: 0; background: rgba(0,0,0,0.96); backdrop-filter: blur(48px); -webkit-backdrop-filter: blur(48px); border-bottom: 1px solid var(--border-soft); padding: 8px 24px 20px; }
+      #navtoggle:checked ~ .nav-center { display: flex; }
+      .nav-center .nav-link { display: block; padding: 14px 0; font-size: 16px; color: #fff; border-bottom: 1px solid var(--border-soft); }
+      #navtoggle:checked ~ .nav-burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      #navtoggle:checked ~ .nav-burger span:nth-child(2) { opacity: 0; }
+      #navtoggle:checked ~ .nav-burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    }
 
     /* ── MAIN SCAFFOLD ── */
     main {
@@ -430,7 +446,19 @@
       </svg>
       <span class="wordmark">Haarks Clinic</span>
     </a>
-    <a href="/" class="nav-back">← Back to site</a>
+    <input type="checkbox" id="navtoggle" class="nav-toggle" aria-hidden="true" tabindex="-1">
+    <label for="navtoggle" class="nav-burger" aria-label="Open menu" role="button"><span></span><span></span><span></span></label>
+    <div class="nav-center">
+      <a href="/" class="nav-link">For Surgeons</a>
+      <a href="/#how-it-works" class="nav-link">How It Works</a>
+      <a href="/specialties/" class="nav-link">Specialties</a>
+      <a href="/use-cases/" class="nav-link">Use Cases</a>
+      <a href="/intelligence/" class="nav-link">Intelligence</a>
+      <a href="/intelligence/#evidence" class="nav-link">Surgical Evidence</a>
+      <a href="/hospital-network/" class="nav-link">Hospital Network</a>
+      <a href="/#pricing" class="nav-link">Pricing</a>
+      <a href="/hospitals" class="nav-link">For Hospitals</a>
+    </div>
   </div>
 </nav>
 
