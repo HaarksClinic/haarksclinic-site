@@ -130,13 +130,13 @@
     .brand { display: flex; align-items: center; gap: 10px; }
     .wordmark { font-family: var(--font-display); font-weight: 700; font-size: 16px; letter-spacing: -0.02em; }
     .nav-center { display:none; }
-    @media (min-width:900px) { .nav-center { display:flex; align-items:center; gap:32px; } }
-    .nav-link { font-size:14px; font-weight:500; color:var(--muted); transition:color 0.2s ease; }
+    @media (min-width:1250px) { .nav-center { display:flex; align-items:center; gap:18px; } }
+    .nav-link { font-size:14px; font-weight:500; color:var(--muted); transition:color 0.2s ease; white-space:nowrap; }
     .nav-link:hover { color:#fff; }
     .nav-toggle { position:absolute; opacity:0; width:1px; height:1px; pointer-events:none; }
     .nav-burger { display:none; flex-direction:column; justify-content:center; gap:5px; width:40px; height:40px; cursor:pointer; }
     .nav-burger span { display:block; width:22px; height:2px; background:#fff; border-radius:2px; transition:transform 0.25s ease, opacity 0.2s ease; }
-    @media (max-width:899px) {
+    @media (max-width:1249px) {
       .nav-burger { display:flex; }
       .nav-center { position:fixed; top:64px; left:0; right:0; display:none; flex-direction:column; align-items:stretch; gap:0; background:rgba(0,0,0,0.96); backdrop-filter:blur(48px); -webkit-backdrop-filter:blur(48px); border-bottom:1px solid var(--border-soft); padding:8px 24px 20px; }
       #navtoggle:checked ~ .nav-center { display:flex; }
@@ -772,7 +772,7 @@
     .problem-item-title { font-size:16px; font-weight:600; color:#fff; letter-spacing:-0.02em; margin-bottom:6px; }
     .problem-item-body { font-size:14px; color:var(--muted); line-height:1.65; }
     @media(min-width:768px) { .problem-items-grid { grid-template-columns:1fr 1fr; } }
-    @media(min-width:1024px) { .problem-items-grid { grid-template-columns:1fr 1fr 1fr; } }
+    @media(min-width:1250px) { .problem-items-grid { grid-template-columns:1fr 1fr 1fr; } }
 
     /* ─── HOW IT WORKS (new) ─── */
     .steps-wrap { max-width:896px; margin:56px auto 0; }
@@ -841,7 +841,7 @@
     .case-card-title { font-size:17px; font-weight:600; color:#fff; letter-spacing:-0.02em; margin-bottom:8px; }
     .case-card-body { font-size:14px; color:var(--muted); line-height:1.65; }
     @media(min-width:768px) { .cases-grid { grid-template-columns:1fr 1fr; } }
-    @media(min-width:1024px) { .cases-grid { grid-template-columns:1fr 1fr 1fr; } }
+    @media(min-width:1250px) { .cases-grid { grid-template-columns:1fr 1fr 1fr; } }
 
     /* ─── WHY HAARKS ─── */
     .context-compare { max-width:960px; margin:56px auto 0; display:grid; grid-template-columns:1fr; gap:24px; }
@@ -1067,6 +1067,7 @@
       <a href="/hospital-network/" class="nav-link">Hospital Network</a>
       <a href="#pricing" class="nav-link">Pricing</a>
       <a href="/hospitals" class="nav-link">For Hospitals</a>
+      <a href="/about/" class="nav-link">About Haarks</a>
     </div>
   </div>
 </nav>
@@ -1783,6 +1784,7 @@
         <a href="/intelligence/">Intelligence</a>
         <a href="/resources/">Resources</a>
         <a href="/hospital-network/">Hospital Network</a>
+        <a href="/about/">About Haarks</a>
         <a href="/hospitals">For Hospitals</a>
         <a href="/privacy">Privacy Policy</a>
         <a href="/terms">Terms of Service</a>
