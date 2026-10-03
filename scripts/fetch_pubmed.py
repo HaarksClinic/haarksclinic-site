@@ -18,17 +18,19 @@ TOOL = "haarksclinic-site"
 EMAIL = "support@haarksclinic.com"
 OUT = os.path.join(os.path.dirname(__file__), "..", "intelligence", "evidence.json")
 
-# Category -> PubMed query. Categories align with Haarks' verified specialty
-# structure plus the Haarks Intelligence coverage areas. Not every specialty.
+# Category -> (PubMed query, specialty, why-it-matters). Categories align with
+# Haarks' verified specialty structure plus the Haarks Intelligence coverage
+# areas. Not every specialty. The why-it-matters line is a neutral,
+# category-level note (never a claim about the specific article).
 CATEGORIES = [
-    ("Surgical AI",            "artificial intelligence surgery"),
-    ("Robotics",               "robotic surgery"),
-    ("Orthopaedics",           "arthroplasty outcomes"),
-    ("General Surgery",        "laparoscopic surgery outcomes"),
-    ("Surgical Oncology",      "surgical oncology"),
-    ("Neurosurgery",           "neurosurgery outcomes"),
-    ("Cardiovascular Surgery", "cardiac surgery outcomes"),
-    ("Urology",                "urologic surgery"),
+    ("Surgical AI",            "artificial intelligence surgery", "Cross-specialty",         "AI methods are increasingly studied across surgical workflows and decision-support research."),
+    ("Robotics",               "robotic surgery",                 "Cross-specialty",         "Robotic-assisted techniques continue to evolve across surgical specialties."),
+    ("Orthopaedics",           "arthroplasty outcomes",           "Orthopaedics",            "Reflects ongoing research into orthopaedic techniques and outcomes."),
+    ("General Surgery",        "laparoscopic surgery outcomes",   "General Surgery",         "Relevant to evolving general-surgical techniques and outcomes."),
+    ("Surgical Oncology",      "surgical oncology",               "Surgical Oncology",       "Relevant to surgical management and outcomes in oncology."),
+    ("Neurosurgery",           "neurosurgery outcomes",           "Neurosurgery",            "Reflects ongoing neurosurgical techniques and outcomes research."),
+    ("Cardiovascular Surgery", "cardiac surgery outcomes",        "Cardiovascular Surgery",  "Relevant to cardiovascular surgical techniques and outcomes."),
+    ("Urology",                "urologic surgery",                "Urology",                 "Relevant to urologic surgical techniques and outcomes."),
 ]
 PER_CATEGORY = 2
 
@@ -69,12 +71,17 @@ def doi_of(rec):
     return ""
 
 
+REQUIRED_FIELDS = ("title", "pmid", "url", "category", "source")
+MIN_ITEMS = 4
+
+
 def build():
+    cat_meta = {c[0]: {"query": c[1], "specialty": c[2], "why": c[3]} for c in CATEGORIES}
     id_to_cat, order = {}, []
-    for cat, term in CATEGORIES:
+    for cat, term, _spec, _why in CATEGORIES:
         try:
             for pmid in esearch(term):
-                if pmid not in id_to_cat:
+                if pmid not in id_to_cat:          # dedupe across categories
                     id_to_cat[pmid] = cat
                     order.append(pmid)
         except Exception as e:
@@ -91,16 +98,22 @@ def build():
         print(f"esummary failed: {e}", file=sys.stderr)
         return None
 
-    items = []
+    now = datetime.datetime.now(datetime.timezone.utc)
+    verified = now.strftime("%Y-%m-%d")
+    items, seen = [], set()
     for pmid in order:
         rec = res.get(pmid)
-        if not rec or rec.get("error"):
+        if not rec or rec.get("error") or pmid in seen:
             continue
+        seen.add(pmid)
         journal = rec.get("fulljournalname") or rec.get("source") or ""
         pubdate = rec.get("pubdate") or rec.get("epubdate") or ""
         fa = first_author(rec)
         title = (rec.get("title") or "").rstrip(".")
+        if not title:
+            continue
         cat = id_to_cat.get(pmid, "Surgery")
+        meta = cat_meta.get(cat, {"specialty": "Surgery", "why": ""})
         summary = f"Published in {journal} ({pubdate})." if journal else ""
         if fa:
             summary = (f"{fa} " if summary else fa) + summary
@@ -113,8 +126,12 @@ def build():
             "pmid": pmid,
             "doi": doi_of(rec),
             "url": f"https://pubmed.ncbi.nlm.nih.gov/{pmid}/",
+            "specialty": meta["specialty"],
             "category": cat,
             "summary": summary,
+            "whyItMatters": meta["why"],
+            "source": "PubMed / NCBI",
+            "lastVerified": verified,
         })
 
     if not items:
@@ -122,16 +139,40 @@ def build():
 
     return {
         "source": "PubMed / NCBI (E-utilities)",
-        "note": "Citation metadata only; summaries are short neutral Haarks lines. No abstracts or article text are reproduced. Each item links to its PubMed record.",
-        "updated": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "note": "Citation metadata only; summaries are short neutral Haarks lines and 'why it matters' is a category-level note. No abstracts or article text are reproduced. Each item links to its PubMed record.",
+        "updated": now.strftime("%Y-%m-%dT%H:%M:%SZ"),
         "items": items,
     }
+
+
+def validate(data):
+    """Reject malformed or empty datasets so a bad run can't overwrite good data."""
+    if not isinstance(data, dict):
+        return "not an object"
+    items = data.get("items")
+    if not isinstance(items, list) or len(items) < MIN_ITEMS:
+        return f"too few items (<{MIN_ITEMS})"
+    seen = set()
+    for i, it in enumerate(items):
+        for k in REQUIRED_FIELDS:
+            if not it.get(k):
+                return f"item {i} missing '{k}'"
+        if not str(it["url"]).startswith("https://pubmed.ncbi.nlm.nih.gov/"):
+            return f"item {i} bad url"
+        if it["pmid"] in seen:
+            return f"duplicate pmid {it['pmid']}"
+        seen.add(it["pmid"])
+    return None
 
 
 def main():
     data = build()
     if not data:
-        print("No data produced; not writing.", file=sys.stderr)
+        print("No data produced; leaving existing evidence.json unchanged.", file=sys.stderr)
+        sys.exit(1)
+    err = validate(data)
+    if err:
+        print(f"Validation failed ({err}); leaving existing evidence.json unchanged.", file=sys.stderr)
         sys.exit(1)
     path = os.path.abspath(OUT)
     with open(path, "w", encoding="utf-8") as f:

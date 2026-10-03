@@ -1,7 +1,7 @@
 {
   "source": "PubMed / NCBI (E-utilities)",
-  "note": "Citation metadata only; summaries are short neutral Haarks lines. No abstracts or article text are reproduced. Each item links to its PubMed record.",
-  "updated": "2026-10-02T19:11:44Z",
+  "note": "Citation metadata only; summaries are short neutral Haarks lines and 'why it matters' is a category-level note. No abstracts or article text are reproduced. Each item links to its PubMed record.",
+  "updated": "2026-10-02T19:30:48Z",
   "items": [
     {
       "title": "Interobserver reliability and temporal variability of artificial intelligence chatbots in Kennedy-classified removable partial denture design: A cross-sectional analysis",
@@ -11,8 +11,12 @@
       "pmid": "42825619",
       "doi": "10.4103/jips.jips_182_26",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42825619/",
+      "specialty": "Cross-specialty",
       "category": "Surgical AI",
-      "summary": "El Naggar SM et al. Published in Journal of Indian Prosthodontic Society (2026 Oct 1). Read the abstract and full citation on PubMed."
+      "summary": "El Naggar SM et al. Published in Journal of Indian Prosthodontic Society (2026 Oct 1). Read the abstract and full citation on PubMed.",
+      "whyItMatters": "AI methods are increasingly studied across surgical workflows and decision-support research.",
+      "source": "PubMed / NCBI",
+      "lastVerified": "2026-10-02"
     },
     {
       "title": "Development and temporal validation of a proof-of-concept artificial intelligence model for binary classification of cervical cotest",
@@ -22,8 +26,12 @@
       "pmid": "42825519",
       "doi": "10.1097/CEJ.0000000000001039",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42825519/",
+      "specialty": "Cross-specialty",
       "category": "Surgical AI",
-      "summary": "Chiappa V et al. Published in European journal of cancer prevention : the official journal of the European Cancer Prevention Organisation (ECP) (2026 Sep 30). Read the abstract and full citation on PubMed."
+      "summary": "Chiappa V et al. Published in European journal of cancer prevention : the official journal of the European Cancer Prevention Organisation (ECP) (2026 Sep 30). Read the abstract and full citation on PubMed.",
+      "whyItMatters": "AI methods are increasingly studied across surgical workflows and decision-support research.",
+      "source": "PubMed / NCBI",
+      "lastVerified": "2026-10-02"
     },
     {
       "title": "Accuracy of Planned Versus Actual Implant Placement Using Different Implant Systems: A Systematic Review of Angulation and Positional Deviations",
@@ -33,8 +41,12 @@
       "pmid": "42824664",
       "doi": "10.1007/s12663-026-03250-y",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42824664/",
+      "specialty": "Cross-specialty",
       "category": "Robotics",
-      "summary": "Bali Y et al. Published in Journal of maxillofacial and oral surgery (2026 Oct). Read the abstract and full citation on PubMed."
+      "summary": "Bali Y et al. Published in Journal of maxillofacial and oral surgery (2026 Oct). Read the abstract and full citation on PubMed.",
+      "whyItMatters": "Robotic-assisted techniques continue to evolve across surgical specialties.",
+      "source": "PubMed / NCBI",
+      "lastVerified": "2026-10-02"
     },
     {
       "title": "Robot-assisted advancing spiral flap pyeloplasty for complex ureteropelvic junction obstruction and ureteral atresia: a preliminary experience in 27 patients",
@@ -44,8 +56,12 @@
       "pmid": "42823866",
       "doi": "10.23736/S2724-6051.26.07070-9",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42823866/",
+      "specialty": "Cross-specialty",
       "category": "Robotics",
-      "summary": "Cheng G et al. Published in Minerva urology and nephrology (2026 Aug). Read the abstract and full citation on PubMed."
+      "summary": "Cheng G et al. Published in Minerva urology and nephrology (2026 Aug). Read the abstract and full citation on PubMed.",
+      "whyItMatters": "Robotic-assisted techniques continue to evolve across surgical specialties.",
+      "source": "PubMed / NCBI",
+      "lastVerified": "2026-10-02"
     },
     {
       "title": "Arthroscopic Treatment of Wrist Chondral Lesions Using Interposition Arthroplasty With Acellular Dermal Matrix: A Case Series and Surgical Technique",
@@ -55,8 +71,12 @@
       "pmid": "42825736",
       "doi": "10.1016/j.jhsa.2026.08.010",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42825736/",
+      "specialty": "Orthopaedics",
       "category": "Orthopaedics",
-      "summary": "Delgado PJ et al. Published in The Journal of hand surgery (2026 Oct 1). Read the abstract and full citation on PubMed."
+      "summary": "Delgado PJ et al. Published in The Journal of hand surgery (2026 Oct 1). Read the abstract and full citation on PubMed.",
+      "whyItMatters": "Reflects ongoing research into orthopaedic techniques and outcomes.",
+      "source": "PubMed / NCBI",
+      "lastVerified": "2026-10-02"
     },
     {
       "title": "Periprosthetic fractures of the knee",
@@ -66,8 +86,12 @@
       "pmid": "42825413",
       "doi": "10.1530/EOR-2026-0075",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42825413/",
+      "specialty": "Orthopaedics",
       "category": "Orthopaedics",
-      "summary": "Menzel K et al. Published in EFORT open reviews (2026 Oct 1). Read the abstract and full citation on PubMed."
+      "summary": "Menzel K et al. Published in EFORT open reviews (2026 Oct 1). Read the abstract and full citation on PubMed.",
+      "whyItMatters": "Reflects ongoing research into orthopaedic techniques and outcomes.",
+      "source": "PubMed / NCBI",
+      "lastVerified": "2026-10-02"
     },
     {
       "title": "Combined Respiratory and Kegel Exercises for Postoperative Recovery After Laparoscopic Hysterectomy: A Retrospective Controlled Study",
@@ -77,8 +101,12 @@
       "pmid": "42825499",
       "doi": "10.3791/72718",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42825499/",
+      "specialty": "General Surgery",
       "category": "General Surgery",
-      "summary": "Ji Y et al. Published in Journal of visualized experiments : JoVE (2026 Oct 1). Read the abstract and full citation on PubMed."
+      "summary": "Ji Y et al. Published in Journal of visualized experiments : JoVE (2026 Oct 1). Read the abstract and full citation on PubMed.",
+      "whyItMatters": "Relevant to evolving general-surgical techniques and outcomes.",
+      "source": "PubMed / NCBI",
+      "lastVerified": "2026-10-02"
     },
     {
       "title": "Opioid-Sparing Analgesia After Laparoscopic Gastrectomy: Exploratory Clinical Outcomes and Cine-MRI Assessment of Small-Bowel Motility",
@@ -88,8 +116,12 @@
       "pmid": "42825486",
       "doi": "10.3791/71442",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42825486/",
+      "specialty": "General Surgery",
       "category": "General Surgery",
-      "summary": "Liu Y et al. Published in Journal of visualized experiments : JoVE (2026 Oct 1). Read the abstract and full citation on PubMed."
+      "summary": "Liu Y et al. Published in Journal of visualized experiments : JoVE (2026 Oct 1). Read the abstract and full citation on PubMed.",
+      "whyItMatters": "Relevant to evolving general-surgical techniques and outcomes.",
+      "source": "PubMed / NCBI",
+      "lastVerified": "2026-10-02"
     },
     {
       "title": "Tools for providing information to patients about high-tech medical resources for treatment of cancer",
@@ -99,8 +131,12 @@
       "pmid": "42825514",
       "doi": "10.2340/1651-226X.2026.45529",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42825514/",
+      "specialty": "Surgical Oncology",
       "category": "Surgical Oncology",
-      "summary": "Gehl J et al. Published in Acta oncologica (Stockholm, Sweden) (2026 Oct 2). Read the abstract and full citation on PubMed."
+      "summary": "Gehl J et al. Published in Acta oncologica (Stockholm, Sweden) (2026 Oct 2). Read the abstract and full citation on PubMed.",
+      "whyItMatters": "Relevant to surgical management and outcomes in oncology.",
+      "source": "PubMed / NCBI",
+      "lastVerified": "2026-10-02"
     },
     {
       "title": "Active surveillance for a small low-risk papillary thyroid cancer: a 10-year prospective, observational study in an Italian tertiary care centre",
@@ -110,8 +146,12 @@
       "pmid": "42825257",
       "doi": "10.1136/bmjonc-2026-001154",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42825257/",
+      "specialty": "Surgical Oncology",
       "category": "Surgical Oncology",
-      "summary": "Molinaro E et al. Published in BMJ oncology (2026). Read the abstract and full citation on PubMed."
+      "summary": "Molinaro E et al. Published in BMJ oncology (2026). Read the abstract and full citation on PubMed.",
+      "whyItMatters": "Relevant to surgical management and outcomes in oncology.",
+      "source": "PubMed / NCBI",
+      "lastVerified": "2026-10-02"
     },
     {
       "title": "The Kuopio Idiopathic Normal Pressure Hydrocephalus Protocol Revisited: The Predictive Value of Cerebrospinal Fluid Tap Test",
@@ -121,8 +161,12 @@
       "pmid": "42825675",
       "doi": "10.1227/neu.0000000000004247",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42825675/",
+      "specialty": "Neurosurgery",
       "category": "Neurosurgery",
-      "summary": "Luikku AJ et al. Published in Neurosurgery (2026 Oct 2). Read the abstract and full citation on PubMed."
+      "summary": "Luikku AJ et al. Published in Neurosurgery (2026 Oct 2). Read the abstract and full citation on PubMed.",
+      "whyItMatters": "Reflects ongoing neurosurgical techniques and outcomes research.",
+      "source": "PubMed / NCBI",
+      "lastVerified": "2026-10-02"
     },
     {
       "title": "A wspA mutation in a clinical isolate of Pseudomonas aeruginosa results in rugose small colonies and enhances biofilm formation",
@@ -132,8 +176,12 @@
       "pmid": "42825578",
       "doi": "10.1128/spectrum.00530-26",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42825578/",
+      "specialty": "Neurosurgery",
       "category": "Neurosurgery",
-      "summary": "Yu Q et al. Published in Microbiology spectrum (2026 Oct 2). Read the abstract and full citation on PubMed."
+      "summary": "Yu Q et al. Published in Microbiology spectrum (2026 Oct 2). Read the abstract and full citation on PubMed.",
+      "whyItMatters": "Reflects ongoing neurosurgical techniques and outcomes research.",
+      "source": "PubMed / NCBI",
+      "lastVerified": "2026-10-02"
     },
     {
       "title": "Neurological Dysfunction During Contemporary Magnetically Levitated Left Ventricular Assist Device Support for Advanced Heart Failure: An STS-INTERMACS Analysis",
@@ -143,8 +191,12 @@
       "pmid": "42825733",
       "doi": "10.1016/j.jchf.2026.103377",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42825733/",
+      "specialty": "Cardiovascular Surgery",
       "category": "Cardiovascular Surgery",
-      "summary": "Saeed O et al. Published in JACC. Heart failure (2026 Oct 1). Read the abstract and full citation on PubMed."
+      "summary": "Saeed O et al. Published in JACC. Heart failure (2026 Oct 1). Read the abstract and full citation on PubMed.",
+      "whyItMatters": "Relevant to cardiovascular surgical techniques and outcomes.",
+      "source": "PubMed / NCBI",
+      "lastVerified": "2026-10-02"
     },
     {
       "title": "PINK1 promotes the progression of lung squamous cell carcinoma through the FAK/AKT/RhoA/vinculin pathway",
@@ -154,8 +206,12 @@
       "pmid": "42825378",
       "doi": "10.3892/or.2026.9201",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42825378/",
+      "specialty": "Cardiovascular Surgery",
       "category": "Cardiovascular Surgery",
-      "summary": "Li X et al. Published in Oncology reports (2026 Nov). Read the abstract and full citation on PubMed."
+      "summary": "Li X et al. Published in Oncology reports (2026 Nov). Read the abstract and full citation on PubMed.",
+      "whyItMatters": "Relevant to cardiovascular surgical techniques and outcomes.",
+      "source": "PubMed / NCBI",
+      "lastVerified": "2026-10-02"
     },
     {
       "title": "Case Report: Kidney allograft recovery after conversion to belatacept-based immunosuppression in simultaneous heart-kidney transplantation",
@@ -165,8 +221,12 @@
       "pmid": "42824085",
       "doi": "10.3389/fimmu.2026.1907833",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42824085/",
+      "specialty": "Urology",
       "category": "Urology",
-      "summary": "Gessaroli E et al. Published in Frontiers in immunology (2026). Read the abstract and full citation on PubMed."
+      "summary": "Gessaroli E et al. Published in Frontiers in immunology (2026). Read the abstract and full citation on PubMed.",
+      "whyItMatters": "Relevant to urologic surgical techniques and outcomes.",
+      "source": "PubMed / NCBI",
+      "lastVerified": "2026-10-02"
     }
   ]
 }

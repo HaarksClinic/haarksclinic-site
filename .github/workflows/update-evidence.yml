@@ -28,6 +28,26 @@ jobs:
 
       - name: Fetch latest PubMed records
         run: python3 scripts/fetch_pubmed.py
+        # The script validates and only overwrites evidence.json when the new
+        # dataset is well-formed and non-empty; on failure it exits non-zero
+        # and leaves the previous valid dataset untouched.
+
+      - name: Validate dataset before publishing
+        run: |
+          python3 - <<'PY'
+          import json, sys
+          d = json.load(open("intelligence/evidence.json", encoding="utf-8"))
+          items = d.get("items", [])
+          assert isinstance(items, list) and len(items) >= 4, "too few items"
+          pmids = set()
+          for it in items:
+              for k in ("title", "pmid", "url", "category", "source"):
+                  assert it.get(k), f"missing {k}"
+              assert it["url"].startswith("https://pubmed.ncbi.nlm.nih.gov/"), "bad url"
+              assert it["pmid"] not in pmids, "duplicate pmid"
+              pmids.add(it["pmid"])
+          print(f"Validated {len(items)} items.")
+          PY
 
       - name: Commit if changed
         id: commit
